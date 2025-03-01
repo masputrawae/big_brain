@@ -14,40 +14,50 @@ url = "/#about"
 weight = 20
 
 [[menus.main]]
+name = "Journey"
+url = "/#journey"
+weight = 30
+
+[[menus.main]]
+name = "Skill"
+url = "/#skills"
+weight = 40
+
+[[menus.main]]
 name = "Projects"
 url = "/#projects"
-weight = 30
+weight = 50
 
 [[menus.main]]
 name = "Testimony"
 url = "/#testimony"
-weight = 40
+weight = 60
 
 [[menus.main]]
 name = "Service"
 url = "/#service"
-weight = 50
+weight = 70
 
 #-------------------------------[MENUS]--
 [[menus.main]]
 name = 'Posts'
 pageRef = '/posts'
-weight = 60
+weight = 80
 
 [[menus.main]]
 name = 'Books'
 pageRef = '/books'
-weight = 70
+weight = 90
 
 [[menus.main]]
 name = 'Tags'
 pageRef = '/tags'
-weight = 80
+weight = 100
 
 [[menus.main]]
 name = 'Categories'
 pageRef = '/categories'
-weight = 90
+weight = 110
 
 #-------------------------------[MODULES]--
 [markup.goldmark.renderer]

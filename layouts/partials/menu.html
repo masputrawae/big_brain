@@ -5,12 +5,12 @@
   <nav class="menu">
     <h3>Main Menu</h3>
     <ul class="menu__list">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" "<" 60)) }}
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" "<" 70)) }}
     </ul>
 
     <h3>Content</h3>
     <ul class="menu__list">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" ">=" 60)) }}
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" ">=" 70)) }}
     </ul>
   </nav>
 {{- end }}

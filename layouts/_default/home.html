@@ -2,88 +2,175 @@
 {{ $data := .Site.Data.user  }}
 
 <main class="main">
-  <section class="main__section" id="home">
-
-    <figure class="hero">
-      <figcaption class="hero__content">
+  <!-- Start: Hero -->
+  <section class="section section--hero" id="home">
+    <article class="hero">
+      <div class="hero__content">
         <h1 class="hero__title">
-          <span>Hi!... I'm</span>
-          <strong class="hero__title--primary">{{ $data.name }}</strong>
+          <span class="hero__prefix">Hi!... I'm</span>
+          <strong class="hero__name">{{ $data.name }}</strong>
         </h1>
-        
         <em 
         class="hero__tagline" 
         data-role="{{ (index $data.tagline 0).option }}" 
         data-role-list='{{ $data.tagline | jsonify }}'>
           {{ (index $data.tagline 0).option }}
         </em>
-
         <p class="hero__subtitle">{{ $data.opening }}</p>
-
         <div class="cta">
           {{ range $data.cta }}
-            <a href="{{ .url | relURL }}" class="cta__button">{{ .name }}</a>
+            <a class="cta__link" href="{{ .url }}">{{ .name }}</a>
           {{ end }}
         </div>
-
-      </figcaption>
-
-      <img src="{{ $data.img }}" alt="Logo or Image {{ $data.name }}" class="hero__img">
-    </figure>
-
+        <nav class="social">
+          {{ range $data.socialMedia }}
+            <a 
+            href="{{ .url }}" 
+            data-social="{{ .name }}"
+            aria-label="Goin to {{ .name }}">
+              <i class="bi {{ .icon }}"></i>
+            </a>
+          {{ end }}
+        </nav>
+      </div>
+      <img 
+      src="{{ $data.img }}" 
+      alt="Logo or Image {{ $data.name }}" 
+      class="hero__img">
+    </article>
   </section>
-
-  <section class="main__section main__section--about" id="about">
-    
-    <figure class="hero">
-
-      <img src="{{ $data.img }}" alt="Logo or Image {{ $data.name }}" class="hero__img">
-
-      <figcaption class="hero__content">
-        <h2 class="hero__title">About Me</h2>
-        <strong>{{ $data.name }}</strong>
-        <figcaption class="hero__content">
-          <p class="hero__text">{{ $data.introduction }}</p>
-        </figcaption>
-      </figcaption>
-
-    </figure>
-    
-    <div class="main__wrapper main__wrapper--card">
-      <h3 class="main__label">My Skill</h3>
-
+  <!-- End: Hero -->
+  
+  <!-- Start: About -->
+  <section class="section section--about" id="about">
+    <article class="about">
+      <img 
+      src="{{ $data.img }}" 
+      alt="Logo or Image {{ $data.name }}" 
+      class="about__img">
+      <div class="about__content">
+        <h2 class="about__title">About Me</h2>
+        <section class="about__bio">
+          <h3 class="about__name">{{ $data.name }}</h3>
+          <p class="about__intro">{{ $data.introduction }}</p>
+        </section>
+      </div>
+    </article>
+  </section>
+  <!-- End: About -->
+  
+  <!-- Start: Journey -->
+  <section class="section section--journey" id="journey">
+    <h3 class="section__title">Journey</h3>
+    <article class="journey">
+      <ul class="journey__list">
+        {{ range $data.journey }}
+          <li class="card card--journey">
+            <h3 class="card__title">
+              <strong class="card__title--journey-prefix">Year: </strong>
+              <time class="card__title--journey-year">{{ .year }}</time>
+            </h3>
+            <p class="journey__description">{{ .description }}</p>
+          </li>
+        {{ end }}
+      </ul>
+    </article>
+  </section>
+  <!-- End: Journey -->
+  
+  <!-- Start: Skills -->
+  <section class="section section--skill" id="skill">
+    <h3 class="section__title">My Skills</h3>
+    <article class="skill">
       {{ range $data.skill }}
-        <article class="card">
-          <img src="{{ .img }}" alt="" class="card__img">
-          <section class="card__content">
-            <h4 class="card__title">{{ .name }}</h4>
-            <p class="card__text">{{ .description }}</p>
-
-            <div class="progress">
-              <label class="progress__label">Skill Level: <strong>{{ .level }}%</strong></label>
-              <div class="progress__bar">
-                <div class="progress__fill" data-level="{{ .level }}"></div>
-              </div>
+        <div class="card card--skill">
+          <h3 class="card__title">{{ .name }}</h3>
+          <p class="card__text">{{ .description }}</p>
+          <div class="progress">
+            <h4 class="progress__label">
+              <span class="progress__prefix">Skill Level: </span>
+              <strong class="progress__level">{{ .level }}%</strong>
+            </h4>
+            <div class="progress__bar">
+              <div class="progress__fill" data-level="{{ .level }}"></div>
             </div>
-
-          </section>
-        </article>
+          </div>
+        </div>
       {{ end }}
-
-    </div>
-
+    </article>
   </section>
-
-  <section class="main__section" id="projects">
-
+  <!-- End: Skills -->
+  
+  <!-- Start: Projects -->
+  <section class="section section--projects" id="projects">
+    <h3 class="section__title">Projects</h3>
+    <article class="project">
+      {{ range $data.projects }}
+        <div class="card card--project">
+          <img src="{{ .img }}" alt="Isi nanti">
+          <div class="card__content">
+            <h4 class="card__title">{{ .name }}</h4>
+            <p class="card__description">{{ .description }}</p>
+            <div class="cta">
+              <a class="cta__link" href="{{ .url }}">View Projects</a>
+            </div>
+          </div>
+        </div>
+      {{ end }}
+    </article>
   </section>
-
-  <section class="main__section" id="testimony">
-
+  <!-- Start: Projects -->
+  
+  <!-- Start: Testimonial -->
+  <section class="section section--testimonial" id="testimonial">
+    <h3 class="section__title">Testimonials</h3>
+    <article class="testimonial">
+      {{ range $data.testimonial }}
+        <div class="card card--testimonial">
+          <img class="card__img" src="{{ .img }}" alt="isi nanti">
+          <div class="card__content">
+            <h4 class="card__title">{{ .name }}</h4>
+            <em class="card__description">{{ .feedback }}</em>
+          </div>
+        </div>
+      {{ end }}
+    </article>
   </section>
-
-  <section class="main__section" id="service">
-
+  <!-- End: Testimonial -->
+  
+  <!-- Start: Services -->
+  <section class="section section--service" id="service">
+    <h3 class="section__title">Services</h3>
+    <article class="service">
+      {{ range $data.service }}
+        <div class="card card--service">
+          <img class="card__img" src="{{ .img }}" alt="isi nanti">
+          <div class="card__content">
+            <h4 class="card__title">{{ .name }}</h4>
+            <em class="card__description">{{ .description }}</em>
+          </div>
+        </div>
+      {{ end }}
+    </article>
   </section>
+  <!-- End: Services -->
+  
+  <!-- Start: Hobbies -->
+  <section class="section section--hobbies" id="hobbies">
+    <h3 class="section__title">My Hobbies</h3>
+    <article class="hobbies">
+      {{ range $data.hobbies }}
+        <div class="card card--hobbies">
+          <img class="card__img" src="{{ .img }}" alt="isi nanti">
+          <div class="card__content">
+            <h4 class="card__title">{{ .name }}</h4>
+            <blockquote class="card__description">{{ .description }}</blockquote>
+          </div>
+        </div>
+      {{ end }}
+    </article>
+  </section>
+  <!-- End: Hobbies -->
+  
 </main>
 {{ end }}
