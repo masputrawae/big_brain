@@ -1,0 +1,59 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'My New Hugo Site'
+
+#-------------------------------[ANCHOR MENUS]--
+[[menus.main]]
+name = "Home"
+url = "/#home"
+weight = 10
+
+[[menus.main]]
+name = "About"
+url = "/#about"
+weight = 20
+
+[[menus.main]]
+name = "Projects"
+url = "/#projects"
+weight = 30
+
+[[menus.main]]
+name = "Testimony"
+url = "/#testimony"
+weight = 40
+
+[[menus.main]]
+name = "Service"
+url = "/#service"
+weight = 50
+
+#-------------------------------[MENUS]--
+[[menus.main]]
+name = 'Posts'
+pageRef = '/posts'
+weight = 60
+
+[[menus.main]]
+name = 'Books'
+pageRef = '/books'
+weight = 70
+
+[[menus.main]]
+name = 'Tags'
+pageRef = '/tags'
+weight = 80
+
+[[menus.main]]
+name = 'Categories'
+pageRef = '/categories'
+weight = 90
+
+#-------------------------------[MODULES]--
+[markup.goldmark.renderer]
+unsafe = true
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

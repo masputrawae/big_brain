@@ -1,0 +1,184 @@
+#-------------------------------[BIO]--
+name: Patrick Star
+img: "https://i.pravatar.cc/100"
+opening: "My life is simple: eat, sleep, and occasionally think... if I have time. A professional starfish expert in napping and giving unsolicited advice."
+introduction: "Hello! I'm Patrick Star. I'm great at doing nothing and staying happy. Sometimes I help my best friend, SpongeBob, though I usually cause more trouble."
+address: "Under a Rock, Bikini Bottom"
+country: "Pacific Ocean"
+email: "patrick@doesnothaveemail.com"
+contact: "+62 812-xxx-xxxx (do not call, I'm sleeping)"
+
+#-------------------------------[TAGLINE]--
+tagline:
+  - option: "Mastering the art of ultimate relaxation."
+  - option: "If it can't be solved, try sleeping first."
+  - option: "Hard work? What's that?"
+
+cta:
+  - name: "Download CV"
+    url: "https://bawahbatu.com/cv-patrick.pdf"
+  
+  - name: "About Me"
+    url: "/#about"
+
+#-------------------------------[SOCIAL MEDIA]--
+socialMedia:
+  - name: facebook
+    url: "https://www.example.com"
+    icon: "bi-facebook"
+    
+  - name: twitter
+    url: "https://www.example.com"
+    icon: "bi-twitter-x"
+    
+  - name: discord
+    url: "https://www.example.com"
+    icon: "bi-discord"
+    
+  - name: pinterest
+    url: "https://www.example.com"
+    icon: "bi-pinterest"
+    
+  - name: github
+    url: "https://www.example.com"
+    icon: "bi-github"
+    
+  - name: youtube
+    url: "https://www.example.com"
+    icon: "bi-youtube"
+
+#-------------------[SKILLS]--
+skill:
+  - name: "Professional Lounger"
+    description: "Can sleep anytime, anywhere, in any situation. Even while thinking."
+    level: 10
+    img: "https://picsum.photos/200?7"
+
+  - name: "Endless Eating"
+    description: "Can finish a full fridge in less than 10 minutes. Can eat without chewing."
+    level: 90
+    img: "https://picsum.photos/200?8"
+
+  - name: "Giving Weird Advice"
+    description: "If you need an illogical solution that has nothing to do with your problem, I'm your guy!"
+    level: 70
+    img: "https://picsum.photos/200?9"
+
+  - name: "Thinking Hard (But Failing)"
+    description: "Tried thinking for 2 hours... resulted in nothing. But at least I tried!"
+    level: 30
+    img: "https://picsum.photos/200?10"
+
+  - name: "Finding Beautiful Rocks"
+    description: "Expert in discovering unique rocks and giving them names. Rocks are my best friends!"
+    level: 80
+    img: "https://picsum.photos/200?11"
+
+  - name: "Avoiding Work"
+    description: "Was once offered a job... immediately ran away and took a nap."
+    level: 100
+    img: "https://picsum.photos/200?12"
+
+#-------------------[JOURNEY]--
+journey:
+  - year: 1987
+    description: "Born under a rock. Gifted in sleeping and eating since childhood."
+    img: "https://picsum.photos/200?13"
+
+  - year: 2000
+    description: "Met SpongeBob and became his best friend. Started an adventure of chasing burgers and happiness."
+    img: "https://picsum.photos/200?14"
+
+  - year: 2005
+    description: "Discovered a new talent: thinking hard for 5 minutes. Unfortunately, no results were achieved."
+    img: "https://picsum.photos/200?15"
+
+  - year: 2010
+    description: "Became the star of his own TV show, *The Patrick Star Show*. Still doesn't remember how it happened."
+    img: "https://picsum.photos/200?16"
+
+  - year: 2015
+    description: "Developed a new theory: If you can't solve a problem, just sleep until you forget it."
+    img: "https://picsum.photos/200?17"
+
+  - year: 2023
+    description: "Started a rock collection business. Huge success! Only customer: himself."
+    img: "https://picsum.photos/200?18"
+
+#-------------------[HOBBIES]--
+hobbies:
+  - name: "Sleeping"
+    description: "I can sleep anytime, anywhere, even in the middle of a conversation."
+    img: "https://picsum.photos/200?19"
+
+  - name: "Eating"
+    description: "Favorite foods: Krabby Patty, ice cream, and anything edible."
+    img: "https://picsum.photos/200?20"
+
+  - name: "Cloud Watching"
+    description: "Spends hours staring at clouds and guessing their shapes. Once saw a burger-shaped cloud... or was it just my imagination?"
+    img: "https://picsum.photos/200?21"
+
+  - name: "Collecting Rocks"
+    description: "Rocks are my best friends. I even have a pet rock named Rocky."
+    img: "https://picsum.photos/200?22"
+
+  - name: "Playing with SpongeBob"
+    description: "Exciting adventures with my best friend, though they often end in chaos."
+    img: "https://picsum.photos/200?23"
+
+  - name: "Thinking (Occasionally)"
+    description: "Sometimes I try to think... but the results are always disappointing."
+    img: "https://picsum.photos/200?24"
+
+#-------------------------------[TESTIMONIAL]--
+testimonials:
+  - name: "SpongeBob SquarePants"
+    img: "https://i.pravatar.cc/1001"
+    feedback: "Patrick is my best friend! He always has a solution... though it's usually wrong."
+
+  - name: "Squidward Tentacles"
+    img: "https://i.pravatar.cc/1002"
+    feedback: "If there were a competition for 'Who's the most useless?', Patrick would win effortlessly."
+
+  - name: "Mr. Krabs"
+    img: "https://i.pravatar.cc/1003"
+    feedback: "I have no idea how he survives without working, but he does it exceptionally well!"
+
+  - name: "Sandy Cheeks"
+    img: "https://i.pravatar.cc/1004"
+    feedback: "Patrick has a unique way of thinking. One time he told me the fastest way to Texas was by sleeping. I'm still confused."
+
+  - name: "Plankton"
+    img: "https://i.pravatar.cc/1005"
+    feedback: "I thought he would become my minion... turns out he prefers eating donuts on his head."
+
+  - name: "Gary (SpongeBob's Snail)"
+    img: "https://i.pravatar.cc/1006"
+    feedback: "Meow. (Translated: I'm smarter than Patrick.)"
+
+#-------------------[SERVICES]--
+service: 
+  - name: "Lounging Consultant"
+    description: "Confused about how to lounge properly? I can teach you the art of sleeping peacefully without worries."
+    img: "https://picsum.photos/200?25"
+
+  - name: "Food Tester"
+    description: "Want to know if your food is delicious? I can taste it for you until it's gone, FOR FREE!"
+    img: "https://picsum.photos/200?26"
+
+  - name: "Expert in Empty Thinking"
+    description: "Need help thinking about nothing? I've been doing it for years."
+    img: "https://picsum.photos/200?27"
+
+  - name: "Cloud Watching Service"
+    description: "I can help you spot unique shapes in the clouds, though sometimes they're just illusions."
+    img: "https://picsum.photos/200?28"
+
+  - name: "Under-Rock Tour Guide"
+    description: "Interested in exploring the beauty of life under a rock? I'm the expert!"
+    img: "https://picsum.photos/200?29"
+
+  - name: "Relaxation Motivator"
+    description: "Why work hard when you can relax? I can guide you toward a stress-free life."
+    img: "https://picsum.photos/200?30"

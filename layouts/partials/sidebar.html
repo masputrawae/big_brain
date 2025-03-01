@@ -1,0 +1,8 @@
+<a href="{{ "/" | relURL }}" class="sidebar__top">
+  <figure class="sidebar__logo">
+    <img src="{{ .Site.Data.user.img | relURL }}" alt="Logo {{ .Site.Data.user.img }}">
+    <figcaption class="sidebar__title">{{ .Site.Title }}</figcaption>
+  </figure>
+</a>
+
+{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
