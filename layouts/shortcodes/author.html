@@ -1,0 +1,7 @@
+<div class="author-card">
+  <img class="author-card__img" src="{{ .Get "avatar" }}" alt="{{ .Get "name" }}">
+  <div class="author-card__info">
+    <div class="author-card__title">{{ .Get "name" }}</div>
+    <p>{{ .Inner | markdownify }}</p>
+  </div>
+</div>

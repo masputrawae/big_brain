@@ -1,0 +1,62 @@
+@use '../abstracts/breakpoint' as bp;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+body {
+  background: var(--bg-first);
+  color: var(--text-first);
+
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+
+  @include bp.min(xxl) {
+    .isolation {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+      max-width: 75em;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
+  }
+}
+
+.layout {
+  &__sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 250px;
+    height: 100vh;
+
+    background-color: var(--bg-second);
+    overflow-y: auto;
+
+    transform: translateX(-100%);
+    visibility: hidden;
+    
+    @include m.transition(0.3s, ease-in-out, transform, visibility);
+
+    &--active {
+      transform: translateX(0%);
+      visibility: visible;
+    }
+  }
+
+  @include bp.min(lg){
+    
+  }
+}
+
+.nav {
+  &__list--collapse {
+    display: none;
+
+    &.collapsed {
+      display: block;
+    }
+  }
+}

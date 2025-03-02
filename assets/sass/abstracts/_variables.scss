@@ -1,0 +1,55 @@
+//-----------------------------[Font Family]--
+$font__family--fallback:  system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+$font__family--first:     "Inter", -apple-system, BlinkMacSystemFont, sans-serif;
+$font__family--second:    "Roboto", "Helvetica Neue", Arial, sans-serif;
+$font__family--third:    "Work Sans", "Segoe UI", Tahoma, sans-serif;
+$font__family--mono:      "JetBrains Mono", "Fira Code", "Consolas", monospace;
+
+//-----------------------------[Font Size]--
+$font__size--base:  1rem;
+
+// Small text variations
+$font__size--xs:        0.75rem;
+$font__size--sm:        0.875rem;
+$font__size--md:        1rem;
+$font__size--lg:        1.125rem;
+$font__size--xl:        1.25rem;
+
+// Heading sizes
+$font__size--h1:        2.5rem;
+$font__size--h2:        2rem;
+$font__size--h3:        1.75rem;
+$font__size--h4:        1.5rem;
+$font__size--h5:        1.25rem;
+$font__size--h6:        1rem;
+
+// Display sizes
+$font__size--display-1: 6rem;
+$font__size--display-2: 5.5rem;
+$font__size--display-3: 4.5rem;
+$font__size--display-4: 3.5rem;
+
+// Special sizes
+$font__size--jumbo:     8rem;
+$font__size--hero:      9rem;
+
+//-----------------------------[Font Weight]--
+$font__weight--light:      300;
+$font__weight--regular:    400;
+$font__weight--medium:     500;
+$font__weight--semibold:   600;
+$font__weight--bold:       700;
+$font__weight--extrabold:  800;
+
+//-----------------------------[Line Height]--
+$line__height--compact:    1.1;
+$line__height--tight:      1.2;
+$line__height--normal:     1.5;
+$line__height--relaxed:    1.75;
+$line__height--loose:      2;
+
+//-----------------------------[Letter Spacing]--
+$letter__spacing--tight:   -0.05em;
+$letter__spacing--normal:  0;
+$letter__spacing--wide:    0.05em;
+$letter__spacing--wider:   0.1em;

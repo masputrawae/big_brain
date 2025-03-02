@@ -3,14 +3,9 @@
 
 {{- with index site.Menus $menuID }}
   <nav class="menu">
-    <h3>Main Menu</h3>
-    <ul class="menu__list">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" "<" 70)) }}
-    </ul>
-
     <h3>Content</h3>
     <ul class="menu__list">
-      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" ">=" 70)) }}
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" (where . "Weight" ">=" 75)) }}
     </ul>
   </nav>
 {{- end }}

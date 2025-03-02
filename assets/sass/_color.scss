@@ -1,0 +1,25 @@
+// ---------------------------------------------[Themes Color]
+:root {
+  --accent-first: oklch(0.627 0.265 303.9);
+  --bg-first: #fff;
+  --bg-second: oklch(0.97 0.005 250);
+  --bg-third: oklch(0.94 0.008 250);
+  --bg-fourth: oklch(0.91 0.012 250);
+
+  --text-first: oklch(0.13 0.045 265);
+  --text-second: oklch(0.19 0.045 265);
+  --text-third: oklch(0.25 0.045 265);
+  --text-fourth: oklch(0.35 0.045 265);
+}
+
+[data-theme=dark] {
+  --bg-first: #000;
+  --bg-second: oklch(0.129 0.045 265);
+  --bg-third: oklch(0.19 0.045 265); 
+  --bg-fourth: oklch(0.25 0.045 265);
+
+  --text-first: oklch(0.98 0.005 250);
+  --text-second: oklch(0.95 0.008 250);
+  --text-third: oklch(0.92 0.012 250);
+  --text-fourth: oklch(0.87 0.018 250);
+}

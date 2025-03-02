@@ -1,0 +1,26 @@
+{{- define "collapsible_nav" -}}
+  {{- with .Pages -}}
+    {{/* First iterate through sections/folders */}}
+    {{- range where . "IsSection" true -}}
+      <li class="nav__item nav__item--folder" data-id="{{- .RelPermalink | urlize -}}">
+        <button class="btn btn--nav btn--collapse">
+          <i class="bi bi-folder2"></i>
+          <span>{{- .LinkTitle -}}</span>
+        </button>
+        <ul class="nav__list nav__list--collapse">
+          {{- template "collapsible_nav" . -}}
+        </ul>
+      </li>
+    {{- end -}}
+
+    {{/* Then iterate through regular pages/files */}}
+    {{- range where . "IsPage" true -}}
+      <li class="nav__item nav__item--file" data-id="{{- .RelPermalink | urlize -}}">
+        <a class="nav__link" href="{{- .RelPermalink -}}">
+          <i class="bi bi-file-earmark"></i>
+          <span>{{- .LinkTitle -}}</span>
+        </a>
+      </li>
+    {{- end -}}
+  {{- end -}}
+{{- end -}}

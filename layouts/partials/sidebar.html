@@ -6,5 +6,21 @@
   </button>
 </div>
 
+<div class="header__menu header__menu--mobile-only">
+  {{ partial "main-menu.html" (dict "page" .) }}
+</div>
 
 {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+
+<nav class="nav">
+  <button 
+  aria-label="Root"
+  class="btn btn--nav" 
+  id="toggleCollapseAll">
+    <i class="bi bi-folder2"></i>
+    <span>Root</span>
+  </button>
+  <ul class="nav__list">
+    {{- template "collapsible_nav" .Site.Home -}}
+  </ul>
+</nav>

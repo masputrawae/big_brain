@@ -1,0 +1,7 @@
+{{- $src := .Get "src" | safeURL -}}
+{{- $alt := .Get "alt" | default "Image" -}}
+{{- $align := .Get "align" | default "center" -}}
+
+<figure class="img-wrapper img-{{ $align }}">
+  <img src="{{ $src }}" alt="{{ $alt }}">
+</figure>

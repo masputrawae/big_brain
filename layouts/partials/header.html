@@ -1,9 +1,17 @@
 <div class="header">
-  <button class="btn btn--icon" data-toggle="sidebar">
-    <i class="bi bi-list"></i>
-  </button>
+  <a href="{{ "/" | relURL }}" class="header__title">{{ .Site.Title }}</a>
 
-  <button class="btn btn--icon" id="switchTheme">
-    <i class="bi bi-moon"></i>
-  </button>
+  <div class="header__menu header__menu--desktop-only">
+    {{ partial "main-menu.html" (dict "page" .) }}
+  </div>
+
+  <div class="header__button">
+    <button class="btn btn--icon" data-toggle="sidebar">
+      <i class="btn__icon bi bi-list"></i>
+    </button>
+  
+    <button class="btn btn--icon" id="switchTheme">
+      <i class="btn__icon bi bi-moon-stars-fill"></i>
+    </button>
+  </div>
 </div>

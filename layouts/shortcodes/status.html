@@ -1,0 +1,20 @@
+{{- $status := string (.Get "status" | default "info") -}}
+{{- $title := .Get "title" | default (title $status) -}}
+{{- $icons := dict 
+    "info" "bi-info-circle" 
+    "tips" "bi-lightbulb" 
+    "warning" "bi-exclamation-triangle" 
+    "danger" "bi-exclamation-octagon" 
+    "error" "bi-x-circle" 
+-}}
+{{- $icon := index $icons $status -}}
+
+<div class="status status--{{ $status }}" role="alert">
+    <div class="status__header">
+        <i class="status__icon {{ $icon }}"></i>
+        <div class="status__title">{{ $title }}</div>
+    </div>
+    <div class="status__content">
+        {{ .Inner | markdownify }}
+    </div>
+</div>

@@ -5,26 +5,56 @@ document.addEventListener("DOMContentLoaded", function () {
 
     buttons.forEach((button) => {
         button.addEventListener("click", function () {
-            sidebar.classList.toggle("active");
+            sidebar.classList.toggle("layout__sidebar--active");
         });
     });
 
     document.addEventListener("click", function (event) {
         if (!sidebar.contains(event.target) && !event.target.closest("[data-toggle='sidebar']")) {
-            sidebar.classList.remove("active");
+            sidebar.classList.remove("layout__sidebar--active");
         }
     });
 
-    // ---------------------------------------------------------------------[STICKY HEADER]--
-    const navbar = document.querySelector(".header");
+    // ========================= COLLAPSE FUNCTIONALITY =========================
+    const collapseButtons = document.querySelectorAll(".btn--collapse");
+    const collapseAllButton = document.getElementById("toggleCollapseAll");
+    let allCollapsed = false;
 
-    window.addEventListener("scroll", function () {
-        if (window.scrollY > 50) {
-            navbar.classList.add("sticky");
-        } else {
-            navbar.classList.remove("sticky");
-            sidebar.classList.remove("active"); // Tutup sidebar jika kembali ke atas
+    const toggleIcon = (icon, isCollapsed) => {
+        icon?.classList.replace(isCollapsed ? "bi-folder2" : "bi-folder2-open", 
+                                isCollapsed ? "bi-folder2-open" : "bi-folder2");
+    };
+
+    const toggleFolderCollapse = (folder, isCollapsed) => {
+        const sublist = folder.querySelector(".nav__list--collapse");
+        if (sublist) {
+            sublist.classList.toggle("collapsed", isCollapsed);
+            sessionStorage.setItem(`collapsed_${folder.dataset.id}`, isCollapsed);
+            toggleIcon(folder.querySelector(".btn--collapse i"), isCollapsed);
         }
+    };
+
+    collapseButtons.forEach(button => {
+        button.addEventListener("click", function () {
+            const parentItem = this.closest(".nav__item--folder");
+            if (parentItem) {
+                const isCollapsed = parentItem.querySelector(".nav__list--collapse")
+                    .classList.toggle("collapsed");
+                sessionStorage.setItem(`collapsed_${parentItem.dataset.id}`, isCollapsed);
+                toggleIcon(this.querySelector("i"), isCollapsed);
+            }
+        });
+    });
+
+    document.querySelectorAll(".nav__item--folder").forEach(folder => {
+        toggleFolderCollapse(folder, sessionStorage.getItem(`collapsed_${folder.dataset.id}`) === "true");
+    });
+
+    collapseAllButton?.addEventListener("click", function () {
+        allCollapsed = !allCollapsed;
+        document.querySelectorAll(".nav__item--folder")
+            .forEach(folder => toggleFolderCollapse(folder, allCollapsed));
+        toggleIcon(collapseAllButton.querySelector("i"), allCollapsed);
     });
 
     // ---------------------------------------------------------------------[HIGHLIGHTER MENU]--
