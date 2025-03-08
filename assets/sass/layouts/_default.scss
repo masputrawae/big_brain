@@ -1,0 +1,15 @@
+//=========================================================//
+//                       DEFAULT.SCSS                      //
+//=========================================================//
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.layout {
+  background-color: var(--bg-first);
+  color: var(--text-first);
+
+  height: 100vh;
+  max-width: 100vw;
+  overflow-x: hidden;
+}

@@ -1,0 +1,27 @@
+{{ define "main" }}
+  <main class="main">
+    <section class="main__section u--container u-animation-left">
+
+      <figure class="hero">
+        <figcaption class="hero__body">
+          <div class="hero__content">
+            <h1 class="hero__title">{{ site.Title }}</h1>
+            <em class="hero__tagline">{{ .Params.tagline }}</em>
+            {{ .Content | safeHTML }}
+            <nav class="hero__cta u-animation-left">
+              {{ if .Params.cta }}
+                {{ range .Params.cta }}
+                  <a href="{{ .url | relURL }}" class="btn btn--text {{ if .primary }}btn--primary{{ end }}">{{ .name }}</a>
+                {{ end }}
+              {{ end }}
+            </nav>
+          </div>
+        </figcaption>
+        <div class="hero__img-container u-animation-right">
+          <img src="{{ site.Params.logo | relURL }}" alt="Logo Image {{ site.Title }}" class="hero__img-logo">
+        </div>
+      </figure>
+
+    </section>
+  </main>
+{{ end }}

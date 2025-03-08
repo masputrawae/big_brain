@@ -1,0 +1,26 @@
+<header class="header">
+  <div class="header__container u--container u-animation-right">
+
+    <a href="{{ "/" | relURL }}" class="brand u-animation-left">
+      <div class="brand__img-container">
+        <img src="{{ site.Params.logo | relURL }}" alt="" class="brand__img-logo">
+      </div>
+      <div class="brand__content">
+        <h1 class="brand__title">{{ site.Title }}</h1>
+        <em class="brand__subtitle">{{ site.Params.subtitle }}</em>
+      </div>
+    </a>
+    
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    
+    <div class="header__btn-container u-animation-right">
+      <button class="btn btn--icon" id="toggleTheme">
+        <i class="bi bi-moon-stars-fill"></i>
+      </button>
+      <button class="btn btn--icon" id="toggleOffcanvas">
+        <i class="bi bi-list"></i>
+      </button>
+    </div>
+    
+  </div>
+</header>

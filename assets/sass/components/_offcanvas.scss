@@ -1,0 +1,83 @@
+//=========================================================//
+//                      OFFCANVAS.SCSS                     //
+//=========================================================//
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+//=========================================================//
+//                     NAVIGATION BASE                     //
+//=========================================================//
+.nav {
+  &__list {
+    @include m.flex-justify();
+    gap: 1rem;
+    list-style: none;
+  }
+
+  &__link {
+    color: var(--text-first);
+    text-decoration: none;
+    font-weight: v.$font__weight--bold;
+    border-radius: 0.25rem;
+    padding: 0.5rem 0.75rem;
+
+    //=====================================================//
+    //                   LINK INTERACTIONS                 //
+    //=====================================================//
+    &:hover,
+    &:focus-visible {
+      color: var(--bg-second);
+      background-color: var(--accent-second);
+      outline: none;
+    }
+
+    //=====================================================//
+    //                   ACTIVE STATES                    //
+    //=====================================================//
+    &--active,
+    &--ancestor {
+      background-color: var(--base-accent);
+      color: var(--bg-first);
+    }
+  }
+
+  //=======================================================//
+  //                 MOBILE RESPONSIVE STYLES              //
+  //=======================================================//
+  @include bp.max(md) {
+    position: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    background-color: var(--bg-second);
+    top: 0;
+    left: 0;
+    transform: translateX(-100%);
+    visibility: hidden;
+
+    @include m.transition(1s, ease, transform, visibility);
+
+    //=====================================================//
+    //                   OPEN STATE                       //
+    //=====================================================//
+    &--open {
+      transform: translateX(0%);
+      visibility: visible;
+    }
+
+    //=====================================================//
+    //                 MOBILE NAV LIST                    //
+    //=====================================================//
+    &__list {
+      padding: 0;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      flex-direction: column;
+    }
+  }
+}

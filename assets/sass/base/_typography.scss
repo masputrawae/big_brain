@@ -1,0 +1,90 @@
+//=========================================================//
+//                      TYPOGRAPHY.SCSS                    //
+//=========================================================//
+@use '../abstracts/variables' as v;
+
+.markdown {
+  h1 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--7xl;
+    font-weight: v.$font__weight--bold;
+    line-height: 1.1;
+    margin: 0 0 1.5rem;
+    letter-spacing: -0.03em;
+  }
+  
+  h2 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--6xl;
+    font-weight: v.$font__weight--bold;
+    line-height: 1.15;
+    margin: 0 0 1.25rem;
+    letter-spacing: -0.02em;
+  }
+  
+  h3 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--5xl;
+    font-weight: v.$font__weight--semi-bold;
+    line-height: 1.2;
+    margin: 0 0 1rem;
+  }
+  
+  h4 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--4xl;
+    font-weight: v.$font__weight--semi-bold;
+    line-height: 1.25;
+    margin: 0 0 1rem;
+  }
+  
+  h5 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--3xl;
+    font-weight: v.$font__weight--medium;
+    line-height: 1.3;
+    margin: 0 0 0.75rem;
+  }
+  
+  h6 {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--2xl;
+    font-weight: v.$font__weight--medium;
+    line-height: 1.35;
+    margin: 0 0 0.5rem;
+  }
+  
+  p {
+    font-family: v.$font__family--second;
+    font-size: v.$font__size--md;
+    font-weight: v.$font__weight--normal;
+    line-height: 1.6;
+    margin: 0 0 1.5rem;
+    max-width: 65ch;
+  }
+  
+  strong {
+    font-weight: v.$font__weight--bold;
+  }
+  
+  em {
+    font-style: italic;
+  }
+  
+  blockquote {
+    font-family: v.$font__family--first;
+    font-size: v.$font__size--xl;
+    font-style: italic;
+    margin: 1.5rem 0;
+    padding-left: 1.5rem;
+    border-left: 3px solid var(--base-accent);
+  }
+  
+  code {
+    font-family: v.$font__family--monospace;
+    font-size: v.$font__size--sm;
+    background-color: var(--base-bg-alt);
+    padding: 0.2em 0.4em;
+    border-radius: 3px;
+  }  
+}

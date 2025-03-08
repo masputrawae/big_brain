@@ -1,0 +1,71 @@
+//=========================================================//
+//                      VARIABLES.SCSS                     //
+//=========================================================//
+//                    FONT FAMILY & SIZE                   //
+//=========================================================//
+//                                                         //
+//  Common Types of Scale Ratios                           //
+//  Some common ratios often used in design:               //
+//                                                         //
+//    Minor Second (1.067)                                 //
+//    Major Second (1.125)                                 //
+//    Minor Third (1.200)                                  //
+//    Major Third (1.250)                                  //
+//    Perfect Fourth (1.333)                               //
+//    Augmented Fourth (1.414)                             //
+//    Perfect Fifth (1.500)                                //
+//    Golden Ratio (1.618)                                 //
+//                                                         //
+//=========================================================//
+@use "sass:math";
+@function scale($step) {
+  @return math.div(math.round($font--sizs-default * pow($scale-ratio, $step) * 100), 100);
+}
+
+$font__family--first          : 'Playfair Display', serif;
+$font__family--second         : 'Montserrat', sans-serif;
+$font__family--third          : 'Great Vibes', cursive;
+$font__family--monospace      : 'Fira Code', monospace;
+
+$font__sizs-default           : 16px;  // Basic size
+$scale-ratio                  : 1.067; // Minor Second
+
+$font__size--xs               : scale(-2);  // ~14px
+$font__size--sm               : scale(-1);  // ~15px
+$font__size--md               : scale(0);   // ~16px (default)
+$font__size--lg               : scale(1);   // ~17px
+$font__size--xl               : scale(2);   // ~18px
+
+$font__size--2xl              : scale(3);   // ~19px
+$font__size--3xl              : scale(4);   // ~20px
+$font__size--4xl              : scale(5);   // ~22px
+$font__size--5xl              : scale(6);   // ~23px
+$font__size--6xl              : scale(7);   // ~25px
+$font__size--7xl              : scale(8);   // ~26px
+
+$font__size--8xl              : scale(9);
+$font__size--9xl              : scale(10);
+$font__size--10xl             : scale(13);
+$font__size--11xl             : scale(20);
+//=========================================================//
+//                        FONT WEIGHT                      //
+//=========================================================//
+
+$font__weight--thin          : 100;
+$font__weight--extra-light   : 200;
+$font__weight--light         : 300;
+$font__weight--normal        : 400;
+$font__weight--medium        : 500;
+$font__weight--semi-bold     : 600;
+$font__weight--bold          : 700;
+$font__weight--extra-bold    : 800;
+
+//=========================================================//
+//                        SHADOW SIZE                      //
+//=========================================================//
+$shadow__size--xs: 1px 1px 2px rgba(0, 0, 0, 0.1);
+$shadow__size--sm: 1px 2px 3px rgba(0, 0, 0, 0.1);
+$shadow__size--md: 1px 3px 5px rgba(0, 0, 0, 0.15);
+$shadow__size--lg: 1px 4px 6px rgba(0, 0, 0, 0.2);
+$shadow__size--xl: 1px 5px 8px rgba(0, 0, 0, 0.25);
+$shadow__size--2xl: 1px 6px 10px rgba(0, 0, 0, 0.3);

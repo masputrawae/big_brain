@@ -1,0 +1,26 @@
+//=========================================================//
+//                        MIXINS.SCSS                      //
+//=========================================================//
+@mixin flex-justify($justify: center, $align: center){
+  display: flex;
+  justify-content: $justify;
+  align-items: $align;
+}
+
+@mixin transition($duration: 0.3s, $timing: ease-in-out, $properties...) {
+  transition-duration: $duration;
+  transition-timing-function: $timing;
+  transition-property: $properties;
+}
+
+@mixin text-ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin cover-background {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}

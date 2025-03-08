@@ -1,0 +1,97 @@
+//=========================================================//
+//                         HOME.SCSS                       //
+//=========================================================//
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+//=========================================================//
+//                      MAIN SECTION                       //
+//=========================================================//
+.main__section {
+  min-height: 100vh;
+}
+
+//=========================================================//
+//                        HERO STYLES                      //
+//=========================================================//
+.hero {
+  @include m.flex-justify();
+  flex-direction: column;
+
+  //=======================================================//
+  //                      IMAGE CONTAINER                  //
+  //=======================================================//
+  &__img-container {
+    width: 200px;
+    height: 200px;
+    overflow: hidden;
+    border-radius: 50%;
+    border: 5px solid var(--base-accent);
+    box-shadow: v.$shadow__size--xl;
+  }
+
+  //=======================================================//
+  //                        HERO IMAGE                     //
+  //=======================================================//
+  &__img-logo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+
+    @include m.transition(5s, ease, scale, filter);
+    
+    &:hover {
+      scale: 1.3;
+      filter: opacity(0.5);
+    }
+  }
+
+  //=======================================================//
+  //                      HERO BODY                        //
+  //=======================================================//
+  &__body {
+    margin-block: 1rem;
+    text-align: center;
+  }
+
+  //=======================================================//
+  //                      HERO TITLE                       //
+  //=======================================================//
+  &__title {
+    font-family: v.$font__family--third;
+    font-size: v.$font__size--11xl;
+    font-weight: v.$font__weight--bold;
+    margin-block: 0.5rem;
+  }
+
+  //=======================================================//
+  //                     HERO TAGLINE                      //
+  //=======================================================//
+  &__tagline {
+    color: var(--base-accent);
+    font-size: v.$font__size--3xl;
+    font-style: normal;
+    font-weight: v.$font__weight--bold;
+  }
+
+  //=======================================================//
+  //                   CALL TO ACTION                      //
+  //=======================================================//
+  &__cta {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin: 0.5rem;
+    padding: 0.75rem;
+  }
+
+  //=======================================================//
+  //                     PARAGRAPH TEXT                    //
+  //=======================================================//
+  p {
+    font-family: v.$font__family--second;
+    font-weight: v.$font__weight--normal;
+    color: var(--text-first);
+  }
+}

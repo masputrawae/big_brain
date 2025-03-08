@@ -1,0 +1,40 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'John Doe'
+
+[params]
+  author = "John Doe"
+  subtitle = "Designer"
+  description = "Welcome to my personal website where I share my thoughts and projects"
+  logo = "https://res.cloudinary.com/dpkqfchhu/image/upload/w_200/variant-logo-1_sekpog.webp"
+  background = "https://res.cloudinary.com/dpkqfchhu/image/upload/v1741255491/bg-variant-1_roguxw.webp"
+
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 20
+[[menus.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  weight = 30
+[[menus.main]]
+  name = 'Categories'
+  pageRef = '/categories'
+  weight = 40
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 50
+[[menus.main]]
+  name = 'Archives'
+  pageRef = '/Archives'
+  weight = 60
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"

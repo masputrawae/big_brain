@@ -1,0 +1,65 @@
+//=========================================================//
+//               /COMPONENTS/_CONTAINER.SCSS               //
+//=========================================================//
+@use '../abstracts/breakpoints' as bp;
+.u--container {
+  width: 100%;
+  padding-right: calc(1.5rem * 0.5);
+  padding-left: calc(1.5rem * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+
+  // Breakpoint-specific max-widths
+  $container-max-widths: (
+    sm: 540px,
+    md: 720px,
+    lg: 960px,
+    xl: 1140px,
+    xxl: 1320px
+  );
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include bp.min($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}
+
+// ANIMATION UTILITIES
+.u-animation-up,
+.u-animation-left,
+.u-animation-right {
+  opacity: 0;
+  transition: opacity 1.5s ease-in-out, transform 1.5s ease-in-out;
+  will-change: opacity, transform;
+}
+
+// Slide up animation
+.u-animation-up {
+  transform: translateY(50px);
+
+  &--show {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+// Slide from left animation
+.u-animation-left {
+  transform: translateX(-50px);
+
+  &--show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+// Slide from right animation
+.u-animation-right {
+  transform: translateX(50px);
+
+  &--show {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}

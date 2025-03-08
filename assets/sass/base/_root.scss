@@ -1,0 +1,19 @@
+//=========================================================//
+//                         ROOT.SCSS                       //
+//=========================================================//
+@use '../abstracts/colors' as c;
+:root {
+  @each $category, $colors in c.$light {
+    @each $shade, $color in $colors {
+      --#{$category}-#{$shade}: #{$color};
+    }
+  }
+}
+
+:root[data-theme=dark] {
+  @each $category, $colors in c.$dark {
+    @each $shade, $color in $colors {
+      --#{$category}-#{$shade}: #{$color};
+    }
+  }
+}

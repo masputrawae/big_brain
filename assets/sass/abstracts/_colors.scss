@@ -1,0 +1,63 @@
+//=========================================================//
+//                           COLORS                        //
+//=========================================================//
+$color__base--black   : rgb(0, 0, 0);
+$color__base--white   : rgb(255, 255, 255);
+$color__base--accent  : rgb(112, 78, 46);
+
+@use 'sass:color';
+@use 'sass:math';
+
+@function round-rgb($color) {
+  $red: math.round(color.channel($color, "red", $space: rgb));
+  $green: math.round(color.channel($color, "green", $space: rgb));
+  $blue: math.round(color.channel($color, "blue", $space: rgb));
+  @return rgb($red, $green, $blue);
+}
+
+$light: (
+  "base": (
+    "black": $color__base--black,
+    "white": $color__base--white,
+    "accent": $color__base--accent,
+  ),
+
+  "text": (
+    "first": round-rgb(color.mix($color__base--accent, $color__base--black, 15%)),
+    "second": round-rgb(color.mix($color__base--accent, $color__base--black, 40%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--black, 55%)),
+  ),
+
+  "bg": (
+    "first": round-rgb(color.mix($color__base--accent, $color__base--white, 5%)),
+    "second": round-rgb(color.mix($color__base--accent, $color__base--white, 25%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--white, 40%)),
+  ),
+
+  "accent": (
+    "second": round-rgb(color.mix($color__base--accent, $color__base--black, 70%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--black, 60%)),
+  ),
+);
+
+$dark: (
+  "base": (
+    "accent": round-rgb(color.mix($color__base--accent, $color__base--white, 75%)),
+  ),
+  "text": (
+    "first": round-rgb(color.mix($color__base--accent, $color__base--white, 15%)),
+    "second": round-rgb(color.mix($color__base--accent, $color__base--white, 30%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--white, 50%)),
+  ),
+
+  "bg": (
+    "first": round-rgb(color.mix($color__base--accent, $color__base--black, 1%)),
+    "second": round-rgb(color.mix($color__base--accent, $color__base--black, 20%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--black, 30%)),
+  ),
+
+  "accent": (
+    "second": round-rgb(color.mix($color__base--accent, $color__base--white, 45%)),
+    "third": round-rgb(color.mix($color__base--accent, $color__base--white, 35%)),
+  ),
+);

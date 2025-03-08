@@ -1,0 +1,69 @@
+//=========================================================//
+//                        BUTTON.SCSS                      //
+//=========================================================//
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+//=========================================================//
+//                     TOGGLE OFFCANVAS                    //
+//=========================================================//
+#toggleOffcanvas {
+  @include bp.min(md) {
+    display: none;
+  }
+}
+
+//=========================================================//
+//                       BASE BUTTON                       //
+//=========================================================//
+.btn {
+  padding: 0.5rem;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  box-shadow: v.$shadow__size--md;
+  text-decoration: none;
+  
+  @include m.transition(
+    0.1s,
+    ease-in-out,
+    color,
+    border-color,
+    background-color,
+    scale
+  );
+
+  //=========================================================//
+  //                     BUTTON VARIANTS                     //
+  //=========================================================//
+  &--text {
+    background-color: var(--bg-third);
+    font-weight: v.$font__weight--bold;
+    color: var(--text-first);
+  }
+
+  &--primary {
+    background-color: var(--base-accent);
+    color: var(--bg-first);
+  }
+
+  //=========================================================//
+  //                     BUTTON ICONS                        //
+  //=========================================================//
+  .bi {
+    @include m.flex-justify();
+    color: var(--text-second);
+    font-size: v.$font__size--3xl;
+  }
+
+  //=========================================================//
+  //                     HOVER STATES                        //
+  //=========================================================//
+  &:hover {
+    box-shadow: v.$shadow__size--lg;
+    background-color: var(--bg-third);
+    border-color: var(--base-accent);
+    scale: 1.1;
+  }
+}
