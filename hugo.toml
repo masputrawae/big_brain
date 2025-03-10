@@ -1,7 +1,7 @@
 #=================================#
 #       Basic Configuration       #
 #=================================#
-baseURL = 'https://example.org/'
+baseURL = 'https://masputrawae.github.io/big_brain/'
 languageCode = 'en-US'
 title = 'John Doe'
 
