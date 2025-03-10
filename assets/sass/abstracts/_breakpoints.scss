@@ -1,0 +1,79 @@
+//========================================//
+//           _BREAKPOINTS.SCSS            //
+//========================================//
+@use './variables' as v;
+@use "sass:map";
+// Mixin for min-width breakpoints (mobile first)
+@mixin min($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media screen and (min-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else if type-of($breakpoint) == number {
+    @media screen and (min-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found. Available breakpoints: #{map-keys(v.$breakpoints)}";
+  }
+}
+
+// Mixin for max-width breakpoints
+@mixin max($breakpoint) {
+  @if map.has-key(v.$breakpoints, $breakpoint) {
+    @media screen and (max-width: map.get(v.$breakpoints, $breakpoint)) {
+      @content;
+    }
+  } @else if type-of($breakpoint) == number {
+    @media screen and (max-width: $breakpoint) {
+      @content;
+    }
+  } @else {
+    @warn "Breakpoint '#{$breakpoint}' not found. Available breakpoints: #{map-keys(v.$breakpoints)}";
+  }
+}
+
+// Mixin for range between breakpoints
+@mixin between($from, $to) {
+  @if map.has-key(v.$breakpoints, $from) and map.has-key(v.$breakpoints, $to) {
+    @media screen and (min-width: map.get(v.$breakpoints, $from)) and (max-width: map.get(v.$breakpoints, $to)) {
+      @content;
+    }
+  } @else if type-of($from) == number and type-of($to) == number {
+    @media screen and (min-width: $from) and (max-width: $to) {
+      @content;
+    }
+  } @else {
+    @warn "One or both breakpoints not found. Available breakpoints: #{map-keys(v.$breakpoints)}";
+  }
+}
+
+//=========================================================//
+//                                                         //
+// Example usage:                                          //
+// .element {                                              //
+//   // Mobile styles (default)                            //
+//   padding: 1rem;                                        //
+//                                                         //
+//   // Tablet and up (≥768px)                             //
+//   @include min(md) {                                    //
+//     padding: 2rem;                                      //
+//   }                                                     //
+//                                                         //
+//   // Only on desktop (≥992px)                           //
+//   @include min(lg) {                                    //
+//     padding: 3rem;                                      //
+//   }                                                     //
+//                                                         //
+//   // Only on mobile (<576px)                            //
+//   @include max(sm) {                                    //
+//     font-size: 14px;                                    //
+//   }                                                     //
+//                                                         //
+//   // Only tablet (between 768px and 991px)              //
+//   @include between(md, lg) {                            //
+//     margin: 2rem;                                       //
+//   }                                                     //
+// }                                                       //
+//                                                         //
+//=========================================================//

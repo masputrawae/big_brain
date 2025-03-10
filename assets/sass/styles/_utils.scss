@@ -1,0 +1,31 @@
+//========================================//
+//              _UTILS.SCSS               //
+//========================================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+
+//=========================================//
+//=============== CONTAINER ===============//
+.u-container {
+  width: 100%;
+  padding-right: calc(1rem * 0.5);
+  padding-left: calc(1rem * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+
+  // Breakpoint-specific max-widths
+  $container-max-widths: (
+    sm: 576px,
+    md: 768px,
+    lg: 992px,
+    xl: 1200px,
+    xxl: 1400px
+  );
+
+  @each $breakpoint, $max-width in $container-max-widths {
+    @include bp.min($breakpoint) {
+      max-width: $max-width;
+    }
+  }
+}

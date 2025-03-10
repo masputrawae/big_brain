@@ -1,0 +1,67 @@
+#=================================#
+#       Basic Configuration       #
+#=================================#
+baseURL = 'https://example.org/'
+languageCode = 'en-US'
+title = 'John Doe'
+
+#=================================#
+#       Site Parameters           #
+#=================================#
+[params]
+  description = "My awesome Hugo site"
+  author = "John Doe"
+  tagline = "Building beautiful websites with Hugo"
+  logo = "https://picsum.photos/200"
+
+#=================================#
+#       Navigation Menu           #
+#=================================#
+[[menus.main]]
+  name = 'Home'
+  pageRef = '/'
+  weight = 10
+[[menus.main]]
+  name = 'About'
+  pageRef = '/about'
+  weight = 20
+[[menus.main]]
+  name = 'Projects'
+  pageRef = '/projects'
+  weight = 30
+[[menus.main]]
+  name = 'Categories'
+  pageRef = '/categories'
+  weight = 40
+[[menus.main]]
+  name = 'Tags'
+  pageRef = '/tags'
+  weight = 50
+[[menus.main]]
+  name = 'Archives'
+  pageRef = '/Archives'
+  weight = 60
+
+#=================================#
+#       Module Configuration      #
+#=================================#
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
+
+#=================================#
+#       Output Formats            #
+#=================================#
+[outputFormats.search]
+  mediaType = "application/json"
+  baseName = "search"
+  isPlainText = true
+  notAlternative = true
+[outputFormats.searchpage]
+  mediaType = "text/html"
+  baseName = "search"
+  isPlainText = true
+  notAlternative = true
+[outputs]
+  home = ["HTML", "search", "searchpage"]

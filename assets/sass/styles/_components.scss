@@ -1,0 +1,56 @@
+//========================================//
+//            _COMPONENTS.SCSS            //
+//========================================//
+
+@use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+
+//========================================//
+//              BUTTON STYLES             //
+//========================================//
+.btn {
+  background-color: var(--color-background-alt);
+  border: 2px solid var(--color-border);
+  border-radius: 0.5rem;
+  box-shadow: 0px 4px 4px v.$shadow__color--2xl;
+  color: var(--color-text);
+  padding: 0.75rem;
+  transition: border-color 1s ease-in-out;
+
+  &:hover {
+    border-color: var(--color-primary-hover);
+  }
+
+  &--icon {
+    @include m.flex-justify();
+    
+    .bi {
+      height: 18px;
+      width: 18px;
+    }
+  }
+
+  &--search {
+    font-size: v.$font__size--sm;
+    gap: 2rem;
+
+    .bi {
+      color: var(--color-primary);
+    }
+
+    @include bp.max(lg) {
+      span {
+        display: none;
+      }
+    }
+  }
+}
+
+#toggleOffcanvas{
+  display: none;
+
+  @include bp.max(lg) {
+    display: inline-block;
+  }
+}

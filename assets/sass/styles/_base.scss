@@ -1,0 +1,135 @@
+//========================================//
+//               _BASE.SCSS               //
+//========================================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+@use '../abstracts/tailwind-colors' as tw;
+//=========================================//
+//================= RESET =================//
+*,
+*::after,
+*::before {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  outline: none;
+}
+
+html {
+  line-height: 1.15;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-behavior: smooth;
+}
+
+ul,
+ol{
+  list-style: none;
+}
+
+a {
+  display: inline-block;
+  text-decoration: none;
+  color: inherit;
+  background-color: transparent;
+}
+
+img {
+  border-style: none;
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  line-height: 1.15;
+  margin: 0;
+  border: none;
+}
+
+//=========================================//
+//=============== ROOT COLOR ==============//
+:root {
+  // Colors that remain the same across themes
+  --color-primary: #{tw.$blue-500};
+  --color-accent: #{tw.$blue-500};
+  --color-success: #{tw.$green-500};
+  --color-warning: #{tw.$yellow-500};
+  --color-error: #{tw.$red-500};
+
+  // Light theme colors
+  --color-primary-hover: #{tw.$blue-600};
+  --color-background: #{tw.$gray-100};
+  --color-background-alt: #{tw.$gray-50};
+  --color-text: #{tw.$gray-950};
+  --color-text-muted: #{tw.$gray-600};
+  --color-accent-alt: #{tw.$blue-400};
+  --color-border: #{tw.$gray-200};
+
+  &[data-theme=dark] {
+    // Dark theme overrides
+    --color-primary-hover: #{tw.$blue-400};
+    --color-background: #{tw.$gray-950};
+    --color-background-alt: #{tw.$gray-900};
+    --color-text: #{tw.$gray-100};
+    --color-text-muted: #{tw.$gray-400};
+    --color-accent-alt: #{tw.$blue-600};
+    --color-border: #{tw.$gray-800};
+  }
+}
+//=========================================//
+//============== SCROLL BAR ===============//
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-background-alt);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-primary-hover);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-primary) var(--color-background-alt);
+}
+
+//=========================================//
+//================= BODY =================//
+body {
+  max-width: 100vw;
+  min-height: 100vh;
+  overflow-x: hidden;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  
+  font: {
+    family: v.$font__family--first;
+    size: v.$font__size--md;
+    weight: v.$font__weight--light;
+  }
+}
+
+//=========================================//
+//================= MAIN ==================//
+.main {
+  margin-top: 6rem;
+}

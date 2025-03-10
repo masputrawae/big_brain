@@ -1,0 +1,107 @@
+{{- define "main" -}}
+<main class="main">
+  <article class="markdown">
+    <header class="main-header">
+      <h1>{{ .Title }}</h1>
+    </header>
+    
+    <form 
+    class="search" 
+    id="search" 
+    onsubmit="handleSearch(event)" 
+    method="get">
+      <input 
+      class="search__input" 
+      type="text" 
+      id="search-input" 
+      name="query" 
+      placeholder="Type here to search">
+    </form>
+    
+    <ul class="nav__list" id="results"></ul>
+  </article>
+</main>
+<script src="https://cdn.jsdelivr.net/npm/lunr@2.3.9/lunr.min.js" defer></script>
+<script defer>
+  document.addEventListener("DOMContentLoaded", async function () {
+    try {
+      let response = await fetch("{{ "search.json" | relURL }}");
+      let store = await response.json();
+
+      let idx = lunr(function () {
+        this.ref('id');
+        this.field('title', { boost: 40 }); // Boost tinggi untuk title
+        this.field('tags', { boost: 30 });  // Boost tinggi untuk tags
+        this.field('description', { boost: 10 });
+        this.field('excerpt', { boost: 10 });
+        this.field('category', { boost: 10 }); // Tambahkan kategori
+        this.field('content', { boost: 10 });
+
+        store.forEach((doc) => {
+          this.add(doc);
+        });
+      });
+
+      function displayResults(results, query) {
+        const searchResults = document.getElementById('results');
+        searchResults.innerHTML = results.length
+          ? results.map(result => {
+              const item = store.find(doc => doc.id === result.ref);
+              let highlightedContent = highlightText(item.content.substring(0, 150), query);
+              let highlightedTitle = highlightText(item.title, query);
+
+              return `
+                <li class="result">
+                  <div class="result__card">
+                    <h2><a href="${item.url}">${highlightedTitle}</a></h2>
+                    <p>${highlightedContent}...</p>
+                    <p><strong>Category:</strong> ${item.category}</p>
+                    <p><strong>Tags:</strong> ${item.tags.join(", ")}</p>
+                    <p><small>${item.date}</small></p>
+                  </div>
+                </li>`;
+            }).join('')
+          : '<li>No results found.</li>';
+      }
+
+      function handleSearch(event) {
+        if (event) event.preventDefault();
+        const query = document.getElementById('search-input').value.trim();
+        if (query) {
+          const results = idx.search(`*${query}*` + " " + `${query}~1`);
+          displayResults(results, query);
+        } else {
+          document.getElementById('results').innerHTML = "";
+        }
+      }      
+
+      function debounce(func, wait = 1000) {
+        let timeout;
+        return function (...args) {
+          clearTimeout(timeout);
+          timeout = setTimeout(() => func.apply(this, args), wait);
+        };
+      }
+
+      function highlightText(text, query) {
+        const regex = new RegExp(`(${query})`, "gi");
+        return text.replace(regex, `<mark>$1</mark>`);
+      }
+
+      document.getElementById('search-input').addEventListener('input', debounce(() => {
+        handleSearch(new Event('submit'));
+      }, 300));
+
+      const params = new URLSearchParams(window.location.search);
+      const query = params.get('query');
+      if (query) {
+        document.getElementById('search-input').setAttribute('value', query);
+        setTimeout(() => handleSearch(new Event('submit')), 100);
+      }
+    } catch (error) {
+      console.error("Gagal memuat data pencarian:", error);
+    }
+  });
+</script>
+
+{{- end -}}

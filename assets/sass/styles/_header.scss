@@ -1,0 +1,154 @@
+//========================================//
+//              _HEADER.SCSS              //
+//========================================//
+
+// Import dependencies
+@use '../abstracts/mixins' as m;
+@use '../abstracts/breakpoints' as bp;
+@use '../abstracts/variables' as v;
+
+//========================================//
+//            HEADER COMPONENTS           //
+//========================================//
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100vw;
+  height: 5rem;
+  background-color: var(--color-background-alt);
+  box-shadow: 0px 12px 14px v.$shadow__color--sm;
+  border-bottom: 3px solid var(--color-border);
+  @include m.flex-justify(center, center);
+
+  &::after {
+    content: "";
+    position: absolute;
+    top: 3px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: -1;
+    width: 0%;
+    height: 100%;
+    border-bottom: 3px solid var(--color-primary);
+    transition: width 1s cubic-bezier(1, 0, 0, 1);
+  }
+
+  &:hover::after {
+    width: 100%;
+  }
+
+  &__container {
+    @include m.flex-justify(space-between, center);
+  }
+
+  &__button-container {
+    @include m.flex-justify(center, center);
+    gap: 8px;
+  }
+}
+
+//========================================//
+//                   BRAND                //
+//========================================//
+.brand {
+  &__title {
+    font-family: v.$font__family--third;
+    color: transparent;
+    position: relative;
+    background-clip: text;
+    -webkit-background-clip: text;
+    background-image: linear-gradient(
+      to right,
+      var(--color-primary) 10%,
+      var(--color-text) 100%,
+      var(--color-background-alt) 0%
+    );
+    background-position: 0 0;
+    background-size: 200% 100%;
+    transition: background-position 1s cubic-bezier(1, 0, 0, 1);
+    text-shadow: 2px 2px 2px v.$shadow__color--2xl;
+
+    &:hover {
+      background-position: -100% 0;
+    }
+  }
+}
+
+//========================================//
+//            HEADER NAVIGATION           //
+//========================================//
+.nav {
+  &__list {
+    @include m.flex-justify(space-between, center);
+    gap: 8px;
+  }
+
+  &__link {
+    position: relative;
+    padding: 0.5rem 0.25rem;
+    font-weight: v.$font__weight--semi-bold;
+    font-size: v.$font__size--md;
+    transition: color 1s cubic-bezier(1, 0, 0, 1);
+    text-shadow: 2px 2px 5px v.$shadow__color--2xl;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 0%;
+      height: 2px;
+      z-index: -1;
+      background-color: var(--color-primary);
+      transition: width 1s cubic-bezier(1, 0, 0, 1);
+    }
+
+    &:hover,
+    &:hover::after,
+    &:focus-visible,
+    &:focus-visible::after {
+      width: 100%;
+      color: var(--color-primary-hover);
+    }
+
+    &--active {
+      color: var(--color-primary);
+    }
+  }
+}
+
+//========================================//
+//          NAVIGATION IN MOBILE          //
+//========================================//
+@include bp.max(lg) {
+  .nav--offcanvas {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 80vw;
+    height: 50vh;
+    background-color: var(--color-background-alt);
+    border: 3px solid var(--color-primary-hover);
+    border-radius: 1rem;
+    scale: 0;
+    visibility: hidden;
+    @include m.transition(0.3s, ease-in-out, visibility, scale);
+
+    &.active {
+      scale: 1;
+      visibility: visible;
+    }
+
+    .nav__list {
+      flex-direction: column;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
+  }
+}
