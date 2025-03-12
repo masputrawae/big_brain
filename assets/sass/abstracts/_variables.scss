@@ -1,0 +1,62 @@
+//========================================//
+//            _VARIABLES.SCSS             //
+//========================================//
+//============== BREAKPOINTS ==============//
+$breakpoints: (
+  xs:   20em,     // 320px
+  sm:   36em,     // 576px
+  md:   48em,     // 768px
+  lg:   62em,     // 992px
+  xl:   75em,     // 1200px
+  xxl:  87.5em    // 1400px
+);
+//=========================================//
+//============= FONT VARIABLES ============//
+//  Common Types of Scale Ratios
+//  Some common ratios often used in design:           
+//  Minor Second (1.067)
+//  Major Second (1.125)
+//  Minor Third (1.200) 
+//  Major Third (1.250) 
+//  Perfect Fourth (1.333)
+//  Augmented Fourth (1.414)
+//  Perfect Fifth (1.500)
+//  Golden Ratio (1.618)
+@use "sass:math";
+@function scale($step) {
+  @return math.div(math.round($font__size--default * pow($scale-ratio, $step) * 100), 100);
+}
+
+$font__family--first: 'Merriweather', serif;
+$font__family--second: 'Playfair Display', serif;
+$font__family--monospace: 'Courier Prime', monospace;
+
+$font__size--default          : 16px;       // Basic size
+$scale-ratio                  : 1.067;      // Minor Second
+
+$font__size--xs               : scale(-2);
+$font__size--sm               : scale(-1);
+$font__size--md               : scale(0);   // ~16px (default)
+$font__size--lg               : scale(1);
+$font__size--xl               : scale(2);
+
+$font__size--2xl              : scale(3); 
+$font__size--3xl              : scale(4);
+$font__size--4xl              : scale(5);
+$font__size--5xl              : scale(6);
+$font__size--6xl              : scale(7);
+$font__size--7xl              : scale(8);
+
+$font__weight--light         : 300;
+$font__weight--normal        : 400;
+$font__weight--medium        : 500;
+$font__weight--semi-bold     : 600;
+$font__weight--bold          : 700;
+
+//=========================================//
+//============= SHADOW COLORS =============//
+$shadow__color--sm    : rgba(0, 0, 0, 0.1);
+$shadow__color--md    : rgba(0, 0, 0, 0.15);
+$shadow__color--lg    : rgba(0, 0, 0, 0.2);
+$shadow__color--xl    : rgba(0, 0, 0, 0.25);
+$shadow__color--2xl   : rgba(0, 0, 0, 0.3);

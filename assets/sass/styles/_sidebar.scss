@@ -1,0 +1,73 @@
+//==============================================//
+//=================== SIDEBAR ==================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.nav {
+  padding: 1rem;
+
+  &__list {
+    list-style: none;
+    padding-inline: 1rem;
+
+    &--row {
+      @include m.flex-center;
+      gap: 0.5rem;
+    }
+  }
+
+  &__item {
+    margin: 1rem 0;
+  }
+
+  &__link {
+    @include m.shadow(md);
+    @include m.transition(0.3s, ease-in-out, shadow, background-color, color, border-color);
+    
+    color: var(--color-text-alt);
+    border: 1px solid var(--color-border);
+    border-radius: 0.25rem;
+    padding: 0.5rem;
+
+    font: {
+      family: v.$font__family--second;
+      weight: v.$font__weight--bold;
+      size: v.$font__size--2xl;
+    }
+    letter-spacing: 0.05em;
+
+    &--active,
+    &--ancestor,
+    &:is(:hover, :focus-visible, :active) {
+      background-color: var(--color-bg-alt);
+      color: var(--color-text);
+      border-color: var(--color-accent);
+      outline: none;
+      @include m.shadow(lg);
+    }
+
+    &--social {
+      position: relative;
+
+      span {
+        @include m.transition(0.3s, ease-in-out, opacity, scale);
+        position: absolute;
+        top: -100%;
+        left: 50%;
+        opacity: 0;
+        scale: 0;
+        transform: translateX(-50%);
+        
+        font: {
+          family: v.$font__family--first;
+          weight: v.$font__weight--bold;
+        }
+      }
+
+      &:is(:hover, :focus-visible) span {
+        scale: 1;
+        opacity: 1;
+      }
+    }
+  }
+}

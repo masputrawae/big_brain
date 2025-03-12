@@ -1,0 +1,71 @@
+//==============================================//
+//=================== LAYOUT ===================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+//==============================================//
+//==================== BODY ====================//
+body {
+  max-width: 100vw;
+  min-height: 100dvb;
+  position: relative;
+  overflow-x: hidden;
+
+  background-color: var(--color-bg);
+  color: var(--color-text);
+
+  font-family: v.$font__family--first;
+  font-weight: v.$font__weight--light;
+}
+
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  grid-template-rows: minmax(0, 1fr);
+  gap: 1rem;
+
+  height: 100dvb;
+  width: 100vw;
+  position: relative;
+
+  &__sidebar, &__main {
+    width: 100%;
+    overflow-y: auto;
+  }
+
+  &__sidebar {
+    position: sticky;
+    top: 0;
+    display: grid;
+    grid-template-columns: auto;
+    grid-template-rows: min-content auto min-content;
+    height: 100dvb;
+
+    border-right: 1px solid var(--color-border);
+
+    @include m.max(lg){
+      max-width: 320px;
+      position: fixed;
+      z-index: 100;
+      top: 0;
+      left: 0;
+      transform: translateX(-100%);
+      background-color: var(--color-bg-alt);
+
+      transition: transform 0.3s ease-in-out;
+      &.active {
+        transform: translateX(0%);
+      }
+    }
+  }
+
+  &__main {
+    max-width: 1024px;
+    width: 100%;
+    margin: 0 auto;
+  }
+
+  @include m.max(lg) {
+    grid-template-columns: auto;
+  }
+}

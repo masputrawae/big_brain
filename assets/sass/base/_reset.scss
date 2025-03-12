@@ -1,0 +1,35 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  line-height: 1.15;
+  -webkit-text-size-adjust: 100%;
+}
+a {
+  display: block;
+  text-decoration: none;
+  background-color: transparent;
+}
+sub {
+  bottom: -0.25em;
+}
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-style: none;
+}
+button,
+input,
+optgroup,
+select,
+textarea {
+  font-family: inherit;
+  font-size: 100%;
+  margin: 0;
+}

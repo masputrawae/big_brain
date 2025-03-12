@@ -1,0 +1,20 @@
+{{ define "main" }}
+  <main class="main">
+    <header class="hero">
+      <h1 class="hero__title">{{ .Params.intro }}</h1>
+      <article class="markdown hero__descriotion">
+        {{ .Content | safeHTML }}
+      </article>
+      <nav class="cta">
+        {{- with site.Params.cta }}
+        {{- range .buttons }}
+          <a href="{{ .url }}" class="btn btn--text {{ if .primary }}btn--primary{{ end }}">
+            <i class="cta__icon bi {{ .icon }}"></i>
+            <span class="cta__text">{{ .name }}</span>
+          </a>
+          {{- end }}
+        {{- end }}
+      </nav>
+    </header>
+  </main>
+{{ end }}

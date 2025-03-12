@@ -1,0 +1,28 @@
+//==============================================//
+//=================== COLORS ===================//
+@use '../abstracts/tailwind-colors' as tw;
+
+:root {
+  --color-black: #{tw.$black};
+  --color-white: #{tw.$white};
+
+  --color-bg: #{tw.$slate-50};
+  --color-bg-alt: #{tw.$white};
+  --color-text: #{tw.$slate-900};
+  --color-text-alt: #{tw.$slate-800};
+  --color-text-muted: #{tw.$slate-600};
+  --color-accent: #{tw.$blue-600};
+  --color-accent-hover: #{tw.$blue-700};
+  --color-border: #{tw.$slate-200};
+
+  &[data-theme=dark] {
+    --color-bg: #{tw.$slate-900};
+    --color-bg-alt: #{tw.$slate-800};
+    --color-text: #{tw.$slate-50};
+    --color-text-alt: #{tw.$slate-300};
+    --color-text-muted: #{tw.$slate-400};
+    --color-accent: #{tw.$blue-500};
+    --color-accent-hover: #{tw.$blue-600};
+    --color-border: #{tw.$slate-700};
+  }
+}

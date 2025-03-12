@@ -1,0 +1,100 @@
+#====================================#
+#=========== BASE SETTING ===========#
+baseURL = 'https://masputrawae.github.io/big_brain/'
+languageCode = 'en-US'
+title = 'John Doe'
+
+#====================================#
+#========== PARAMS SETTING ==========#
+[params]
+  #========== AUTHOR ==========#
+  [params.author]
+    name        = "John Doe"
+    subtitle    = "Designer"
+    logo        = "https://thispersondoesnotexist.com/"
+    tagline     = "Pariatur duis esse sunt pariatur adipisicing."
+    email       = "john.doe@example.com"
+    phone       = "+1-234-567-8901"
+  [params.cta]
+    [[params.cta.buttons]]
+      name    = "About"
+      url     = "/about"
+      icon    = "bi-person"
+      primary = true
+    [[params.cta.buttons]]
+      name    = "Download CV"
+      url     = "https://download.cv/"
+      icon    = "bi-download"
+      primary = false
+
+  #========== META ==========#
+  [params.meta]
+    description = "Incididunt est aliqua consectetur do esse exercitation dolor id et."
+    keywords    = ["personal", "blog", "portfolio"]
+    author      = "John Doe"
+
+  #========== SOCIAL LINK ==========#
+  [params.social]
+    [params.social.facebook]
+      name = "Facebook"
+      url  = "https://facebook.com/johndoe"
+      icon = "bi-facebook"
+    [params.social.twitter]
+      name = "TwitterX"
+      url  = "https://x.com/johndoe"
+      icon = "bi-twitter-x"
+    [params.social.instagram]
+      name = "Instagram"
+      url  = "https://instagram.com/johndoe"
+      icon = "bi-instagram"
+    [params.social.github]
+      name = "Github"
+      url  = "https://github.com/johndoe"
+      icon = "bi-github"
+    [params.social.youtube]
+      name = "Youtube"
+      url  = "https://youtube.com/johndoe"
+      icon = "bi-youtube"
+
+#====================================#
+#=========== MENU SETTING ===========#
+[[menus.main]]
+  name    = 'Home'
+  pageRef = '/'
+  pre     = "<i class='bi bi-house'></i>"
+  weight  = 10
+[[menus.main]]
+  name    = 'About'
+  pageRef = '/about'
+  pre     = "<i class='bi bi-person'></i>"
+  weight  = 20
+[[menus.main]]
+  name    = 'Projects'
+  pageRef = '/arojects'
+  pre     = "<i class='bi bi-folder'></i>"
+  weight  = 30
+[[menus.main]]
+  name    = 'Articles'
+  pageRef = '/articles'
+  pre     = "<i class='bi bi-file-earmark-text'></i>"
+  weight  = 40
+[[menus.main]]
+  name    = 'Tags'
+  pageRef = '/tags'
+  pre     = "<i class='bi bi-tags'></i>"
+  weight  = 50
+[[menus.main]]
+  name    = 'Categories'
+  pageRef = '/categories'
+  pre     = "<i class='bi bi-grid'></i>"
+  weight  = 60
+
+[module]
+  [module.hugoVersion]
+    extended = false
+    min = "0.116.0"
+# Start of Selection
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true

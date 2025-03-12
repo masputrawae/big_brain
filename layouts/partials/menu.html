@@ -1,0 +1,66 @@
+{{- $page := .page }}
+{{- $menuID := .menuID }}
+
+{{- with index site.Menus $menuID }}
+<!-- ---------- -->
+{{ partial "header.html" (dict "type" "sidebar") }}
+
+<nav class="nav">
+  <ul class="nav__list">
+    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+  </ul>
+</nav>
+
+<nav class="nav">
+  <ul class="nav__list nav__list--row">
+    {{- with site.Params.social }}
+      {{- range $key, $value := . }}
+        <li class="nav__item">
+          <a href="{{ $value.url }}" class="nav__link nav__link--social">
+            <i class="nav__icon bi {{ $value.icon }}"></i>
+            <span class="nav__tooltip">{{ $value.name }}</span>
+          </a>
+        </li>
+      {{- end }}
+    {{- end }}
+  </ul>
+</nav>
+<!-- ---------- -->
+{{- end }}
+
+{{- define "partials/inline/menu/walk.html" }}
+  {{- $page := .page }}
+  {{- range .menuEntries }}
+    {{- $attrs := dict "href" .URL "class" "nav__link" }}
+    {{- if $page.IsMenuCurrent .Menu . }}
+      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--active" "aria-current" "page") }}
+    {{- else if $page.HasMenuCurrent .Menu .}}
+      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--ancestor" "aria-current" "true") }}
+    {{- end }}
+    {{- $name := .Name }}
+    {{- with .Identifier }}
+      {{- with T . }}
+        {{- $name = . }}
+      {{- end }}
+    {{- end }}
+    <li class="nav__item">
+      <a
+        {{- range $k, $v := $attrs }}
+          {{- with $v }}
+            {{- printf " %s=%q" $k $v | safeHTMLAttr }}
+          {{- end }}
+        {{- end -}}
+      >
+        {{- with .Pre }}
+          {{ . | safeHTML }}
+        {{- end }}
+        {{ $name }}
+      </a>
+      {{- with .Children }}
+        <ul class="nav__list">
+          {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+        </ul>
+      {{- end }}
+    </li>
+  {{- end }}
+{{- end }}
