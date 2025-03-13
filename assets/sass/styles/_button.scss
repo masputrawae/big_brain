@@ -9,8 +9,9 @@
   color: var(--color-text-alt);
   border: 1px solid var(--color-border);
   border-radius: 0.25rem;
+  font-weight: v.$font__weight--bold;
 
-  @include m.transition(0.3s, ease-in-out, scale, color, background-color, box-shadow);
+  @include m.transition(0.3s, ease-in-out, scale, color, background-color, box-shadow, border-color);
   @include m.shadow(md);
 
   &--icon {
@@ -33,15 +34,18 @@
   }
 
   &:is(:hover, :focus-visible, &:active ) {
-    scale: 1.1;
+    scale: 1.05;
     background-color: var(--color-bg-alt);
-    color: var(--color-text);
+    color: var(--color-accent);
     outline: none;
+    border-color: var(--color-accent-hover);
+    text-decoration: none;
     @include m.shadow(xl);
   }
 
   &--text {
     display: inline-block;
+    padding: 0.75rem;
   }
 
   &--primary {

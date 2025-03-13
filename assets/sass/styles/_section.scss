@@ -1,0 +1,98 @@
+//==============================================//
+//================== section ===================//
+
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.section {
+
+  &__title {
+    font-size: v.$font__size--7xl;
+    font-weight: v.$font__weight--bold;
+  }
+}
+//==============================================//
+//================= HOME HERO ==================//
+.hero {
+  &__title {
+    font-size: v.$font__size--7xl;
+    font-weight: v.$font__weight--bold;
+  }
+
+  &__subtitle {
+    font-size: v.$font__size--lg;
+    font-style: normal;
+  }
+
+  &__description {
+    color: var(--color-text-alt);
+  }
+
+  &__cta {
+    display: flex;
+    align-items: start;
+    gap: 1rem;
+  }
+}
+
+//==============================================//
+//================= FEATURED ===================//
+.featured {
+  display: grid;
+  grid-column-gap: 5rem;
+  color: var(--white);
+  grid-template-rows: auto;
+  grid-template-columns: 1fr 2fr;
+  align-items: start;
+  margin: 1rem;
+  
+  &__img {
+    width: 100%;
+    border-radius: 0.5rem;
+    border: 3px solid var(--color-border);
+    overflow: hidden;
+    aspect-ratio: 14/9;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    transition: 0.3s ease-in-out border-color;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+
+      transition: 0.3s ease-in-out scale;
+      &:hover {
+        scale: 1.5;
+      }
+    }
+
+    &:hover {
+      border-color: var(--color-accent-hover);
+    }
+  }
+
+  &__body {
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    height: 100%;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  &__title {
+    margin: 0;
+  }
+
+  &__nav {
+    display: flex;
+    gap: 1rem;
+  }
+
+  @include m.max(md) {
+    grid-template-columns: 1fr;
+  }
+}

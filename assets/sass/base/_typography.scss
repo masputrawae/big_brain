@@ -4,16 +4,16 @@
 
 //==============================================//
 //==================== FONT ====================//
-@import url('https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
 
-.markdown {
+main {
   // Base typography
   font-family: v.$font__family--first;
   line-height: 1.6;
   color: var(--color-text);
-  font-weight: 300;
+  font-weight: v.$font__weight--light;
   --paragraph-space: 2rem;
   --title-space: 1rem;
 
@@ -51,42 +51,42 @@
   }
 
   h1 {
-    font-size: v.$font__size--5xl;
+    font-size: v.$font__size--6xl;
     line-height: 40px;
     font-weight: v.$font__weight--light;
     letter-spacing: -0.003em;
   }
 
   h2 {
-    font-size: v.$font__size--4xl;
+    font-size: v.$font__size--5xl;
     line-height: 40px;
     font-weight: v.$font__weight--light;
     letter-spacing: -0.002em;
   }
 
   h3 {
-    font-size: v.$font__size--3xl;
+    font-size: v.$font__size--4xl;
     line-height: 36px;
     font-weight: v.$font__weight--normal;
     letter-spacing: -0.001em;
   }
 
   h4 {
-    font-size: v.$font__size--2xl;
+    font-size: v.$font__size--3xl;
     line-height: 36px;
     font-weight: v.$font__weight--medium;
     letter-spacing: 0em;
   }
 
   h5 {
-    font-size: v.$font__size--xl;
+    font-size: v.$font__size--2xl;
     line-height: 36px;
     font-weight: v.$font__weight--semi-bold;
     letter-spacing: 0.001em;
   }
 
   h6 {
-    font-size: v.$font__size--lg;
+    font-size: v.$font__size--xl;
     line-height: 32px;
     font-weight: v.$font__weight--bold;
     letter-spacing: 0.002em;
@@ -96,10 +96,10 @@
   p {
     margin: 1em 0;
     font-size: v.$font__size--md;
-    max-width: 768px;
-    line-height: 20px;
-    font-weight: v.$font__weight--normal;
-    letter-spacing: 0.001em;
+    max-width: 75ch;
+    line-height: 1.5;
+    font-weight: v.$font__weight--light;
+    letter-spacing: 0.03em;
   }
 
   // Links
@@ -107,6 +107,7 @@
     color: var(--color-accent);
     text-decoration: none;
     transition: color 0.2s ease;
+    display: inline;
     
     &:hover {
       color: var(--color-accent-hover);

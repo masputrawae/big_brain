@@ -18,14 +18,14 @@ title = 'John Doe'
   [params.cta]
     [[params.cta.buttons]]
       name    = "About"
-      url     = "/about"
+      url     = "about"
       icon    = "bi-person"
-      primary = true
+      primary = false
     [[params.cta.buttons]]
       name    = "Download CV"
       url     = "https://download.cv/"
       icon    = "bi-download"
-      primary = false
+      primary = true
 
   #========== META ==========#
   [params.meta]
@@ -70,7 +70,7 @@ title = 'John Doe'
   weight  = 20
 [[menus.main]]
   name    = 'Projects'
-  pageRef = '/arojects'
+  pageRef = '/projects'
   pre     = "<i class='bi bi-folder'></i>"
   weight  = 30
 [[menus.main]]

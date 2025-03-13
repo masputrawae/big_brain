@@ -27,7 +27,7 @@ $breakpoints: (
   @return math.div(math.round($font__size--default * pow($scale-ratio, $step) * 100), 100);
 }
 
-$font__family--first: 'Merriweather', serif;
+$font__family--first: 'Inter', sans-serif;
 $font__family--second: 'Playfair Display', serif;
 $font__family--monospace: 'Courier Prime', monospace;
 

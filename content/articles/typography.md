@@ -1,6 +1,14 @@
 ---
 title: 'Typography Guide'
+image: "https://placehold.co/1080x720"
 date: 2023-01-01T08:00:00-07:00
+description: "A comprehensive guide to typography principles, best practices, and visual hierarchy in web design"
+categories:
+  - Articles
+tags:
+  - typography
+  - web-design
+  - visual-hierarchy
 draft: false
 ---
 # Heading Styles
@@ -13,6 +21,12 @@ draft: false
 ###### Heading 6
 
 ---
+## Lorem Ipsum
+Eu incididunt exercitation voluptate irure aute. In in mollit adipisicing duis. Aliqua aliqua ut eu id.
+
+Duis exercitation laboris amet amet tempor anim ex. Lorem ut incididunt aliquip eu irure. Commodo sint labore ipsum pariatur officia magna enim aute ad quis. Ullamco est exercitation ipsum culpa aliquip Lorem fugiat ad nostrud. Ea et enim consequat et quis consequat minim.
+
+Ipsum quis officia ut amet dolor velit fugiat tempor nostrud occaecat duis eiusmod. Irure id nulla velit ipsum. Minim fugiat exercitation deserunt minim.
 
 ## Text Formatting
 
