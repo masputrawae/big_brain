@@ -57,6 +57,7 @@
     justify-content: center;
     align-items: center;
 
+    @include m.shadow(xl);
     transition: 0.3s ease-in-out border-color;
     img {
       width: 100%;
@@ -94,5 +95,37 @@
 
   @include m.max(md) {
     grid-template-columns: 1fr;
+  }
+}
+
+//==============================================//
+//================== FOOTER ====================//
+.footer {
+  padding: 2rem 1rem;
+  text-align: center;
+  color: var(--color-text);
+  background-color: var(--color-background);
+  margin-top: 3rem;
+
+  p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+    color: var(--color-text-muted);
+  }
+
+  &__link {
+    color: var(--color-accent);
+    text-decoration: none;
+    transition: color 0.3s ease;
+    display: inline;
+
+    &:hover {
+      color: var(--color-accent-hover);
+      text-decoration: underline;
+    }
+  }
+
+  @include m.min(md) {
+    padding: 3rem 1rem;
   }
 }

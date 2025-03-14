@@ -3,9 +3,6 @@ title: 'About Me'
 date: 2023-01-01T08:00:00-07:00
 draft: false
 ---
-
-# About Me
-
 Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
 ## My Background

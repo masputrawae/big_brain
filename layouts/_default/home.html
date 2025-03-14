@@ -1,9 +1,11 @@
 {{ define "main" }}
   <main class="main">
+    <!-- Hero Section -->
     <header class="hero">
       <h1 class="hero__title">{{ .Params.intro }}</h1>
       <em class="hero__subtitle">{{ .Params.subtitle }}</em>
       <p class="hero__description">{{ .Params.description }}</p>
+      
       {{ if site.Params.cta }}
         <nav class="hero__cta">
           {{- with site.Params.cta }}
@@ -17,36 +19,50 @@
         </nav>
       {{ end }}
     </header>
+    
     <hr>
+    
+    <!-- Featured Content Section -->
     <section class="section">
       {{ range site.Sections }}
         {{ if .Pages }}
           <h2 class="section__title">{{ .Title }}</h2>
-
+          
           {{ range first 5 .Pages }}
             {{ if ne .Kind "section" }}
               <div class="featured">
+                <!-- Featured Image -->
                 <div class="featured__img">
                   <img src="{{ .Params.image | relURL }}" alt="Image {{ .Title }}">
                 </div>
+                
+                <!-- Featured Content -->
                 <article class="featured__body">
                   <h3 class="featured__title">{{ .Title }}</h3>
-                  <small class="featured__content">{{ .Params.description | truncate 200 }}</small>
+                  <small class="featured__content">
+                    {{ .Params.description | truncate 200 }}
+                  </small>
+                  
+                  <!-- Featured Links -->
                   <nav class="featured__nav">
                     {{ if .Params.link }}
-                    {{ range .Params.link }}
-                      <a href="{{ .url | relURL }}" class="btn btn--text">{{ .name }}</a>
-                    {{ end }}
+                      {{ range .Params.link }}
+                        <a href="{{ .url | relURL }}" class="btn btn--text">
+                          {{ .name }}
+                        </a>
+                      {{ end }}
                     {{ else }}
-                      <a href="{{ .RelPermalink }}" class="btn btn--text">Read More</a>
+                      <a href="{{ .RelPermalink }}" class="btn btn--text">
+                        Read More
+                      </a>
                     {{ end }}
                   </nav>
                 </article>
               </div>
+              
               <hr>
             {{ end }}
           {{ end }}
-
         {{ end }}
       {{ end }}
     </section>
