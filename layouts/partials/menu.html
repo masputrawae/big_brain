@@ -6,7 +6,9 @@
   <!-- |===========| START: Brand Section |===========| -->
   <header class="sidebar__header">
     <a href="{{ site.BaseURL | relURL }}" class="brand">
-      <img class="brand__logo" src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
+      <div class="brand__logo">
+        <img src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
+      </div>
       <h1 class="brand__title">{{ site.Params.author.name }}</h1>
       <p class="brand__description">{{ site.Params.author.description }}</p>
     </a>

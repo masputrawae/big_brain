@@ -12,6 +12,7 @@ body {
   max-width: 100vw;
   min-height: 100dvh;
   scroll-behavior: smooth;
+  position: relative;
   
   @include m.transition(color, background-color);
   
@@ -21,7 +22,7 @@ body {
     inset: 0;
     z-index: -1;
     background: var(--bg-image) no-repeat center/cover;
-    filter: brightness(80%);
+    filter: opacity(1);
     
     @include m.transition(background-image);
   }
@@ -37,26 +38,39 @@ body {
   overflow: hidden;
   
   display: grid;
-  grid-template-columns: 280px 1fr 280px;
+  grid-template-columns: 250px 1fr 250px;
   grid-template-rows: 1fr;
-  gap: 0.5rem;
+  gap: 1rem;
   
   &__left,
   &__right,
   &__main {
     overflow-y: auto;
     overflow-x: hidden;
+    scrollbar-width: none;
+
+    background-color: var(--bg-opacity-second);
+    border: 1px solid var(--cl-border);
+    border-radius: 0.25rem;
+
+    box-shadow: var(--shadow-md);
   }
   
   &__left {
     grid-column: 1;
+    grid-row: 1;
   }
   
   &__main {
     grid-column: 2;
+    grid-row: 1;
   }
   
   &__right {
     grid-column: 3;
+    grid-row: 1;
   }
 }
+
+///==============================================//
+//===============// MAIN WRAPPER //==============//

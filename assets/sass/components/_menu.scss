@@ -1,0 +1,42 @@
+///==============================================//
+//================// MENU.SCSS //================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.menu {
+  &__list {
+    list-style: none;
+    padding-inline: 1rem;
+  }
+
+  &__item {
+    padding-block: 0.25rem;
+  }
+
+  &__link {
+    display: block;
+    padding: 0.25rem 1rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow-lg);
+    background-color: var(--bg-opacity-second);
+
+    font-weight: v.$font__weight--normal;
+    font-size: v.$font__size--3xs;
+    @include m.transition(border-color, background-color, color, box-shadow);
+
+    &--active, 
+    &--ancestor,
+    &:is(:hover, :active, :focus-visible) {
+      border-color: var(--cl-accent-first);
+      background-color: var(--bg-opacity-third);
+      color: var(--cl-accent-first);
+      box-shadow: var(--shadow-glow-sm);
+      outline: none;
+    }
+
+    &:is(:hover, :active, :focus-visible){
+      box-shadow: var(--shadow-glow-md);
+    }
+  }
+}

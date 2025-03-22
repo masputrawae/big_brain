@@ -1,0 +1,18 @@
+///==============================================//
+//===============// UTILITY.SCSS //==============//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+///==============================================//
+//===============// CONTAINER //=================//
+.u-container {
+  width: 100%;
+  padding: 1rem;
+  margin: 0 auto;
+  
+  @include m.min(sm) { max-width: 540px }
+  @include m.min(md) { max-width: 720px }
+  @include m.min(lg) { max-width: 960px }
+  @include m.min(xl) { max-width: 1140px }
+  @include m.min(xxl) { max-width: 1320px }
+}

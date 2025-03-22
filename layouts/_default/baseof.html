@@ -8,17 +8,17 @@ data-theme="dark">
 </head>
 <body>
   <div class="layout">
-    <div class="layout__left" id="leftSide">
+    <div class="u-container layout__left" id="leftSide">
       {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
     </div>
-    <div class="layout__main">
+    <div class="u-container layout__main">
       <div class="main-wrapper">
         {{ partial "topbar.html" . }}
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
       </div>
     </div>
-    <div class="layout__right" id="rightSide">
+    <div class="u-container layout__right" id="rightSide">
       {{ partial "panel.html" . }}
     </div>
   </div>
