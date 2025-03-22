@@ -1,0 +1,19 @@
+///==============================================//
+//================// SEARCH.SCSS //================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.search {
+  @include m.flex-between;
+  gap: 1rem;
+  border: 1px solid var(--cl-border);
+  border-radius: 0.25rem;
+  padding: 0.25rem 1rem;
+
+  &__input {
+    width: 100%;
+    border: none;
+    color: var(--cl-text-first);
+    outline: none;
+  }
+}

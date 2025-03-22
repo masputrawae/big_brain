@@ -1,0 +1,12 @@
+///==============================================//
+//===============// TOPBAR.SCSS //===============//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.header {
+  display: none;
+
+  @include m.max(lg){
+    @include m.flex-between;
+  }
+}

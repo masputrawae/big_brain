@@ -67,8 +67,8 @@
             ? results.map(result => {
                 const item = store.find(doc => doc.id === result.ref)
                 return `
-                  <li class="nav__item">
-                    <a class="nav__link" href="${item.url}">
+                  <li class="menu__item">
+                    <a class="menu__link" href="${item.url}">
                       <i class="bi bi-folder-symlink"></i>
                       <span>${item.title}</span>
                     </a>

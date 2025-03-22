@@ -4,9 +4,20 @@
 @use '../abstracts/variables' as v;
 
 .menu {
+
+  &__label {
+    display: block;
+    padding-block: 1rem;
+    font-size: v.$font__size--xl;
+  }
+
   &__list {
     list-style: none;
     padding-inline: 1rem;
+
+    &--toc {
+      padding: 0;
+    }
   }
 
   &__item {
@@ -25,8 +36,10 @@
 
     font-weight: v.$font__weight--normal;
     font-size: v.$font__size--3xs;
-    @include m.transition(border-color, background-color, color, box-shadow);
 
+    @include m.transition(border-color, background-color, color, box-shadow);
+    @include m.text-ellipsis();
+    
     &--active, 
     &--ancestor,
     &:is(:hover, :active, :focus-visible) {

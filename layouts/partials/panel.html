@@ -15,62 +15,62 @@
   <nav class="panel__content">
 
     <!-- |===========| START: RESULTS |===========| -->
-    <div class="panel__nav" id="resultsPanel" style="display: none;">
-      <label class="panel__label" for="results">
+    <div class="menu" id="resultsPanel" style="display: none;">
+      <label class="menu__label" for="results">
         <i class="bi bi-search"></i>
         <span>Results</span>
       </label>
-      <ul class="panel__list" id="results"></ul>
+      <ul class="menu__list" id="results"></ul>
     </div>
     <!-- |===========| END: RESULTS |===========| -->
 
     {{ if .IsPage }}
     <!-- |===========| START: TABLE OF CONTENT |===========| -->
-    <div class="panel__nav">
-      <label for="panel__label" class="nav__label">
+    <div class="menu">
+      <label for="menu__label" class="nav__label">
         <i class="bi bi-list-task"></i>
         <span>Table of Contents</span>
       </label>
       {{ $toc := .TableOfContents }}
-      {{ $toc := replaceRE `<ul>` `<ul class="panel__list panel__list--toc" id="toc">` $toc }}
-      {{ $toc := replaceRE `<li>` `<li class="panel__item">` $toc }}
-      {{ $toc := replaceRE `<a href=` `<a class="panel__link" href=` $toc }}
+      {{ $toc := replaceRE `<ul>` `<ul class="menu__list menu__list--toc" id="toc">` $toc }}
+      {{ $toc := replaceRE `<li>` `<li class="menu__item">` $toc }}
+      {{ $toc := replaceRE `<a href=` `<a class="menu__link" href=` $toc }}
       {{ $toc | safeHTML }}
     </div>
     <!-- |===========| END: TABLE OF CONTENT |===========| -->
     <!-- |===========| START: RELATED POSTS |===========| -->
-    <div class="panel__nav">
-      <label class="panel__label" for="relatedContent">
+    <div class="menu">
+      <label class="menu__label" for="relatedContent">
         <i class="bi bi-folder-symlink"></i>
         <span>Related Content</span>
       </label>
-      <ul class="panel__list" id="relatedContent">
+      <ul class="menu__list" id="relatedContent">
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ if $related }}
           {{ range $related }}
-            <li class="panel__item">
-              <a href="{{ .RelPermalink }}" class="panel__link">{{ .Title }}</a>
+            <li class="menu__item">
+              <a href="{{ .RelPermalink }}" class="menu__link">{{ .Title }}</a>
             </li>
           {{ end }}
         {{ else }}
-          <li class="panel__item">No related content found.</li>
+          <li class="menu__item">No related content found.</li>
         {{ end }}
       </ul>
     </div>
     <!-- |===========| END: RELATED POSTS |===========| -->
     {{ else }}
     <!-- |===========| START: RECENT CHANGE |===========| -->
-    <div class="panel__nav">
-      <label for="recentChange" class="panel__label">
+    <div class="menu">
+      <label for="recentChange" class="menu__label">
         <i class="bi bi-clock-history"></i>
         <span>Recent Changes</span>
       </label>
       {{ $recent := .Site.RegularPages | first 5 }}
       {{ if $recent }}
-        <ul class="panel__list" id="recentChange">
+        <ul class="menu__list" id="recentChange">
           {{ range $recent }}
-            <li class="panel__item">
-              <a href="{{ .RelPermalink }}" class="panel__link">{{ .Title }}</a>
+            <li class="menu__item">
+              <a href="{{ .RelPermalink }}" class="menu__link">{{ .Title }}</a>
             </li>
           {{ end }}
         </ul>
@@ -78,17 +78,17 @@
     </div>
     <!-- |===========| END: RECENT CHANGE |===========| -->
     <!-- |===========| START: TOP TAGS |===========| -->
-    <div class="panel__nav">
-      <label for="topTags" class="panel__label">
+    <div class="menu">
+      <label for="topTags" class="menu__label">
         <i class="bi bi-tags"></i>
         <span>Top 5 Tags</span>
       </label>
       {{ $tags := .Site.Taxonomies.tags }}
       {{ $topTags := $tags.ByCount | first 5 }}
-      <ul class="panel__list panel__list--top-tags" id="topTags">
+      <ul class="menu__list menu__list--top-tags" id="topTags">
         {{ range $topTags }}
-          <li class="panel__item">
-            <a href="{{ .Page.Permalink }}" class="panel__link">
+          <li class="menu__item">
+            <a href="{{ .Page.Permalink }}" class="menu__link">
               <span>{{ .Term }}</span>
             </a>
           </li>
@@ -97,18 +97,18 @@
     </div>
     <!-- |===========| END: TOP TAGS |===========| -->
     <!-- |===========| START: TOP CATEGORIES |===========| -->
-    <div class="panel__nav">
-      <label for="topCategories" class="panel__label">
+    <div class="menu">
+      <label for="topCategories" class="menu__label">
         <i class="bi bi-grid"></i>
         <span>Top 5 Categories</span>
       </label>
       {{ $categories := .Site.Taxonomies.categories }}
       {{ $topCategories := $categories.ByCount | first 5 }}
-      <ul class="panel__list panel__list--top-categories" id="topCategories">
+      <ul class="menu__list menu__list--top-categories" id="topCategories">
         {{ range $topCategories }}
-          <li class="panel__item">
-            <a href="{{ .Page.Permalink }}" class="panel__link">
-              <span>{{ .Term }}</span>
+          <li class="menu__item">
+            <a href="{{ .Page.Permalink }}" class="menu__link">
+              <span>{{ .Term | title }}</span>
             </a>
           </li>
         {{ end }}

@@ -1,0 +1,19 @@
+///==============================================//
+//================// PANEL.SCSS //===============//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.panel {
+  &__header {
+    @include m.flex-between;
+    gap: 1rem;
+  }
+  
+  &__content {
+    .menu__link {
+      font-size: v.$font__size--xs;
+      display: block;
+      width: 100%;
+    }
+  }
+}

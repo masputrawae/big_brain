@@ -97,23 +97,23 @@ const Theme = (() => {
 // TOC Module
 const TOC = (() => {
     const init = () => {
-        const toc = document.querySelector('.panel__list--toc');
+        const toc = document.querySelector('.menu__list--toc');
         if (toc) highlightTOC();
     };
 
     const highlightTOC = () => {
-        const tocLinks = document.querySelectorAll('.panel__list--toc .panel__link');
-        const mainContent = document.documentElement; // Changed from body to documentElement
+        const tocLinks = document.querySelectorAll('.menu__list--toc .menu__link');
+        const mainContent = document.querySelector('.layout__main');
         const headings = Array.from(tocLinks).map(link => {
             const href = link.getAttribute('href');
             return href ? document.getElementById(href.substring(1)) : null;
         }).filter(Boolean); // Filter out null values
 
         const updateActiveLink = () => {
-            const scrollPosition = window.scrollY + 100; // Use window.scrollY instead of mainContent.scrollTop
+            const scrollPosition = mainContent.scrollTop + 100;
             const activeIndex = findActiveHeadingIndex(headings, scrollPosition);
             tocLinks.forEach((link, index) => 
-                link.classList.toggle('panel__link--active', index === activeIndex)
+                link.classList.toggle('menu__link--active', index === activeIndex)
             );
         };
 
@@ -131,7 +131,7 @@ const TOC = (() => {
                 const targetElement = document.getElementById(targetId);
                 if (targetElement) {
                     const offset = 100; // Increased offset for better visibility
-                    window.scrollTo({
+                    mainContent.scrollTo({
                         top: targetElement.offsetTop - offset,
                         behavior: 'smooth'
                     });
@@ -162,7 +162,7 @@ const TOC = (() => {
         };
 
         updateActiveLink();
-        window.addEventListener('scroll', throttle(updateActiveLink, 100)); // Throttled scroll event
+        mainContent.addEventListener('scroll', throttle(updateActiveLink, 100)); // Throttled scroll event
         tocLinks.forEach(link => link.addEventListener('click', handleTOCClick));
     };
 

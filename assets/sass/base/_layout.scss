@@ -6,9 +6,6 @@
 ///==============================================//
 //==================// BODY //===================//
 body {
-  background-color: var(--bg-solid-first);
-  color: var(--cl-text-first);
-  
   max-width: 100vw;
   min-height: 100dvh;
   scroll-behavior: smooth;
@@ -51,6 +48,7 @@ body {
     border: 1px solid var(--cl-border);
     border-radius: 0.25rem;
     box-shadow: var(--shadow-md);
+    scroll-behavior: smooth;
   }
   
   &__left { grid-area: 1 / 1 }
