@@ -16,10 +16,10 @@
 
     <!-- |===========| START: RESULTS |===========| -->
     <div class="menu" id="resultsPanel" style="display: none;">
-      <label class="menu__label" for="results">
+      <div class="menu__label">
         <i class="bi bi-search"></i>
         <span>Results</span>
-      </label>
+      </div>
       <ul class="menu__list" id="results"></ul>
     </div>
     <!-- |===========| END: RESULTS |===========| -->
@@ -27,10 +27,10 @@
     {{ if .IsPage }}
     <!-- |===========| START: TABLE OF CONTENT |===========| -->
     <div class="menu">
-      <label for="menu__label" class="nav__label">
+      <div class="menu__label">
         <i class="bi bi-list-task"></i>
         <span>Table of Contents</span>
-      </label>
+      </div>
       {{ $toc := .TableOfContents }}
       {{ $toc := replaceRE `<ul>` `<ul class="menu__list menu__list--toc" id="toc">` $toc }}
       {{ $toc := replaceRE `<li>` `<li class="menu__item">` $toc }}
@@ -40,10 +40,10 @@
     <!-- |===========| END: TABLE OF CONTENT |===========| -->
     <!-- |===========| START: RELATED POSTS |===========| -->
     <div class="menu">
-      <label class="menu__label" for="relatedContent">
+      <div class="menu__label">
         <i class="bi bi-folder-symlink"></i>
         <span>Related Content</span>
-      </label>
+      </div>
       <ul class="menu__list" id="relatedContent">
         {{ $related := .Site.RegularPages.Related . | first 5 }}
         {{ if $related }}
@@ -61,10 +61,10 @@
     {{ else }}
     <!-- |===========| START: RECENT CHANGE |===========| -->
     <div class="menu">
-      <label for="recentChange" class="menu__label">
+      <div class="menu__label">
         <i class="bi bi-clock-history"></i>
         <span>Recent Changes</span>
-      </label>
+      </div>
       {{ $recent := .Site.RegularPages | first 5 }}
       {{ if $recent }}
         <ul class="menu__list" id="recentChange">
@@ -77,12 +77,14 @@
       {{ end }}
     </div>
     <!-- |===========| END: RECENT CHANGE |===========| -->
+    {{/* OPTIONAL, Remove Comment
     <!-- |===========| START: TOP TAGS |===========| -->
+    
     <div class="menu">
-      <label for="topTags" class="menu__label">
+      <div class="menu__label">
         <i class="bi bi-tags"></i>
         <span>Top 5 Tags</span>
-      </label>
+      </div>
       {{ $tags := .Site.Taxonomies.tags }}
       {{ $topTags := $tags.ByCount | first 5 }}
       <ul class="menu__list menu__list--top-tags" id="topTags">
@@ -96,12 +98,13 @@
       </ul>
     </div>
     <!-- |===========| END: TOP TAGS |===========| -->
+    */}}
     <!-- |===========| START: TOP CATEGORIES |===========| -->
     <div class="menu">
-      <label for="topCategories" class="menu__label">
+      <div class="menu__label">
         <i class="bi bi-grid"></i>
         <span>Top 5 Categories</span>
-      </label>
+      </div>
       {{ $categories := .Site.Taxonomies.categories }}
       {{ $topCategories := $categories.ByCount | first 5 }}
       <ul class="menu__list menu__list--top-categories" id="topCategories">

@@ -14,6 +14,7 @@ data-theme="dark">
     <div class="u-container layout__main">
       <div class="main-wrapper">
         {{ partial "topbar.html" . }}
+        {{ partial "breadcrumbs.html" . }}
         {{ block "main" . }}{{ end }}
         {{ partial "footer.html" . }}
       </div>

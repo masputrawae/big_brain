@@ -1,7 +1,7 @@
 ---
 title: 'Project 2: Advanced Development'
 date: 2023-04-15T08:00:00-07:00
-description: "Developing cutting-edge solutions with modern technologies and innovative approaches."
+description: "Ex eu duis exercitation nostrud tempor excepteur duis Reprehenderit cupidatat id ad commodo ipsum aute cillum. Est amet duis aliquip sit.Mollit proident sit consectetur excepteur est nulla est exercitation. Excepteur amet proident commodo amet voluptate laboris non deserunt ipsum occaecat."
 image: "https://placehold.co/1080x720"
 categories:
   - Projects

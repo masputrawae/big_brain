@@ -140,4 +140,4 @@ title        = 'My Notes'
 #============ PAGINATION ============#
 [pagination]
   disableAliases = false
-  pagerSize = 4
+  pagerSize = 1

@@ -12,9 +12,14 @@
   }
 
   .btn {
-    position: absolute;
-    top: 0;
-    right: 0;
+    visibility: hidden;
+
+    @include m.max(lg){
+      visibility: visible;
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
   }
 }
 
