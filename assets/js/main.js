@@ -4,6 +4,7 @@ const Offcanvas = (() => {
         const buttons = document.querySelectorAll('[data-offcanvas-toggle]');
         buttons.forEach(button => button.addEventListener('click', toggleOffcanvas));
         document.addEventListener('click', handleOutsideClick);
+        document.addEventListener('keydown', handleEscapeKey);
     };
 
     const toggleOffcanvas = (event) => {
@@ -18,14 +19,32 @@ const Offcanvas = (() => {
     };
 
     const handleOutsideClick = (event) => {
-        const sidebar = document.querySelector('.layout__sidebar');
-        const isClickInside = sidebar?.contains(event.target);
+        const sidebars = document.querySelectorAll('.layout__left, .layout__right');
         const isToggleButton = event.target.closest('[data-offcanvas-toggle]');
         
-        if (sidebar?.classList.contains('is-open') && !isClickInside && !isToggleButton) {
-            sidebar.classList.remove('is-open');
-            const toggleButton = document.querySelector('[data-offcanvas-toggle]');
-            if (toggleButton) updateButtonState(toggleButton, false);
+        sidebars.forEach(sidebar => {
+            const isClickInside = sidebar?.contains(event.target);
+            
+            if (sidebar?.classList.contains('is-open') && !isClickInside && !isToggleButton) {
+                sidebar.classList.remove('is-open');
+                const target = sidebar.id;
+                const toggleButton = document.querySelector(`[data-offcanvas-toggle="${target}"]`);
+                if (toggleButton) updateButtonState(toggleButton, false, target);
+            }
+        });
+    };
+
+    const handleEscapeKey = (event) => {
+        if (event.key === 'Escape') {
+            const sidebars = document.querySelectorAll('.layout__left, .layout__right');
+            sidebars.forEach(sidebar => {
+                if (sidebar.classList.contains('is-open')) {
+                    sidebar.classList.remove('is-open');
+                    const target = sidebar.id;
+                    const toggleButton = document.querySelector(`[data-offcanvas-toggle="${target}"]`);
+                    if (toggleButton) updateButtonState(toggleButton, false, target);
+                }
+            });
         }
     };
 

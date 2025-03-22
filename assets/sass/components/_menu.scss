@@ -14,9 +14,11 @@
   }
 
   &__link {
-    display: block;
+    display: flex;
+    align-items: center;
+    gap: 1rem;
     padding: 0.25rem 1rem;
-    border: 1px solid transparent;
+    border: 1px solid var(--cl-border);
     border-radius: 0.25rem;
     box-shadow: var(--shadow-lg);
     background-color: var(--bg-opacity-second);

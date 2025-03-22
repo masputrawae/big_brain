@@ -38,8 +38,7 @@ body {
   overflow: hidden;
   
   display: grid;
-  grid-template-columns: 250px 1fr 250px;
-  grid-template-rows: 1fr;
+  grid-template: 1fr / 250px 1fr 250px;
   gap: 1rem;
   
   &__left,
@@ -48,29 +47,49 @@ body {
     overflow-y: auto;
     overflow-x: hidden;
     scrollbar-width: none;
-
     background-color: var(--bg-opacity-second);
     border: 1px solid var(--cl-border);
     border-radius: 0.25rem;
-
     box-shadow: var(--shadow-md);
   }
   
-  &__left {
-    grid-column: 1;
-    grid-row: 1;
-  }
-  
-  &__main {
-    grid-column: 2;
-    grid-row: 1;
-  }
-  
-  &__right {
-    grid-column: 3;
-    grid-row: 1;
+  &__left { grid-area: 1 / 1 }
+  &__main { grid-area: 1 / 2 }
+  &__right { grid-area: 1 / 3 }
+
+  @include m.max(lg) {
+    grid-template-columns: 1fr;
+    
+    &__main { grid-column: 1 }
+    
+    &__left,
+    &__right {
+      background-color: var(--bg-solid-first);
+      position: fixed;
+      top: 0;
+      height: 100dvh;
+      width: 320px;
+      max-width: 100%;
+      
+      visibility: hidden;
+      opacity: 0;
+      @include m.transition(transform, visibility, opacity);
+
+      &.is-open {
+        visibility: visible;
+        opacity: 1;
+        transform: translateX(0%);
+      }
+    }
+
+    &__left {
+      left: 0;
+      transform: translateX(-100%);
+    }
+
+    &__right {
+      right: 0;
+      transform: translateX(100%);
+    }
   }
 }
-
-///==============================================//
-//===============// MAIN WRAPPER //==============//
