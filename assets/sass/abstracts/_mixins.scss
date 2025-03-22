@@ -1,9 +1,10 @@
 //==============================================//
-//=================== MIXINS ===================//
+//===============// MIXINS.SCSS //==============//
 @use './variables' as v;
 @use "sass:map";
+
 //==============================================//
-//================== FLEX BOX ==================//
+//==============// FLEX JUSTIFY //==============//
 @mixin flex-between{
   display: flex;
   justify-content: space-between;
@@ -17,53 +18,21 @@
 }
 
 //==============================================//
-//================= TRANSITION =================//
-@mixin transition($duration: 0.3s, $timing: ease-in-out, $properties...) {
-  transition-duration: $duration;
-  transition-timing-function: $timing;
-  transition-property: $properties;
+//===============// TRANSITION //===============//
+@mixin transition($properties...) {
+  transition: $properties, 0.3s ease-in-out;
 }
 
-//==============================================//
-//================ TEXT ELIPSIS ================//
+///==============================================//
+//==============// TEXT ELLIPSIS //==============//
 @mixin text-ellipsis {
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
-//==============================================//
-//=================== SHADOW ===================//
-@mixin shadow($size: 'sm') {
-  @if $size == 'sm' {
-    box-shadow: 0 1px 2px 0 v.$shadow__color--sm;
-  } @else if $size == 'md' {
-    box-shadow: 0 4px 6px -1px v.$shadow__color--md, 0 2px 4px -1px v.$shadow__color--md;
-  } @else if $size == 'lg' {
-    box-shadow: 0 10px 15px -3px v.$shadow__color--lg, 0 4px 6px -2px v.$shadow__color--lg;
-  } @else if $size == 'xl' {
-    box-shadow: 0 20px 25px -5px v.$shadow__color--xl, 0 10px 10px -5px v.$shadow__color--xl;
-  } @else if $size == '2xl' {
-    box-shadow: 0 25px 50px -12px v.$shadow__color--2xl;
-  }
-}
-//==============================================//
-//================= TEXT SHADOW ================//
-@mixin text-shadow($size: 'sm') {
-  @if $size == 'sm' {
-    text-shadow: 0 1px 2px v.$shadow__color--sm;
-  } @else if $size == 'md' {
-    text-shadow: 0 2px 4px v.$shadow__color--md;
-  } @else if $size == 'lg' {
-    text-shadow: 0 4px 8px v.$shadow__color--lg;
-  } @else if $size == 'xl' {
-    text-shadow: 0 8px 16px v.$shadow__color--xl;
-  } @else if $size == '2xl' {
-    text-shadow: 0 12px 24px v.$shadow__color--2xl;
-  }
-}
 
-//==============================================//
-//================= BREAKPOINT =================//
+///==============================================//
+//===============// BREAKPOINTS //===============//
 @mixin min($breakpoint) {
   @if map.has-key(v.$breakpoints, $breakpoint) {
     @media screen and (min-width: map.get(v.$breakpoints, $breakpoint)) {
@@ -78,7 +47,6 @@
   }
 }
 
-// Mixin for max-width breakpoints
 @mixin max($breakpoint) {
   @if map.has-key(v.$breakpoints, $breakpoint) {
     @media screen and (max-width: map.get(v.$breakpoints, $breakpoint)) {
@@ -93,7 +61,6 @@
   }
 }
 
-// Mixin for range between breakpoints
 @mixin between($from, $to) {
   @if map.has-key(v.$breakpoints, $from) and map.has-key(v.$breakpoints, $to) {
     @media screen and (min-width: map.get(v.$breakpoints, $from)) and (max-width: map.get(v.$breakpoints, $to)) {
@@ -107,33 +74,3 @@
     @warn "One or both breakpoints not found. Available breakpoints: #{map-keys(v.$breakpoints)}";
   }
 }
-
-//=========================================================//
-//                                                         //
-// Example usage:                                          //
-// .element {                                              //
-//   // Mobile styles (default)                            //
-//   padding: 1rem;                                        //
-//                                                         //
-//   // Tablet and up (≥768px)                             //
-//   @include min(md) {                                    //
-//     padding: 2rem;                                      //
-//   }                                                     //
-//                                                         //
-//   // Only on desktop (≥992px)                           //
-//   @include min(lg) {                                    //
-//     padding: 3rem;                                      //
-//   }                                                     //
-//                                                         //
-//   // Only on mobile (<576px)                            //
-//   @include max(sm) {                                    //
-//     font-size: 14px;                                    //
-//   }                                                     //
-//                                                         //
-//   // Only tablet (between 768px and 991px)              //
-//   @include between(md, lg) {                            //
-//     margin: 2rem;                                       //
-//   }                                                     //
-// }                                                       //
-//                                                         //
-//=========================================================//

@@ -1,210 +1,147 @@
-//==============================================//
-//================= TYPOGRAPHY =================//
 @use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap');
 
-//==============================================//
-//==================== FONT ====================//
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&display=swap');
-
-main {
-  // Base typography
-  font-family: v.$font__family--first;
-  line-height: 1.6;
-  color: var(--color-text);
+body {
+  font-family: v.$font__family;
+  font-size: v.$font__size--default;
   font-weight: v.$font__weight--light;
-  --paragraph-space: 2rem;
-  --title-space: 1rem;
-
-  // Spacing between elements
-  :is(p, h1, h2, h3, h4, h5) + :is(h1, h2, h3, h4, h5, h6) {
-    margin-top: var(--paragraph-space);
+  @include m.max(md){
+    font-size: v.$font__size--xs;
   }
-  
-  :is(h1, h2, h3, h4, h5, h6) + p {
-    margin-top: var(--title-space);
-    margin-bottom: var(--paragraph-space);
-  }
+}
 
-  p + p {
-    margin-top: var(--title-space);
-  }
+:is(h1, h2, h3, h4, h5, h6){
+  font-weight: v.$font__weight--medium;
+  color: var(--color-text-first);
+  letter-spacing: 0.02em;
+}
 
-  // Text formatting
-  p b,
-  span b,
-  p strong,
-  span strong {
-    font-weight: v.$font__weight--bold;
-  }
+:is(strong, b, label) {
+  font-weight: v.$font__weight--bold;
+  color: var(--color-text-first);
+}
 
-  // Headings
-  h1, h2, h3, h4, h5, h6 {
-    font-family: v.$font__family--second;
-    font-weight: v.$font__weight--semi-bold;
-    margin: 1.5em 0 0.5em;
-    line-height: 1.2;
-    font-style: normal;
-    text-transform: none;
-    max-width: 768px;
-  }
+h1 {font-size: v.$font__size--5xl;}
+h2 {font-size: v.$font__size--4xl;}
+h3 {font-size: v.$font__size--3xl;}
+h4 {font-size: v.$font__size--2xl;}
+h5 {font-size: v.$font__size--xl;}
+h6 {font-size: v.$font__size--lg;}
 
-  h1 {
-    font-size: v.$font__size--6xl;
-    line-height: 40px;
-    font-weight: v.$font__weight--light;
-    letter-spacing: -0.003em;
-  }
+.markdown{
+  line-height: 1.6;
 
-  h2 {
-    font-size: v.$font__size--5xl;
-    line-height: 40px;
-    font-weight: v.$font__weight--light;
-    letter-spacing: -0.002em;
-  }
+  // |===========| Spacing & Layout |===========| //
+  :is(p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {margin-block: 2rem;}
+  :is(h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p) {margin-block: 1rem;}
+  :is(h1, h2, h3, h4, h5, h6) + p { margin-block: 2rem;}
+  p + p {margin-block: 1rem;}  
 
-  h3 {
-    font-size: v.$font__size--4xl;
-    line-height: 36px;
-    font-weight: v.$font__weight--normal;
-    letter-spacing: -0.001em;
-  }
-
-  h4 {
-    font-size: v.$font__size--3xl;
-    line-height: 36px;
-    font-weight: v.$font__weight--medium;
-    letter-spacing: 0em;
-  }
-
-  h5 {
-    font-size: v.$font__size--2xl;
-    line-height: 36px;
-    font-weight: v.$font__weight--semi-bold;
+  // |===========| Text Formatting |===========| //
+  :is(p, span) :is(strong, b) { font-weight: v.$font__weight--bold; }
+  p {
+    max-width: 70ch;
     letter-spacing: 0.001em;
   }
 
-  h6 {
-    font-size: v.$font__size--xl;
-    line-height: 32px;
-    font-weight: v.$font__weight--bold;
-    letter-spacing: 0.002em;
+  // |===========| Headings |===========| //
+  :is(h1, h2, h3, h4, h5, h6){
+    padding: 0.5rem 0;
+    margin-block: 1rem;
   }
 
-  // Paragraphs
-  p {
-    margin: 1em 0;
-    font-size: v.$font__size--md;
-    max-width: 75ch;
-    line-height: 1.5;
-    font-weight: v.$font__weight--light;
-    letter-spacing: 0.03em;
-  }
+  h1{ line-height: 28px; letter-spacing: 0em; }
+  h2{ line-height: 28px; letter-spacing: 0em; }
+  h3{ line-height: 28px; letter-spacing: 0.001em; }
+  h4{ line-height: 28px; letter-spacing: 0.001em; }
+  h5{ line-height: 28px; letter-spacing: 0.002em; }
+  h6{ line-height: 32px; letter-spacing: 0.002em; }
 
-  // Links
-  a {
-    color: var(--color-accent);
-    text-decoration: none;
-    transition: color 0.2s ease;
-    display: inline;
-    
-    &:hover {
-      color: var(--color-accent-hover);
-      text-decoration: underline;
-    }
-  }
-
-  // Text formatting
-  strong {
-    font-weight: v.$font__weight--bold;
-  }
-
-  em {
-    font-style: italic;
-  }
-
-  // Blockquotes
-  blockquote {
-    border-left: 4px solid var(--color-accent);
-    padding: 0.5em 1em;
-    margin: 1.5em 0;
-    color: var(--color-text-muted);
-    background-color: var(--color-bg-alt);
-    
-    p {
-      margin: 0;
-    }
-  }
-
-  // Code blocks
-  code {
-    font-family: v.$font__family--monospace;
-    background-color: var(--color-bg-alt);
-    padding: 0.2em 0.4em;
-    border-radius: 3px;
-    font-size: v.$font__size--sm;
-  }
-
-  pre {
-    background-color: var(--color-bg-alt);
-    padding: 1em;
-    border-radius: 4px;
-    overflow-x: auto;
-    
-    code {
-      background-color: transparent;
-      padding: 0;
-    }
-  }
-
-  // Lists
-  ul, ol {
-    margin: 1em 0;
-    padding-left: 2em;
-  }
-
-  li {
-    margin: 0.5em 0;
-  }
-
-  // Images
-  img {
-    max-width: 100%;
-    height: auto;
-    margin: 1em 0;
-    display: block;
-  }
-
-  // Horizontal rule
-  hr {
-    border: 0;
-    border-top: 1px solid var(--color-border);
-    margin: 2em 0;
-  }
-
-  // Tables
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin: 1.5em 0;
-  }
-
-  th, td {
-    padding: 0.75em;
-    border: 1px solid var(--color-border);
-  }
-
-  th {
-    background-color: var(--color-bg-alt);
-    font-weight: v.$font__weight--semi-bold;
-  }
-
-  // Form elements
+  // |===========| Form Elements |===========| //
   label, figcaption, input {
     font-size: v.$font__size--xs;
     line-height: 20px;
     font-weight: v.$font__weight--medium;
     letter-spacing: 0.086em;
+  }
+
+  // |===========| Dividers |===========| //
+  hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-border);
+    margin-block: 2rem;
+  }
+
+  // |===========| Lists |===========| //
+  ul, ol {
+    padding-left: 1.5rem;
+    margin-bottom: 1rem;
+    line-height: 1.5;
+
+    li {
+      margin-bottom: 0.5rem;
+      padding-left: 0.5rem;
+    }
+  }
+
+  // |===========| Links |===========| //
+  a {
+    text-decoration: underline;
+
+    &:hover {
+      color: var(--color-accent-second);
+    }
+
+    &:active {
+      color: var(--color-accent-third);
+    }
+  }
+
+  // |===========| Tables |===========| //
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 1.5rem;
+    border: 1px solid var(--color-border);
+
+    th, td {
+      padding: 0.75rem;
+      text-align: left;
+      border: 1px solid var(--color-border);
+    }
+
+    th {
+      background-color: var(--color-bg-second);
+      font-weight: v.$font__weight--medium;
+    }
+
+    tr {
+      &:nth-child(even) {
+        background-color: var(--color-bg-first);
+      }
+
+      &:hover {
+        background-color: var(--color-bg-second);
+        color: var(--color-text-first);
+      }
+    }
+  }
+
+  // |===========| Definition Lists |===========| //
+  dl {
+    margin-block: 1rem;
+
+    dt {
+      font-weight: v.$font__weight--medium;
+      margin-top: 0.5rem;
+    }
+
+    dd {
+      margin-left: 1.5rem;
+      margin-bottom: 0.5rem;
+      color: var(--color-text-first);
+    }
   }
 }

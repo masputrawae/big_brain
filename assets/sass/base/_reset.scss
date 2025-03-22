@@ -1,35 +1,51 @@
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
 *,
-*::after,
-*::before {
+*::before,
+*::after {
   box-sizing: border-box;
-  padding: 0;
   margin: 0;
+  padding: 0;
 }
 
-html {
-  line-height: 1.15;
-  -webkit-text-size-adjust: 100%;
+html, body {
+  scroll-behavior: smooth;
 }
-a {
+
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
-  text-decoration: none;
-  background-color: transparent;
-}
-sub {
-  bottom: -0.25em;
-}
-img {
   max-width: 100%;
-  height: auto;
-  display: block;
-  border-style: none;
 }
-button,
+
 input,
-optgroup,
-select,
-textarea {
-  font-family: inherit;
-  font-size: 100%;
-  margin: 0;
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  color: var(--color-accent-first);
 }

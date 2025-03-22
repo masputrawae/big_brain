@@ -1,7 +1,63 @@
 <footer class="footer">
-  <p>Made with ♥️ using 
-    <a href="https://gohugo.io" class="footer__link" target="_blank" rel="noopener noreferrer">Hugo</a> & 
-    <a href="https://pages.github.com/" class="footer__link" target="_blank" rel="noopener noreferrer">GitHub Pages</a>
-  </p>
-  <p>&copy; <span>{{- now.Year | safeHTML -}}</span> <span>{{- .Site.Title -}}</span>. All rights reserved.</p>
+  <nav class="footer__nav">
+    <label class="footer__label" for="mediaSocial">
+      <i class="bi bi-globe2"></i>
+      <span>Social Media</span>
+    </label>
+    <ul class="footer__list" id="mediaSocial">
+      {{- with site.Params.social }}
+      {{- range $key, $value := . }}
+        <li class="footer__item">
+          <a href="{{ $value.url }}" 
+            class="btn btn--icon btn--footer" 
+            id="{{ $value.name }}"
+            title="{{ $value.name }}" 
+            aria-label="Go to {{ $value.name }}" 
+            rel="noopener noreferrer" 
+            target="_blank"
+          >
+            <i class="bi {{ $value.icon }}"></i>
+          </a>
+        </li>
+      {{- end }}
+      {{- end }}
+      <li class="footer__item">
+        <button 
+          class="btn btn--icon btn--footer" 
+          id="switchTheme" title="Switch Theme" 
+          aria-label="Switch Theme"
+        >
+          <i class="bi bi-moon-stars"></i>
+        </button>
+      </li>
+    </ul>
+  </nav>
+  
+  <section class="footer__copyright">
+    <p class="footer__content">
+      <span>Made with ♥️ using </span>
+      <a 
+        href="https://gohugo.io" 
+        class="footer__link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        Hugo
+      </a> 
+      &
+      <a 
+        href="https://pages.github.com/" 
+        class="footer__link" 
+        target="_blank" 
+        rel="noopener noreferrer"
+      >
+        GitHub Pages
+      </a>
+    </p>
+    <p>
+      &copy; 
+      <span>{{- now.Year | safeHTML -}}</span> - 
+      <span>{{- .Site.Title -}}</span>. All rights reserved.
+    </p>
+  </section>
 </footer>

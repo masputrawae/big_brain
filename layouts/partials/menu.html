@@ -2,40 +2,39 @@
 {{- $menuID := .menuID }}
 
 {{- with index site.Menus $menuID }}
-<!-- ---------- -->
-{{ partial "header.html" (dict "type" "sidebar") }}
+<aside class="sidebar">
+  <!-- |===========| START: Brand Section |===========| -->
+  <header class="sidebar__header">
+    <a href="{{ site.BaseURL | relURL }}" class="brand">
+      <img class="brand__logo" src="{{ site.Params.author.logo | relURL }}" alt="Logo Image {{ site.Title }}">
+      <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+      <p class="brand__description">{{ site.Params.author.description }}</p>
+    </a>
 
-<nav class="nav">
-  <ul class="nav__list">
-    {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
-  </ul>
-</nav>
+    <button class="btn btn--icon" data-offcanvas-toggle="leftSide" title="Close Sidebar" aria-label="Button to close the Sidebar">
+      <i class="bi bi-x"></i>
+    </button>
+  </header>
+  <!-- |===========| END: Brand Section |===========| -->
+  <!-- |===========| START: Navigation Menu Section |===========| -->
+  <nav class="menu">
+    <ul class="menu__list">
+      {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
+    </ul>
+  </nav>
+  <!-- |===========| END: Navigation Menu Section |===========| -->
+</aside>
 
-<nav class="nav">
-  <ul class="nav__list nav__list--row">
-    {{- with site.Params.social }}
-      {{- range $key, $value := . }}
-        <li class="nav__item">
-          <a href="{{ $value.url }}" class="nav__link nav__link--social">
-            <i class="nav__icon bi {{ $value.icon }}"></i>
-            <span class="nav__tooltip">{{ $value.name }}</span>
-          </a>
-        </li>
-      {{- end }}
-    {{- end }}
-  </ul>
-</nav>
-<!-- ---------- -->
 {{- end }}
 
 {{- define "partials/inline/menu/walk.html" }}
   {{- $page := .page }}
   {{- range .menuEntries }}
-    {{- $attrs := dict "href" .URL "class" "nav__link" }}
+    {{- $attrs := dict "href" .URL "class" "menu__link" }}
     {{- if $page.IsMenuCurrent .Menu . }}
-      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--active" "aria-current" "page") }}
+      {{- $attrs = merge $attrs (dict "class" "menu__link menu__link--active" "aria-current" "page") }}
     {{- else if $page.HasMenuCurrent .Menu .}}
-      {{- $attrs = merge $attrs (dict "class" "nav__link nav__link--ancestor" "aria-current" "true") }}
+      {{- $attrs = merge $attrs (dict "class" "menu__link menu__link--ancestor" "aria-current" "true") }}
     {{- end }}
     {{- $name := .Name }}
     {{- with .Identifier }}
@@ -43,7 +42,7 @@
         {{- $name = . }}
       {{- end }}
     {{- end }}
-    <li class="nav__item">
+    <li class="menu__item">
       <a
         {{- range $k, $v := $attrs }}
           {{- with $v }}
@@ -54,10 +53,10 @@
         {{- with .Pre }}
           {{ . | safeHTML }}
         {{- end }}
-        {{ $name }}
+        <span>{{ $name }}</span>
       </a>
       {{- with .Children }}
-        <ul class="nav__list">
+        <ul class="menu__list">
           {{- partial "inline/menu/walk.html" (dict "page" $page "menuEntries" .) }}
         </ul>
       {{- end }}

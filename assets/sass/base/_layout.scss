@@ -1,71 +1,62 @@
-//==============================================//
-//=================== LAYOUT ===================//
+///==============================================//
+//===============// LAYOUT.SCSS //===============//
 @use '../abstracts/mixins' as m;
 @use '../abstracts/variables' as v;
 
-//==============================================//
-//==================== BODY ====================//
+///==============================================//
+//==================// BODY //===================//
 body {
+  background-color: var(--bg-solid-first);
+  color: var(--cl-text-first);
+  
   max-width: 100vw;
-  min-height: 100dvb;
-  position: relative;
-  overflow-x: hidden;
-
-  background-color: var(--color-bg);
-  color: var(--color-text);
-
-  font-family: v.$font__family--first;
-  font-weight: v.$font__weight--light;
+  min-height: 100dvh;
+  scroll-behavior: smooth;
+  
+  @include m.transition(color, background-color);
+  
+  &::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    background: var(--bg-image) no-repeat center/cover;
+    filter: brightness(80%);
+    
+    @include m.transition(background-image);
+  }
 }
 
+///==============================================//
+//=================// LAYOUT //==================//
 .layout {
-  display: grid;
-  grid-template-columns: 300px 1fr;
-  grid-template-rows: minmax(0, 1fr);
-  gap: 1rem;
-
-  height: 100dvb;
+  height: 100dvh;
   width: 100vw;
-  position: relative;
-
-  &__sidebar, &__main {
-    width: 100%;
-    overflow-y: auto;
-  }
-
-  &__sidebar {
-    position: sticky;
-    top: 0;
-    display: grid;
-    grid-template-columns: auto;
-    grid-template-rows: min-content auto min-content;
-    height: 100dvb;
-
-    border-right: 1px solid var(--color-border);
-
-    @include m.max(lg){
-      max-width: 320px;
-      position: fixed;
-      z-index: 100;
-      top: 0;
-      left: 0;
-      transform: translateX(-100%);
-      background-color: var(--color-bg-alt);
-
-      transition: transform 0.3s ease-in-out;
-      &.active {
-        transform: translateX(0%);
-      }
-    }
-  }
-
+  padding: 1rem;
+  margin: 0 auto;
+  overflow: hidden;
+  
+  display: grid;
+  grid-template-columns: 280px 1fr 280px;
+  grid-template-rows: 1fr;
+  gap: 0.5rem;
+  
+  &__left,
+  &__right,
   &__main {
-    max-width: 1024px;
-    width: 100%;
-    margin: 0 auto;
+    overflow-y: auto;
+    overflow-x: hidden;
   }
-
-  @include m.max(lg) {
-    grid-template-columns: auto;
+  
+  &__left {
+    grid-column: 1;
+  }
+  
+  &__main {
+    grid-column: 2;
+  }
+  
+  &__right {
+    grid-column: 3;
   }
 }
