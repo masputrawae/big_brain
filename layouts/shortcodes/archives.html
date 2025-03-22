@@ -1,0 +1,28 @@
+{{ $pages := site.RegularPages }}
+{{ $grouped := $pages.GroupByDate "2006" }}
+
+<div class="archives">
+  <table class="archive-posts">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Date</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{ range $grouped }}
+        {{ $months := .Pages.GroupByDate "January" }}
+        {{ range $months }}
+          {{ range .Pages }}
+            <tr>
+              <td>
+                <a href="{{ .RelPermalink }}">{{ .Title }}</a>
+              </td>
+              <td class="archive-date">{{ .Date.Format "02 Jan 2006" }}</td>
+            </tr>
+          {{ end }}
+        {{ end }}
+      {{ end }}
+    </tbody>
+  </table>
+</div>

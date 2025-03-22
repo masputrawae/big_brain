@@ -33,41 +33,61 @@ h4 {font-size: v.$font__size--2xl;}
 h5 {font-size: v.$font__size--xl;}
 h6 {font-size: v.$font__size--lg;}
 
-.markdown{
+.markdown {
   line-height: 1.6;
+  color: var(--cl-text-second);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  hyphens: auto;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  word-wrap: break-word;
 
   // |===========| Spacing & Layout |===========| //
-  :is(p + h1, p + h2, p + h3, p + h4, p + h5, p + h6, h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6) {margin-block: 2rem;}
-  :is(h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p) {margin-block: 1rem;}
-  :is(h1, h2, h3, h4, h5, h6) + p { margin-block: 2rem;}
-  p + p {margin-block: 1rem;}  
+  :is(p + h1, p + h2, p + h3, p + h4, p + h5, p + h6) { margin-block: 2.5rem; }
+  :is(h1 + h2, h2 + h3, h3 + h4, h4 + h5, h5 + h6) { margin-block: 1.5rem; }
+  :is(h1 + p, h2 + p, h3 + p, h4 + p, h5 + p, h6 + p) { margin-block: 1.25rem; }
+  :is(h1, h2, h3, h4, h5, h6) + p { margin-block: 1.75rem; }
+  p + p { margin-block: 1.25rem; }
 
   // |===========| Text Formatting |===========| //
-  :is(p, span) :is(strong, b) { font-weight: v.$font__weight--bold; }
-  p {
-    max-width: 70ch;
-    letter-spacing: 0.001em;
+  :is(p, span) {
+    max-width: 65ch;
+    letter-spacing: 0.01em;
+    word-spacing: 0.05em;
+    
+    :is(strong, b) { 
+      font-weight: v.$font__weight--bold;
+      letter-spacing: -0.01em;
+    }
   }
 
   // |===========| Headings |===========| //
-  :is(h1, h2, h3, h4, h5, h6){
-    padding: 0.5rem 0;
-    margin-block: 1rem;
+  :is(h1, h2, h3, h4, h5, h6) {
+    padding: 0.75rem 0;
+    margin-top:  2.5rem;
+    margin-bottom: 1.5rem;
+    color: var(--cl-text-first);
+    font-weight: v.$font__weight--semi-bold;
   }
 
-  h1{ line-height: 28px; letter-spacing: 0em; }
-  h2{ line-height: 28px; letter-spacing: 0em; }
-  h3{ line-height: 28px; letter-spacing: 0.001em; }
-  h4{ line-height: 28px; letter-spacing: 0.001em; }
-  h5{ line-height: 28px; letter-spacing: 0.002em; }
-  h6{ line-height: 32px; letter-spacing: 0.002em; }
+  h1 { line-height: 1.2;  letter-spacing: -0.03em;  font-size: v.$font__size--6xl;}
+  h2 { line-height: 1.25; letter-spacing: -0.02em;  font-size: v.$font__size--5xl;}
+  h3 { line-height: 1.3;  letter-spacing: -0.01em;  font-size: v.$font__size--4xl;}
+  h4 { line-height: 1.35; letter-spacing: 0em;      font-size: v.$font__size--3xl;}
+  h5 { line-height: 1.4;  letter-spacing: 0.01em;   font-size: v.$font__size--2xl;}
+  h6 { line-height: 1.45; letter-spacing: 0.02em;   font-size: v.$font__size--xl;}
+  p {
+    font-size: v.$font__size--sm;
+  }
 
   // |===========| Form Elements |===========| //
   label, figcaption, input {
-    font-size: v.$font__size--xs;
-    line-height: 20px;
+    font-size: v.$font__size--sm;
+    line-height: 1.5;
     font-weight: v.$font__weight--medium;
-    letter-spacing: 0.086em;
+    letter-spacing: 0.05em;
   }
 
   // |===========| Dividers |===========| //
@@ -75,28 +95,36 @@ h6 {font-size: v.$font__size--lg;}
     border: 0;
     height: 1px;
     background-color: var(--cl-border);
-    margin-block: 2rem;
+    margin-block: 2.5rem;
+    opacity: 0.5;
   }
 
   // |===========| Lists |===========| //
   ul, ol {
-    padding-left: 1.5rem;
-    margin-bottom: 1rem;
-    line-height: 1.5;
+    padding-left: 2rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.6;
 
     li {
-      margin-bottom: 0.5rem;
-      padding-left: 0.5rem;
+      margin-block: 0.75rem;
+      padding-left: 0.75rem;
+      
+      &::marker {
+        color: var(--cl-accent-first);
+      }
     }
   }
 
   // |===========| Links |===========| //
   a {
     text-decoration: underline;
+    text-underline-offset: 0.25em;
     color: var(--cl-accent-first);
+    transition: all 0.2s ease;
 
     &:hover {
       color: var(--cl-accent-second);
+      text-decoration-thickness: 2px;
     }
 
     &:active {
@@ -108,28 +136,31 @@ h6 {font-size: v.$font__size--lg;}
   table {
     width: 100%;
     border-collapse: collapse;
-    margin-block: 1.5rem;
+    margin-block: 2rem;
     border: 1px solid var(--cl-border);
-    background-color: var(--bg-opacity-first);
+    background-color: var(--bg-solid-first);
+    overflow-x: auto;
 
     th, td {
-      padding: 0.75rem;
+      padding: 1rem;
       text-align: left;
       border: 1px solid var(--cl-border);
     }
 
     th {
-      background-color: var(--bg-opacity-second);
-      font-weight: v.$font__weight--medium;
+      background-color: var(--bg-solid-second);
+      font-weight: v.$font__weight--semi-bold;
     }
 
     tr {
+      transition: background-color 0.2s ease;
+
       &:nth-child(even) {
-        background-color: var(--bg-opacity-third);
+        background-color: var(--bg-solid-second);
       }
 
       &:hover {
-        background-color: var(--bg-opacity-second);
+        background-color: var(--bg-solid-third);
         color: var(--cl-text-first);
       }
     }
@@ -137,17 +168,90 @@ h6 {font-size: v.$font__size--lg;}
 
   // |===========| Definition Lists |===========| //
   dl {
-    margin-block: 1rem;
+    margin-block: 1.5rem;
 
     dt {
-      font-weight: v.$font__weight--medium;
-      margin-top: 0.5rem;
+      font-weight: v.$font__weight--semi-bold;
+      margin-top: 1rem;
+      color: var(--cl-text-first);
     }
 
     dd {
-      margin-left: 1.5rem;
-      margin-bottom: 0.5rem;
-      color: var(--cl-text-first);
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--cl-text-second);
+    }
+  }
+
+  // |===========| Blockquotes |===========| //
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--cl-accent-first);
+    background-color: var(--bg-opacity-first);
+    color: var(--cl-text-first);
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+
+    p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    cite {
+      display: block;
+      margin-top: 1rem;
+      font-style: normal;
+      font-size: v.$font__size--sm;
+      color: var(--cl-text-second);
+
+      &::before {
+        content: "— ";
+      }
+    }
+  }
+
+  // |===========| Checkboxes |===========| //
+  input[type="checkbox"] {
+    appearance: none;
+    width: 1.25em;
+    height: 1.25em;
+    border: 2px solid var(--cl-accent-first);
+    border-radius: 0.25em;
+    margin: 0 0.5em 0 0;
+    vertical-align: middle;
+    position: relative;
+    cursor: pointer;
+    transition: all 0.2s ease;
+
+    &:checked {
+      background-color: var(--cl-accent-first);
+      border-color: var(--cl-accent-first);
+
+      &::after {
+        content: "";
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 0.5em;
+        height: 0.8em;
+        border: solid var(--bg-solid-first);
+        border-width: 0 2px 2px 0;
+        transform: translate(-50%, -60%) rotate(45deg);
+      }
+    }
+
+    &:hover {
+      border-color: var(--cl-accent-second);
+    }
+
+    &:active {
+      transform: scale(0.95);
+    }
+
+    &:focus {
+      outline: 2px solid var(--cl-accent-second);
+      outline-offset: 2px;
     }
   }
 }

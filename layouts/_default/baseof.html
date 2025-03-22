@@ -16,6 +16,7 @@ data-theme="dark">
         {{ partial "topbar.html" . }}
         {{ partial "breadcrumbs.html" . }}
         {{ block "main" . }}{{ end }}
+        {{ partial "giscus.html" . }}
         {{ partial "footer.html" . }}
       </div>
     </div>

@@ -15,3 +15,9 @@ Here you'll find a collection of my work, insights, and creative explorations. W
 ## Let's Collaborate
 
 Let's collaborate and bring your ideas to life!
+
+```goat
+.---.     .-.       .-.       .-.     .---.
+| A +--->| 1 |<--->| 2 |<--->| 3 |<---+ B |
+'---'     '-'       '+'       '+'     '---'
+```

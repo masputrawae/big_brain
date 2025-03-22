@@ -14,7 +14,6 @@ title        = 'My Notes'
     description   = "Pariatur duis esse sunt pariatur adipisicing."
     email         = "john.doe@example.com"
     phone         = "+1-234-567-8901"
-
 #====================================#
 #=============== CTA ================#
   [params.cta]
@@ -128,16 +127,25 @@ title        = 'My Notes'
 
 [outputFormats]
   [outputFormats.search]
-    mediaType = "application/json"
-    baseName = "search"
-    isPlainText = true
-    notAlternative = true
+    mediaType       = "application/json"
+    baseName        = "search"
+    isPlainText     = true
+    notAlternative  = true
+  [outputFormats.manifest]
+    mediaType       = "application/json"
+    baseName        = "manifest"
+    isPlainText     = true
+    notAlternative  = true
 
 [outputs]
-  home = ["HTML", "search"]
+  home = ["HTML", "search", "manifest", 'rss']
+  section = ['html', 'rss']
+[services]
+  [services.rss]
+    limit = 42
 
 #====================================#
 #============ PAGINATION ============#
 [pagination]
   disableAliases = false
-  pagerSize = 1
+  pagerSize = 6

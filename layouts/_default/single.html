@@ -1,6 +1,6 @@
 {{ define "main" }}
   <main class="main markdown">
-    {{ .Content }}
+    {{ .Content | safeHTML }}
   </main>
   
   <!-- Mermaid -->

@@ -74,6 +74,8 @@ const Theme = (() => {
         document.documentElement.setAttribute('data-theme', newTheme);
         localStorage.setItem('theme', newTheme);
         updateThemeIcon(newTheme);
+        // 🔄 Kirim perubahan tema ke Giscus
+        sendMessageToGiscus(newTheme);
     };
 
     const initializeTheme = () => {
@@ -82,12 +84,25 @@ const Theme = (() => {
         const initialTheme = savedTheme || (systemPrefersDark ? 'dark' : 'light');
         document.documentElement.setAttribute('data-theme', initialTheme);
         updateThemeIcon(initialTheme);
+        // 🔄 Kirim tema awal ke Giscus
+        sendMessageToGiscus(initialTheme);
     };
 
     const updateThemeIcon = (theme) => {
         const themeIcon = document.querySelector('#switchTheme i');
         if (themeIcon) {
             themeIcon.className = theme === 'dark' ? 'bi bi-moon-stars' : 'bi bi-sun';
+        }
+    };
+
+    // 🔄 Kirim pesan ke Giscus untuk mengubah tema
+    const sendMessageToGiscus = (theme) => {
+        const iframe = document.querySelector("iframe.giscus-frame");
+        if (iframe) {
+            iframe.contentWindow.postMessage(
+                { giscus: { setConfig: { theme } } },
+                "https://giscus.app"
+            );
         }
     };
 
