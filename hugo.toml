@@ -4,12 +4,13 @@ baseURL      = 'https://masputrawae.github.io/big_brain/'
 languageCode = 'en-US'
 title        = 'My Notes'
 enableEmoji  = true
+capitalizeListTitles = false
 
 [taxonomies]
   categories = "categories"
   tags = "tags"
-  project-status = "projectStatus"
-  note-status = "noteStatus"
+  project = "projectStatus"
+  note = "noteStatus"
 
 #====================================#
 #========== PARAMS SETTING ==========#

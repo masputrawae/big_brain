@@ -9,5 +9,14 @@ tags:
 categories:
   - Notes
   - Pages
+noteStatus:
+  - 💡Quick Ideas
+  - 📚 Learning
+  - 🗒️ Summary
+  - 🔂 Planning
+  - 🤔 Others
+  - ❔ Questions and Answers
+  - 🚨 Urgent 
+  - ⏱️ Temporary
 ---
 ## ✍️ Notes

@@ -1,0 +1,14 @@
+<section class="main__section">
+  <div class="taxonomy-cloud">
+    {{ $taxonomy := .Data.Plural }}
+    {{ $terms := index .Site.Taxonomies $taxonomy }}
+    {{ $max := math.Max (len $terms) 1 }}
+    
+    {{ range $term, $pages := $terms }}
+      {{ $size := div (len $pages) $max | mul 2 | add 1 }}
+      <a href="{{ .Page.RelPermalink }}" class="taxonomy-cloud__item" style="font-size: {{ $size }}rem;">
+        {{ .Page.Title }} ({{ len $pages }})
+      </a>
+    {{ end }}
+  </div>
+</section>

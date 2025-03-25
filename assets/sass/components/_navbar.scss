@@ -20,6 +20,8 @@
     font-size: v.$font__size--lg;
     font-weight: v.$font__weight--semi-bold;
     text-align: start;
+    font-family: v.$font__family--serif;
+    color: var(--text-first);
   }
 }
 
@@ -45,7 +47,7 @@
     justify-content: start;
     align-items: center;
     width: 100%;
-    gap: 8px;
+    gap: 0.75rem;
 
     border: 1px solid transparent;
     border-radius: 0.25rem;
@@ -53,7 +55,7 @@
     text-shadow: var(--shadow-sm);
 
     @include m.text-ellipsis;
-    @include m.transition(se);
+    @include m.transition(background-color, color, border-color, box-shadow);
 
     &:is(&--active, &--ancestor) {
       background-color: var(--bg-second);
@@ -107,6 +109,15 @@
   &--tree {
     .nav__item {
       border-left: 1px dashed var(--border-first);
+    }
+
+    .nav__link {
+      position: relative;
+      border-left: none;
+      border-right: none;
+      &::before {
+        content: "\F38A";
+      }
     }
 
     &.collapsed {

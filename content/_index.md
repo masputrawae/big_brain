@@ -30,5 +30,3 @@ Selamat datang di ruang digital saya! Ini adalah tempat saya mencatat, berbagi, 
 Situs ini dirancang sebagai sistem manajemen pengetahuan pribadi (PKM) yang terus berkembang. Saya menggunakan pendekatan Zettelkasten untuk mengorganisir dan menghubungkan berbagai ide. Jelajahi melalui kategori atau tag untuk menemukan konten yang menarik bagi Anda.
 
 Jangan ragu untuk menjelajahi dan semoga Anda menemukan sesuatu yang bermanfaat. Selamat membaca!
-[[example]]
-[[example|Teks yang Ditampilkan]]

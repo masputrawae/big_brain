@@ -7,7 +7,11 @@
   </div>
 
   <div class="main__layout main__layout--grid">
-    {{ partial "content/taxonomy-list.html" . }}
+    {{ if eq .Kind "term" }}
+      {{ partial "content/content-list.html" . }}
+    {{ else }}
+      {{ partial "content/taxonomy-cloud.html" . }}
+    {{ end }}
   </div>
 </main>
 {{ end }}

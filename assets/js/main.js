@@ -189,14 +189,13 @@ const initSearch = async () => {
                     ? results.map(result => {
                         const item = store.find(doc => doc.id === result.ref);
                         return `
-                            <li class="widget__item">
-                                <a class="widget__link" href="${item.url}">
-                                    <i class="bi bi-folder-symlink"></i>
+                            <li class="nav__item">
+                                <a class="nav__link" href="${item.url}">
                                     <span>${item.title}</span>
                                 </a>
                             </li>`;
                     }).join('')
-                    : '<li class="widget__item">No results found.</li>';
+                    : '<li class="nav__item">No results found.</li>';
             } else {
                 resultsLabel.style.display = 'none';
                 searchResults.innerHTML = "";

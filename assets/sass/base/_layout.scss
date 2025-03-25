@@ -72,3 +72,24 @@
     gap: 0;
   }
 }
+
+.main {
+
+  &__layout {
+
+    &--grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.5rem;
+      padding: 1rem 0;
+
+      @include m.min(md) {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      @include m.min(lg) {
+        gap: 2rem;
+      }
+    }
+  }
+}

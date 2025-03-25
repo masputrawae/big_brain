@@ -12,6 +12,13 @@
   overflow-y: auto;
   overflow-x: hidden;
   z-index: 500;
+  @include m.transition(visibility, transform);
+
+  // BUTTON HIDEN
+  .btn[data-toggle-offcanvas=leftOffcanvas],
+  .btn[data-toggle-offcanvas=rightOffcanvas]{
+    display: none;
+  }
 
   &__header {
     @include m.flex-between;
@@ -29,8 +36,6 @@
       right: 0;
     }
   }
-  
-  @include m.transition(visibility, transform);
 
   &--global {
     position: fixed;
@@ -58,17 +63,48 @@
 
     &--right {
       transform: translateX(100%);
+
+      // BUTTON SHOW
+      .btn[data-toggle-offcanvas=rightOffcanvas]{
+        display: flex;
+      }
     }
   }
   
   @include m.max(lg){
     &--left {
       transform: translateX(-100%);
+
+      // BUTTON SHOW
+      .btn[data-toggle-offcanvas=leftOffcanvas]{
+        display: flex;
+      }
     }
   }
 
   &--is-open {
     transform: translate(0%);
     visibility: visible;
+  }
+}
+
+// SEARCH BAR
+.search {
+  @include m.flex-between;
+  gap: 1rem;
+  border: 1px solid var(--border-first);
+  border-radius: 0.25rem;
+  padding: 0.25rem 1rem;
+  color: var(--accent-third);
+
+  &__input {
+    width: 100%;
+    outline: none;
+    border: none;
+    color: var(--accent-third);
+
+    &::placeholder {
+      color: var(--text-third);
+    }
   }
 }

@@ -10,7 +10,7 @@ tags:
 categories:
   - Projects
 projectStatus:
-  - ❌ Canceled
+  - 🗒️ Planning
 pinned: true
 mathjax: false
 draft: false

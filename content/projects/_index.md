@@ -9,5 +9,12 @@ tags:
 categories:
   - Projects
   - Pages
+projectStatus:
+  - 💼 In progress
+  - 🔂 In active
+  - 🏁 Finished
+  - ✅ Success
+  - ❌ Canceled
+  - 🗒️ Planning
 ---
 ## 💼 Projects 

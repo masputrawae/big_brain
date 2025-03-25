@@ -18,7 +18,6 @@ body {
   color: var(--text-second);
   font-kerning: normal;
   text-rendering: optimizeLegibility;
-  hyphens: auto;
   -ms-text-size-adjust: 100%;
   -webkit-text-size-adjust: 100%;
   margin: 0;
@@ -29,6 +28,7 @@ body {
   font-weight: v.$font__weight--semi-bold;
   color: var(--text-first);
   margin-block: 1rem;
+  font-family: v.$font__family--serif;
 }
 
 :is(b, strong){
