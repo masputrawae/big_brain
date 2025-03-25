@@ -1,0 +1,64 @@
+$colors: (
+  //============ DARK =============//
+  "dark": (
+    "bg": (
+      "first": #0d1117,
+      "second": #161b22,
+      "third": #21262d,
+    ),
+    "text": (
+      "first": #f0f6fc,
+      "second": #c9d1d9,
+      "third": #8b949e,
+    ),
+    "accent": (
+      "first": #00d8ff,
+      "second": #0ea5e9,
+      "third": #14b8a6,
+    ),
+    "border": (
+      "first": #30363d,
+    ),
+    "shadow": (
+      "sm": 0 1px 2px 0 rgba(0, 0, 0, 0.5),
+      "md": 0 4px 6px -1px rgba(0, 0, 0, 0.5),
+      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.5),
+    )
+  ),
+  //============ LIGHT =============//
+  "light": (
+    "bg": (
+      "first": #f8fafc,
+      "second": #e2e8f0,
+      "third": #cbd5e1,
+    ),
+    "text": (
+      "first": #1e293b, 
+      "second": #334155,
+      "third": #475569,
+    ),
+    "accent": (
+      "first": #0084ff, 
+      "second": #0ea5e9,
+      "third": #14b8a6,
+    ),
+    "border": (
+      "first": #94a3b8
+    ),
+    "shadow": (
+      "sm": 0 1px 2px 0 rgba(0, 0, 0, 0.1),
+      "md": 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+      "lg": 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    )
+  )
+);
+
+@each $theme, $categories in $colors {
+  [data-theme="#{$theme}"] {
+    @each $category, $shades in $categories {
+      @each $shade, $value in $shades {
+        --#{$category}-#{$shade}: #{$value};
+      }
+    }
+  }
+}

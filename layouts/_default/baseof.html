@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="{{ site.Language.LanguageCode }}" dir="{{ or site.Language.LanguageDirection `ltr` }}" data-theme="dark">
+<head>
+  {{ partial "head/default.html" . }}
+</head>
+<body class="layout">
+  <aside class="offcanvas offcanvas--responsive offcanvas--left" id="leftOffcanvas">
+    {{ partial "sidebar/left.html" . }}
+  </aside>
+  <div class="main-area">
+    {{ partial "header.html" . }}
+    {{ block "main" . }}{{ end }}
+    {{ partial "footer.html" . }}
+  </div>
+  <aside class="offcanvas offcanvas--responsive offcanvas--right" id="rightOffcanvas">
+    {{ partial "sidebar/right.html" . }}
+  </aside>
+  <aside class="offcanvas offcanvas--global offcanvas--left" id="globalOffcanvas">
+    {{ partial "sidebar/offcanvas.html" . }}
+  </aside>
+</body>
+</html>

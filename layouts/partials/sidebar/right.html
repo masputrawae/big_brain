@@ -1,0 +1,34 @@
+<header class="offcanvas__header">
+
+  <form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search.json" | relURL }}">
+    <i class="bi bi-search"></i>
+    <input class="search__input" type="search" id="search-input" name="query" placeholder="Search..." autocomplete="off" autocorrect="off" spellcheck="false" style="background: transparent;">
+  </form>
+
+  <button class="btn btn--icon" data-toggle-offcanvas="rightOffcanvas">
+    <i class="bi bi-x"></i>
+  </button>
+</header>
+
+<div class="offcanvas__navbar">
+  <!-- |===========| START: RESULTS |===========| -->
+  <nav class="navbar" id="resultsPanel" style="display: none;">
+
+    <div class="navbar__label">
+      <i class="bi bi-search"></i>
+      <span>Results</span>
+    </div>
+
+    <ul class="nav" id="results"></ul>
+  </nav>
+  <!-- |===========| END: RESULTS |===========| -->
+
+  {{ if .IsPage }}
+    {{ partial "widget/toc.html" . }}
+    {{ partial "widget/related.html" . }}
+  {{ else }}
+    {{ partial "widget/recent-change.html" . }}
+    {{ partial "widget/top-tags.html" . }}
+    {{ partial "widget/top-categories.html" . }}
+  {{ end }}
+</div>

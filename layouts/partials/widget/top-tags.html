@@ -1,0 +1,23 @@
+<!-- |===========| START: TOP TAGS |===========| -->
+<div class="navbar">
+
+  <div class="navbar__label">
+    <i class="bi bi-tags"></i>
+    <span>Top 5 Tags</span>
+  </div>
+
+  {{ $tags := .Site.Taxonomies.tags }}
+  {{ $topTags := $tags.ByCount | first 5 }}
+
+  <ul class="nav">
+    {{ range $topTags }}
+      <li class="nav__item">
+        <a href="{{ .Page.Permalink }}" class="nav__link">
+          <span>{{ .Term }}</span>
+        </a>
+      </li>
+    {{ end }}
+  </ul>
+
+</div>
+<!-- |===========| END: TOP TAGS |===========| -->

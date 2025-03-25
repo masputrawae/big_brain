@@ -1,0 +1,22 @@
+<!-- |===========| START: RECENT CHANGE |===========| -->
+<nav class="navbar">
+
+  <div class="navbar__label">
+    <i class="bi bi-clock-history"></i>
+    <span>Recent Changes</span>
+  </div>
+
+  {{ $recent := .Site.RegularPages | first 5 }}
+  {{ if $recent }}
+    <ul class="nav">
+      {{ range $recent }}
+        <li class="nav__item">
+          <a href="{{ .RelPermalink }}" class="nav__link">
+            <span>{{ .Title }}</span>
+          </a>
+        </li>
+      {{ end }}
+    </ul>
+  {{ end }}
+</nav>
+<!-- |===========| END: RECENT CHANGE |===========| -->

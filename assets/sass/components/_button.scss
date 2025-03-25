@@ -1,0 +1,51 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.btn {
+  @include m.flex-center;
+  gap: 8px;
+  padding: 0.5rem;
+
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.25rem;
+  color: var(--text-second);
+  box-shadow: var(--shadow-md);
+
+  @include m.transition(scale, background-color, border-color, box-shadow);
+
+  &--icon {
+    font-size: v.$font__size--3xl;
+    width: 40px;
+    height: 40px;
+  }
+
+  &--collapse {
+    width: 100%;
+    justify-content: start;
+    border-radius: 0rem;
+    border-left: none;
+    border-right: none;
+    border-color: var(--border-first);
+  }
+
+  &:hover {
+    scale: 1.01;
+    background-color: var(--bg-second);
+    border-color: var(--accent-first);
+    box-shadow: var(--shadow-lg);
+    color: var(--text-first);
+  }
+
+  &:focus-visible {
+    box-shadow: none;
+    outline: none;
+    background-color: var(--bg-third);
+    border-color: var(--accent-third);
+  }
+
+  &:active {
+    scale: 0.95;
+    border-color: var(--accent-second);
+  }
+}

@@ -1,0 +1,28 @@
+<!-- |===========| START: JAVASCRIPT |===========| -->
+<script src="{{ "js/lunr.min.js" | relURL }}" defer></script>
+<script src="{{ "js/anchor.min.js" | relURL }}" defer></script>
+{{- with resources.Get "js/main.js" }}
+  {{- if eq hugo.Environment "development" }}
+    {{- with . | js.Build }}
+      <script src="{{ .RelPermalink }}" defer></script>
+    {{- end }}
+  {{- else }}
+    {{- $opts := dict "minify" true }}
+    {{- with . | js.Build $opts | fingerprint }}
+      <script src="{{ .RelPermalink }}" integrity="{{- .Data.Integrity }}" crossorigin="anonymous" defer></script>
+    {{- end }}
+  {{- end }}
+{{- end }}
+
+<script defer>
+  if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+          navigator.serviceWorker.register('{{ "js/sw.js" | relURL }}').then(reg => {
+              console.log('Service worker registered with scope: ', reg.scope);
+          }, err => {
+              console.log('Service worker registration failed: ', err);
+          });
+      });
+  }
+</script>
+<!-- |===========| END: JAVASCRIPT |===========| -->

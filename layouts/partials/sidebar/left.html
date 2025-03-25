@@ -1,0 +1,21 @@
+<header class="offcanvas__header">
+
+  <a href="{{ site.BaseURL | relURL }}" class="brand">
+    <div class="brand__logo">
+      <img src="{{ site.Params.author.logo | relURL }}" alt="{{ site.Params.author.name }}">
+    </div>
+    <h1 class="brand__title">{{ site.Params.author.name }}</h1>
+    <p class="brand__subtitle">{{ site.Params.author.subtitle }}</p>
+  </a>
+
+  <div class="offcanvas__button-wrapper offcanvas__button-wrapper--p-absolute">
+    <button class="btn btn--icon" data-toggle-offcanvas="globalOffcanvas">
+      <i class="bi bi-folder2"></i>
+    </button>
+    <button class="btn btn--icon" data-toggle-offcanvas="leftOffcanvas">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+
+</header>
+{{ partial "sidebar/menu.html" (dict "menuID" "main" "page" .) }}

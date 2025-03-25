@@ -1,0 +1,44 @@
+// Importing variables and mixins
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400&display=swap');
+
+body {
+  font-size: v.$font__size--default;
+  font-family: v.$font__family;
+  font-weight: v.$font__weight--light;
+  
+  background-color: var(--bg-first);
+  color: var(--text-second);
+
+  line-height: 1.6;
+  color: var(--text-second);
+  font-kerning: normal;
+  text-rendering: optimizeLegibility;
+  hyphens: auto;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  margin: 0;
+  word-wrap: break-word;
+}
+
+:is(h1, h2, h3, h4, h5, h6) {
+  font-weight: v.$font__weight--semi-bold;
+  color: var(--text-first);
+  margin-block: 1rem;
+}
+
+:is(b, strong){
+  color: var(--text-first);
+  font-weight: v.$font__weight--bold;
+}
+
+h1 {font-size: v.$font__size--5xl;}
+h2 {font-size: v.$font__size--4xl;}
+h3 {font-size: v.$font__size--3xl;}
+h4 {font-size: v.$font__size--2xl;}
+h5 {font-size: v.$font__size--xl;}
+h6 {font-size: v.$font__size--lg;}

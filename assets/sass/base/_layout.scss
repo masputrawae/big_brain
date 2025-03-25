@@ -1,0 +1,74 @@
+// Importing variables and mixins
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--text-third) var(--bg-second);
+  
+  &:hover {
+    scrollbar-color: var(--accent-first) var(--bg-second);
+  }
+}
+
+// Layout styles
+.layout {
+  max-width: 100vw;
+  min-height: 100dvh;
+  
+  overflow-x: hidden;
+  display: grid;
+  grid-template-columns: 250px 3fr 250px;
+  grid-template-rows: 1fr;
+  gap: 1rem;
+
+  .offcanvas--left,
+  .offcanvas--right,
+  .main {
+    grid-row: 1;
+  }
+
+  .offcanvas--left {
+    grid-column: 1;
+  }
+
+  .main-area {
+    grid-column: 2;
+    width: 100%;
+    padding: 1rem;
+    margin: 0 auto;
+    overflow-x: hidden;
+    
+    @include m.min(sm) { max-width: 540px }
+    @include m.min(md) { max-width: 720px }
+    @include m.min(lg) { max-width: 960px }
+    @include m.min(xl) { max-width: 1140px;}
+    @include m.min(xxl) { max-width: 1320px }
+
+    @include m.max(xl){
+      margin-top: 2rem;
+    }
+  }
+
+  .offcanvas--right {
+    grid-column: 3;
+  }
+
+  // Responsive layout adjustments
+  @include m.max(xl) {
+    grid-template-columns: 250px 3fr;
+
+    .offcanvas--left {
+      grid-column: 1;
+    }
+
+    .main-area {
+      grid-column: 2;
+    }
+  }
+
+  @include m.max(lg){
+    grid-template-columns: max-content;
+    gap: 0;
+  }
+}

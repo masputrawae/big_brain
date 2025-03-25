@@ -1,0 +1,53 @@
+<header class="offcanvas__header">
+  <h3 class="offcanvas__title">Folder</h3>
+
+  <div class="offcanvas__button-wrapper">
+    <button class="btn btn--icon" id="toggleCollapseAll">
+      <i class="bi bi-folder2"></i>
+    </button>
+    <button class="btn btn--icon" data-toggle-offcanvas="globalOffcanvas">
+      <i class="bi bi-x"></i>
+    </button>
+  </div>
+</header>
+
+<nav class="navbar">
+  <ul class="nav nav--tree">
+    {{- template "tree_view" .Site.Home -}}
+  </ul>
+</nav>
+
+{{- define "tree_view" -}}
+  {{- if .Pages -}}
+
+    <!-- === Iterasi Folder Dulu === -->
+    {{- range .Pages -}}
+      {{- if .IsSection -}}
+        <li class="nav__item nav__item--folder" id="{{- .RelPermalink | urlize -}}">
+          <button class="btn btn--collapse" data-toggle-tree="{{- .RelPermalink | urlize -}}">
+            <i class="bi bi-folder2"></i>
+            <span>{{- .LinkTitle -}}</span>
+          </button>
+          <ul class="nav nav--tree">
+            {{- template "tree_view" . -}}
+          </ul>
+        </li>
+      {{- end -}}
+    {{- end -}}
+
+    <!-- === Iterasi File Setelahnya === -->
+    {{- range .Pages -}}
+      {{- if .IsPage -}}
+        {{- if .File.BaseFileName -}}
+          <li class="nav__item nav__item--file" id="{{- .RelPermalink | urlize -}}">
+            <a class="nav__link" href="{{- .RelPermalink -}}">
+              <i class="bi bi-file-earmark-text-fill"></i>
+              <span>{{- .LinkTitle -}}</span>
+            </a>
+          </li>
+        {{- end -}}
+      {{- end -}}
+    {{- end -}}
+
+  {{- end -}}
+{{- end -}}

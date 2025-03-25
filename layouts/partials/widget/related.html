@@ -1,0 +1,25 @@
+<!-- |===========| START: RELATED POSTS |===========| -->
+<div class="navbar">
+
+  <div class="navbar__label">
+    <i class="bi bi-folder-symlink"></i>
+    <span>Related Content</span>
+  </div>
+
+  <ul class="nav">
+    {{ $related := .Site.RegularPages.Related . | first 5 }}
+    {{ if $related }}
+      {{ range $related }}
+        <li class="nav__item">
+          <a href="{{ .RelPermalink }}" class="nav__link">
+            <span>{{ .Title }}</span>
+          </a>
+        </li>
+      {{ end }}
+    {{ else }}
+      <li class="nav__item">No related content found.</li>
+    {{ end }}
+  </ul>
+
+</div>
+<!-- |===========| END: RELATED POSTS |===========| -->

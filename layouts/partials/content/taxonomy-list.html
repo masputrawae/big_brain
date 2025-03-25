@@ -1,0 +1,20 @@
+{{ if site.Taxonomies }}
+  {{ range $taxonomy, $terms := site.Taxonomies }}
+    {{ if and (ne $taxonomy "tags") (ne $taxonomy "categories") }}
+      <div class="card">
+        <div class="card__header">
+          <div class="card__title">{{ $taxonomy | humanize | title }}</div>
+        </div>
+        <div class="card__body">
+          <ul class="home-taxonomy">
+            {{ range $terms }}
+              <li class="home-taxonomy__item">
+                <a href="{{ .Page.RelPermalink }}" class="home-taxonomy__link">{{ .Page.Title }}</a>
+              </li>
+            {{ end }}
+          </ul>
+        </div>
+      </div>
+    {{ end }}
+  {{ end }}
+{{ end }}

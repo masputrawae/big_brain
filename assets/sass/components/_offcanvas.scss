@@ -1,0 +1,70 @@
+// Importing variables and mixins
+@use '../abstracts/variables' as v;
+@use '../abstracts/mixins' as m;
+
+.offcanvas {
+  background-color: var(--bg-first);
+  padding: 1rem;
+  width: 250px;
+  height: 100dvh;
+  position: sticky;
+  top: 0;
+
+  &__header {
+    @include m.flex-between;
+    gap: 8px;
+    position: relative;
+  }
+
+  &__button-wrapper {
+    @include m.flex-center;
+    gap: 8px;
+
+    &--p-absolute {
+      position: absolute;
+      top: 0;
+      right: 0;
+    }
+  }
+  
+  @include m.transition(visibility, transform);
+
+  &--global {
+    position: fixed;
+    transform: translateX(-100%);
+    visibility: visible;
+    width: 320px;
+    max-width: 100%;
+  }
+
+  &--left {
+    left: 0;
+    border-right: 1px solid var(--border-first);
+  }
+
+  &--right {
+    right: 0;
+  }
+
+  @include m.max(xl){
+    &--responsive {
+      position: fixed;
+      visibility: visible;
+    }
+
+    &--right {
+      transform: translateX(100%);
+    }
+  }
+  
+  @include m.max(lg){
+    &--left {
+      transform: translateX(-100%);
+    }
+  }
+
+  &--is-open {
+    transform: translate(0%);
+    visibility: visible;
+  }
+}
