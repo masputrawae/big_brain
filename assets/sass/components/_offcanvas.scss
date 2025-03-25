@@ -8,6 +8,7 @@
   width: 280px;
   height: 100dvh;
   position: sticky;
+  position: -webkit-sticky;
   top: 0;
   overflow-y: auto;
   overflow-x: hidden;

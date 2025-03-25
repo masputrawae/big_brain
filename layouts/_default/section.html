@@ -9,5 +9,12 @@
   <div class="main__layout main__layout--grid">
     {{ partial "content/content-list.html" . }}
   </div>
+  <div class="main__layout">
+    <nav class="navbar navbar--pagination">
+      <ul class="nav nav--row">
+        {{ template "partials/inline/pagination/default" . }}
+      </ul>
+    </nav>
+  </div>
 </main>
 {{ end }}

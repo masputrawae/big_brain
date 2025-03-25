@@ -1,5 +1,5 @@
-{{ range .Pages }}
-  <a href="{{ .RelPermalink }}" class="card">
+{{ range (.Paginate .Pages).Pages }}
+  <div class="card" tabindex="0">
     <img 
         src="{{ .Params.image | default "https://placehold.co/1090x720" | relURL }}" 
         alt="{{ .Title }}"
@@ -8,10 +8,9 @@
 
     <div class="card__body">
       <h3 class="card__title">{{ .Title }}</h3>
-
       {{ with .Params.description }}
         <p class="card__description">
-          {{ . | plainify | safeHTML | truncate 150 "..." }}
+          {{ . }}
         </p>
       {{ end }}
 
@@ -26,20 +25,20 @@
         {{ with .Params.categories }}
           <small>
             <i class="bi bi-grid"></i>
-            <span>{{ delimit . ", " }}</span>
+            <span>{{ index . 0 }}</span>
           </small>
         {{ end }}
 
-        {{ with .Params.lastmodified }}
+        {{ with .Params.tags }}
           <small>
-            <i class="bi bi-clock"></i>
-            <time datetime="{{ . | time.Format "2006-01-02" }}">
-              {{ . | time.Format "02 Jan 2006" }}
-            </time>
+            <i class="bi bi-tag"></i>
+            <span>{{ index . 0 }}</span>
           </small>
         {{ end }}
-
       </div>
     </div>
-  </a>
+    <a href="{{ .RelPermalink }}" aria-label="{{ $.Title }}" title="{{ $.Title }}" class="btn btn--text">
+      <h3>{{ .Title }}</h3>
+    </a>
+  </div>
 {{ end }}

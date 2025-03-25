@@ -9,6 +9,7 @@
   box-shadow: var(--shadow-md);
   text-decoration: none;
   color: var(--text-second);
+  cursor: pointer;
   height: 30rem;
 
   &__image {
@@ -25,15 +26,17 @@
 
   &__body {
     position: absolute;
-    bottom: 0;
+    top: 0;
     padding: 1rem;
     opacity: 0;
     width: 100%;
-    transform: translateY(100%);
+    height: 100%;
+    transform: translateY(-100%);
     transition: opacity 0.75s, transform, background-color, .5s ease-in-out;
+    text-align: center;
   }
 
-  &:hover {
+  &:is(:hover, :active, :focus, :focus-visible, :focus-within) {
 
     .card__body {
       opacity: 1;
@@ -45,5 +48,24 @@
       filter: opacity(0.5);
       scale: 1.1;
     }
+  }
+
+  &__meta {
+    gap: 1.2rem;
+    @include m.flex-center;
+    
+    & small {
+      display: flex;
+      gap: 0.5rem;
+    }
+  }
+
+  .btn {
+    position: absolute;
+    bottom: 1rem;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    @include m.text-ellipsis;
   }
 }

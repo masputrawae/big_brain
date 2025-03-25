@@ -71,6 +71,16 @@
       box-shadow: var(--shadow-lg);
       outline: none;
     }
+
+    &--disabled {
+      cursor: not-allowed;
+      color: var(--text-third);
+
+      &:is(:hover, :active, :focus-visible){
+        border-color: var(--border-first);
+        color: var(--text-third);
+      }
+    }
   }
 
   // START MODIFIER NAV
@@ -160,9 +170,10 @@
     }
   }
 
-  // MODIFIER FOOTER
-  &--footer {
+  // MODIFIER ROW
+  &--row {
     @include m.flex-center;
-    gap: 0.75rem;
+    gap: 0.5rem;
+    flex-wrap: wrap;
   }
 }

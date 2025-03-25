@@ -11,6 +11,7 @@
   border-radius: 0.25rem;
   color: var(--text-second);
   box-shadow: var(--shadow-md);
+  text-decoration: none;
 
   @include m.transition(scale, background-color, border-color, box-shadow);
 
@@ -40,6 +41,10 @@
     height: 40px;
   }
 
+  &--text {
+    background-color: var(--bg-second);
+  }
+
   &--collapse {
     width: 100%;
     justify-content: start;
@@ -51,7 +56,6 @@
   &--footer {
     border-radius: 50%;
     border-color: var(--border-first);
-    text-decoration: none;
     width: 50px;
     height: 50px;
 

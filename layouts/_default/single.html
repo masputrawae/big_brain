@@ -1,7 +1,39 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  <div class="markdown">
-    {{ .Content }}
+<main class="main">
+  <div class="main__layout">
+    <article class="markdown">
+      {{ .Content | safeHTML }}
+    </article>
   </div>
-  {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+  <div class="main__layout main__layout--grid">
+    {{ partial "terms.html" (dict "taxonomy" "tags" "page" .) }}
+    {{ partial "terms.html" (dict "taxonomy" "categories" "page" .) }}
+  </div>
+</main>
+
+{{ if .Params.mathjax }}
+<style>
+  mjx-container.MathJax {
+    padding: 1rem;
+    overflow-x: auto; 
+    white-space: nowrap; 
+    max-width: 100%;
+  }  
+</style>
+<script>
+  window.MathJax = {
+    tex: {
+      inlineMath: [['\\(', '\\)']],  // Inline math
+      displayMath: [['\\[', '\\]'], ['$$', '$$']],  // Block math
+    },
+    svg: {
+      fontCache: 'global' // Menggunakan cache untuk mempercepat rendering
+    },
+    options: {
+      skipHtmlTags: ['script', 'noscript', 'style', 'textarea', 'pre'], // Mencegah konflik dengan tag lain
+    }
+  };
+</script>
+<script async id="MathJax-script" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml.js"></script>
+{{ end }}
 {{ end }}

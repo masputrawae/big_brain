@@ -35,6 +35,23 @@ capitalizeListTitles = false
       url     = "https://download.cv/"
       icon    = "bi-download"
       primary = true
+#====================================#
+#============= GISCUS ===============#
+  [params.giscus]
+    active = true
+    data_repo="masputrawae/official"
+    data_repo_id="R_kgDONFahNA"
+    data_category="Announcements"
+    data_category_id="DIC_kwDONFahNM4CnBHa"
+    data_mapping="pathname"
+    data_strict="0"
+    data_reactions_enabled="1"
+    data_emit_metadata="1"
+    data_input_position="top"
+    data_theme="preferred_color_scheme"
+    data_lang="en"
+    data_loading="lazy"
+    crossorigin="anonymous"
 
 #====================================#
 #=========== SOCIAL LINK ============#
@@ -55,6 +72,50 @@ capitalizeListTitles = false
       name = "Github"
       url  = "https://github.com/johndoe"
       icon = "bi-github"
+    [params.social.linkedin]
+      name = "LinkedIn"
+      url  = "https://linkedin.com/in/johndoe"
+      icon = "bi-linkedin"
+    [params.social.youtube]
+      name = "YouTube"
+      url  = "https://youtube.com/c/johndoe"
+      icon = "bi-youtube"
+    [params.social.tiktok]
+      name = "TikTok"
+      url  = "https://tiktok.com/@johndoe"
+      icon = "bi-tiktok"
+    [params.social.pinterest]
+      name = "Pinterest"
+      url  = "https://pinterest.com/johndoe"
+      icon = "bi-pinterest"
+    [params.social.reddit]
+      name = "Reddit"
+      url  = "https://reddit.com/user/johndoe"
+      icon = "bi-reddit"
+    [params.social.snapchat]
+      name = "Snapchat"
+      url  = "https://snapchat.com/add/johndoe"
+      icon = "bi-snapchat"
+    [params.social.discord]
+      name = "Discord"
+      url  = "https://discord.com/users/johndoe"
+      icon = "bi-discord"
+    [params.social.medium]
+      name = "Medium"
+      url  = "https://medium.com/@johndoe"
+      icon = "bi-medium"
+    [params.social.dribbble]
+      name = "Dribbble"
+      url  = "https://dribbble.com/johndoe"
+      icon = "bi-dribbble"
+    [params.social.behance]
+      name = "Behance"
+      url  = "https://behance.net/johndoe"
+      icon = "bi-behance"
+    [params.social.vimeo]
+      name = "Vimeo"
+      url  = "https://vimeo.com/johndoe"
+      icon = "bi-vimeo"
 
 #====================================#
 #============ MENU MAIN =============#
@@ -66,7 +127,7 @@ capitalizeListTitles = false
 
 [[menus.main]]
   name    = 'About'
-  pageRef = '/about'
+  pageRef = '/documents/about'
   pre     = "<i class='bi bi-person'></i>"
   weight  = 20
 
@@ -117,9 +178,8 @@ capitalizeListTitles = false
     noClasses          = false
     lineNumbersInTable = true
     lineNos = true
-    anchorLineNos = false
-    hl_Lines = '1'
-    lineAnchors = '1'
+    anchorLineNos = true
+    lineAnchors = ''
     lineNoStart = 1
     tabWidth = 4
 

@@ -12,7 +12,7 @@
 }
 
 // Layout styles
-.layout {
+body.layout {
   max-width: 100vw;
   min-height: 100dvh;
   
@@ -74,7 +74,7 @@
 }
 
 .main {
-
+  padding-inline: 1rem;
   &__layout {
 
     &--grid {

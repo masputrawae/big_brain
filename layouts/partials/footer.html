@@ -1,6 +1,9 @@
+{{ if site.Params.giscus.active }}
+  {{ partial "content/giscus.html" . }}
+{{ end }}
 <footer class="footer">
   <nav class="navbar">
-    <ul class="nav nav--footer" id="mediaSocial">
+    <ul class="nav nav--row" id="mediaSocial">
       {{- with site.Params.social }}
       {{- range $key, $value := . }}
         <li class="nav__item">

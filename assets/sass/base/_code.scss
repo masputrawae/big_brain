@@ -1,0 +1,108 @@
+///==============================================//
+//================// CODE.SCSS //================//
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+:root {
+  --code-text: #1a1c23;
+  --code-function: #00c7ff;
+  --code-highlight-bg: #e6f8ff;
+  --code-keyword: #ff3b5c;
+  --code-string: #00d4a0;
+  --code-comment: #6b7b8f;
+  --code-number: #a56eff;
+  --code-line-number: #8a99b3;
+  --code-operator: #ff5c5c;
+  --code-class: #7d5fff;
+}
+
+:root[data-theme=dark] {
+  --code-text: #e0e4eb;
+  --code-function: #00d8ff;
+  --code-highlight-bg: #1e232b;
+  --code-keyword: #ff5c7a;
+  --code-string: #00e6b8;
+  --code-comment: #6b7b8f;
+  --code-number: #b18aff;
+  --code-line-number: #6b7b8f;
+  --code-operator: #ff7a7a;
+  --code-class: #8a6eff;
+}
+// Base code styles
+code, pre {
+  font-family: v.$font__family--mono;
+}
+
+// Syntax highlighting container
+.highlight {
+  position: relative;
+  display: block;
+  width: 100%;
+
+  &[data-lang]::before {
+    content: attr(data-lang);
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 0.25rem;
+    text-align: center;
+    font-size: v.$font__size--md;
+    font-weight: normal;
+    z-index: 1;
+    border: 1px solid var(--border-first);
+    background-color: var(--bg-third);
+    color: var(--code-function);
+  }
+}
+
+// Background and chroma styles
+.bg, .chroma {
+  color: var(--code-text);
+  background-color: var(--bg-second);
+}
+
+.chroma {
+  font-family: monospace;
+  font-size: v.$font__size--xs;
+  padding: 2rem 0rem;
+  border: 1px solid var(--border-first);
+  overflow-x: auto;
+
+  // General styles
+  .x, .cl { color: var(--text-first); }
+  .err { color: #960050; background-color: #1e0010; }
+  .lnlinks { outline: none; text-decoration: none; color: inherit; }
+  
+  // Table and line styles
+  .lntd, .lntable { padding: 0; margin: 0; border: 0; }
+  .lntd { vertical-align: top; }
+  .lntable { border-spacing: 0; }
+  .hl { background-color: var(--code-highlight-bg); }
+
+  // Line numbers
+  .lnt, .ln {
+    white-space: pre;
+    -webkit-user-select: none;
+    user-select: none;
+    margin-right: 0.4em;
+    padding: 0 0.4em;
+    color: var(--code-line-number);
+  }
+
+  // Code line
+  .line { display: flex; }
+
+  // Syntax highlighting colors
+  .k, .kc, .kd, .kp, .kr, .kt, .no { color: var(--code-keyword); }
+  .kn, .nt, .o, .ow, .gd { color: var(--code-operator); }
+  .na, .nc, .nd, .ne, .nf, .nx, .gi { color: var(--code-function); }
+  .l, .se, .m, .mb, .mf, .mh, .mi, .il, .mo { color: var(--code-number); }
+  .ld, .s, .sa, .sb, .sc, .dl, .sd, .s2, .sh, .si, .sx, .sr, .s1, .ss { color: var(--code-string); }
+  .c, .ch, .cm, .c1, .cs, .cp, .cpf, .gu { color: var(--code-comment); }
+
+  // Text styles
+  .ge { font-style: italic; }
+  .gs { font-weight: bold; }
+}
