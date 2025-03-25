@@ -1,5 +1,5 @@
 <!-- |===========| START: TOP CATEGORIES |===========| -->
-<nav class="navbar">
+<nav class="navbar navbar--widget">
 
   <div class="navbar__label">
     <i class="bi bi-grid"></i>
@@ -9,7 +9,7 @@
   {{ $categories := .Site.Taxonomies.categories }}
   {{ $topCategories := $categories.ByCount | first 5 }}
 
-  <ul class="nav">
+  <ul class="nav nav--widget">
     {{ range $topCategories }}
       <li class="nav__item">
         <a href="{{ .Page.Permalink }}" class="nav__link">

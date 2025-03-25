@@ -1,12 +1,12 @@
 <!-- |===========| START: RELATED POSTS |===========| -->
-<div class="navbar">
+<div class="navbar navbar--widget">
 
   <div class="navbar__label">
     <i class="bi bi-folder-symlink"></i>
     <span>Related Content</span>
   </div>
 
-  <ul class="nav">
+  <ul class="nav nav--widget">
     {{ $related := .Site.RegularPages.Related . | first 5 }}
     {{ if $related }}
       {{ range $related }}

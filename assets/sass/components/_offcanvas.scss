@@ -5,10 +5,13 @@
 .offcanvas {
   background-color: var(--bg-first);
   padding: 1rem;
-  width: 250px;
+  width: 280px;
   height: 100dvh;
   position: sticky;
   top: 0;
+  overflow-y: auto;
+  overflow-x: hidden;
+  z-index: 500;
 
   &__header {
     @include m.flex-between;
@@ -35,6 +38,7 @@
     visibility: visible;
     width: 320px;
     max-width: 100%;
+    z-index: 600;
   }
 
   &--left {

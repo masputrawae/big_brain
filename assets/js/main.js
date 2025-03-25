@@ -29,7 +29,7 @@ const manageTheme = () => {
     $$('[data-theme-toggle]').forEach(btn => btn.addEventListener('click', switchTheme));
 };
 
-// Collapse functionality
+// Collapse functionality =============
 const manageCollapse = () => {
     const toggleIcon = (icon, isCollapsed) => {
         icon?.classList.replace(
@@ -39,7 +39,7 @@ const manageCollapse = () => {
     };
 
     const toggleFolderCollapse = (folder, isCollapsed) => {
-        const sublist = folder.querySelector(".tree__list");
+        const sublist = folder.querySelector(".nav--tree");
         if (sublist) {
             sublist.classList.toggle("collapsed", isCollapsed);
             sessionStorage.setItem(`collapsed_${folder.id}`, isCollapsed);
@@ -49,23 +49,23 @@ const manageCollapse = () => {
 
     $$(".btn--collapse").forEach(button => {
         button.addEventListener("click", function () {
-            const parentItem = this.closest(".tree__item--folder");
+            const parentItem = this.closest(".nav__item--folder");
             if (parentItem) {
-                const isCollapsed = parentItem.querySelector(".tree__list").classList.toggle("collapsed");
+                const isCollapsed = parentItem.querySelector(".nav--tree").classList.toggle("collapsed");
                 sessionStorage.setItem(`collapsed_${parentItem.id}`, isCollapsed);
                 toggleIcon(this.querySelector("i"), isCollapsed);
             }
         });
     });
 
-    $$(".tree__item--folder").forEach(folder => {
+    $$(".nav__item--folder").forEach(folder => {
         const isCollapsed = sessionStorage.getItem(`collapsed_${folder.id}`) === "true";
         toggleFolderCollapse(folder, isCollapsed);
     });
 
     $("#toggleCollapseAll")?.addEventListener("click", () => {
-        const allCollapsed = !$$(".tree__item--folder .tree__list.collapsed").length;
-        $$(".tree__item--folder").forEach(folder => toggleFolderCollapse(folder, allCollapsed));
+        const allCollapsed = !$$(".nav__item--folder .nav--tree.collapsed").length;
+        $$(".nav__item--folder").forEach(folder => toggleFolderCollapse(folder, allCollapsed));
         toggleIcon($("#toggleCollapseAll i"), allCollapsed);
     });
 };
@@ -73,10 +73,10 @@ const manageCollapse = () => {
 // Active link highlighting
 const highlightActiveLink = () => {
     const currentPath = window.location.pathname.replace(/\/$/, "");
-    $$(".tree__link").forEach(link => {
+    $$(".nav--tree .nav__link").forEach(link => {
         if (link.pathname.replace(/\/$/, "") === currentPath) {
-            link.classList.add("tree__link--active");
-            link.closest(".tree__item--folder")?.classList.add("tree__item--open");
+            link.classList.add("nav__link--active");
+            link.closest(".nav__item--folder")?.classList.add("nav__item--open");
         }
     });
 };
@@ -103,7 +103,7 @@ const updateDataLang = () => {
 
 // TOC Highlighter
 const highlightTOC = () => {
-    const tocLinks = $$('.widget__list--toc .widget__link');
+    const tocLinks = $$('.nav--toc .nav__link');
     const headings = $$('.markdown h1, .markdown h2, .markdown h3, .markdown h4, .markdown h5, .markdown h6');
     const offset = 0;
     let activeHeadingId = null;
@@ -134,7 +134,7 @@ const highlightTOC = () => {
         activeHeadingId = activeHeading.id;
         tocLinks.forEach(link => {
             const linkHref = link.getAttribute('href').substring(1);
-            link.classList.toggle('widget__link--active', linkHref === activeHeadingId);
+            link.classList.toggle('nav__link--active', linkHref === activeHeadingId);
         });
     };
 

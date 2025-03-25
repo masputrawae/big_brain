@@ -14,21 +14,6 @@
 
   @include m.transition(scale, background-color, border-color, box-shadow);
 
-  &--icon {
-    font-size: v.$font__size--3xl;
-    width: 40px;
-    height: 40px;
-  }
-
-  &--collapse {
-    width: 100%;
-    justify-content: start;
-    border-radius: 0rem;
-    border-left: none;
-    border-right: none;
-    border-color: var(--border-first);
-  }
-
   &:hover {
     scale: 1.01;
     background-color: var(--bg-second);
@@ -47,5 +32,34 @@
   &:active {
     scale: 0.95;
     border-color: var(--accent-second);
+  }
+
+  &--icon {
+    font-size: v.$font__size--3xl;
+    width: 40px;
+    height: 40px;
+  }
+
+  &--collapse {
+    width: 100%;
+    justify-content: start;
+    border-radius: 0rem;
+    border-left: none;
+    border-right: none;
+    border-color: var(--border-first);
+  }
+
+  &--footer {
+    border-radius: 50%;
+    border-color: var(--border-first);
+    text-decoration: none;
+    width: 50px;
+    height: 50px;
+
+    &:hover {
+      scale: 1.1;
+      background-color: var(--bg-second);
+      color: var(--accent-first);
+    }
   }
 }

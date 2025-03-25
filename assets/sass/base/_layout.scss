@@ -18,7 +18,7 @@
   
   overflow-x: hidden;
   display: grid;
-  grid-template-columns: 250px 3fr 250px;
+  grid-template-columns: 280px 3fr 280px;
   grid-template-rows: 1fr;
   gap: 1rem;
 
@@ -38,16 +38,17 @@
     padding: 1rem;
     margin: 0 auto;
     overflow-x: hidden;
+    position: relative;
+
+    @include m.max(lg){
+      margin-top: 4rem;
+    }
     
     @include m.min(sm) { max-width: 540px }
     @include m.min(md) { max-width: 720px }
     @include m.min(lg) { max-width: 960px }
     @include m.min(xl) { max-width: 1140px;}
     @include m.min(xxl) { max-width: 1320px }
-
-    @include m.max(xl){
-      margin-top: 2rem;
-    }
   }
 
   .offcanvas--right {
@@ -57,7 +58,6 @@
   // Responsive layout adjustments
   @include m.max(xl) {
     grid-template-columns: 250px 3fr;
-
     .offcanvas--left {
       grid-column: 1;
     }

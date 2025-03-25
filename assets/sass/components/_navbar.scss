@@ -1,0 +1,157 @@
+@use '../abstracts/mixins' as m;
+@use '../abstracts/variables' as v;
+
+.navbar {
+  padding: 0.1rem;
+  margin: 1rem 0rem;
+
+  &--widget {
+    background-color: var(--bg-second);
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow-sm);
+    padding: 0.5rem 1rem;
+
+    &:hover {
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  &__label {
+    font-size: v.$font__size--lg;
+    font-weight: v.$font__weight--semi-bold;
+    text-align: start;
+  }
+}
+
+// UL LI A : .nav
+.nav {
+  list-style: none;
+  padding: 0;
+  &__item {
+    margin-block: 0.25rem;
+  }
+  &__link {
+    color: var(--text-first);
+    text-decoration: none;
+    padding: 0.25rem 1rem;
+
+    font-size: v.$font__size--lg;
+    font-weight: v.$font__weight--medium;
+
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    gap: 8px;
+
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    box-shadow: var(--shadow-sm);
+    text-shadow: var(--shadow-sm);
+
+    @include m.text-ellipsis;
+    @include m.transition(se);
+
+    &:is(&--active, &--ancestor) {
+      background-color: var(--bg-second);
+      border-color: var(--accent-first);
+      color: var(--accent-first);
+      box-shadow: var(--shadow-md);
+    }
+
+    &:is(:hover, :active, :focus-visible){
+      background-color: var(--bg-third);
+      border-color: var(--accent-second);
+      color: var(--accent-second);
+      box-shadow: var(--shadow-lg);
+      outline: none;
+    }
+  }
+
+  // START MODIFIER NAV
+  // MODIFIER TREE, TOC, AND WEDGET FONT SIZE LINK
+  &--tree,
+  &--toc,
+  &--widget {
+    .nav__link {
+      font-size: v.$font__size--sm;
+    }
+  }
+
+  // MODIFIER TREE, TOC LIST MARGIN LEFT
+  &--tree &--tree,
+  &--toc &--toc {
+    margin-left: 1rem;
+  }
+  
+  // MODIFIER WIDGET
+  &--widget {
+    .nav__link {
+      &::before {
+        color: var(--accent-first);
+        content: "\2726 ";
+      }
+    }
+  }
+
+  // MODIFIER MENU
+  &--menu {
+    padding: 0 1rem;
+    
+    .nav__item {margin-block: 0.75rem;}
+  }
+
+  &--tree {
+    .nav__item {
+      border-left: 1px dashed var(--border-first);
+    }
+
+    &.collapsed {
+      display: none;
+    }
+  }
+
+  // MODIFIER TOC
+  &--toc {
+    .nav__item {
+      border-left: 1px dashed var(--border-first);
+    }
+  }
+
+  // MODIFIER BREADCRUMBS
+  &--breadcrumb {
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    gap: 0.5rem;
+
+    .nav__item {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: start;
+      
+      &:not(:last-child)::after {
+        content: '›';
+        margin-left: 0.5rem;
+        color: var(--text-second);
+        font-size: v.$font__size--3xl;
+        font-weight: bold;
+      }
+    }
+
+    .nav__link {
+      font-size: v.$font__size--xs;
+      border: none;
+    }
+  }
+
+  // MODIFIER FOOTER
+  &--footer {
+    @include m.flex-center;
+    gap: 0.75rem;
+  }
+}

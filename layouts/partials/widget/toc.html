@@ -1,5 +1,5 @@
 <!-- |===========| START: TABLE OF CONTENT |===========| -->
-<nav class="navbar">
+<nav class="navbar navbar--widget">
 
   <div class="navbar__label">
     <i class="bi bi-list-task"></i>
@@ -9,7 +9,7 @@
   {{ $toc := .TableOfContents }}
   {{ $toc := replaceRE `<ul>` `<ul class="nav nav--toc">` $toc }}
   {{ $toc := replaceRE `<li>` `<li class="nav__item">` $toc }}
-  {{ $toc := replaceRE `<a href=` `<a class="nav__link" href=` $toc }}
+  {{ $toc := replaceRE `<a href=` `<a class="nav__link nav__link--toc" href=` $toc }}
   {{ $toc | safeHTML }}
   
 </nav>

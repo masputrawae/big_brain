@@ -1,5 +1,5 @@
 <!-- |===========| START: RECENT CHANGE |===========| -->
-<nav class="navbar">
+<nav class="navbar navbar--widget">
 
   <div class="navbar__label">
     <i class="bi bi-clock-history"></i>
@@ -8,7 +8,7 @@
 
   {{ $recent := .Site.RegularPages | first 5 }}
   {{ if $recent }}
-    <ul class="nav">
+    <ul class="nav nav--widget">
       {{ range $recent }}
         <li class="nav__item">
           <a href="{{ .RelPermalink }}" class="nav__link">
