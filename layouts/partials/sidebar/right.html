@@ -1,12 +1,34 @@
 <header class="offcanvas__header">
 
-  <form class="search" id="search" onsubmit="handleSearch(event)" method="get" id="search" data-search-url="{{ "search.json" | relURL }}">
-    <i class="bi bi-search"></i>
-    <input class="search__input" type="search" id="search-input" name="query" placeholder="Search..." autocomplete="off" autocorrect="off" spellcheck="false" style="background: transparent;">
+  <form 
+    class="search" 
+    id="search" 
+    onsubmit="handleSearch(event)" 
+    method="get" 
+    id="search" 
+    data-search-url="{{ "search.json" | relURL }}"
+    >
+      <i class="bi bi-search"></i>
+      <input 
+        class="search__input" 
+        type="search" 
+        id="search-input" 
+        name="query" 
+        placeholder="Search for something here" 
+        autocomplete="off" 
+        autocorrect="off" 
+        spellcheck="false" 
+        style="background: transparent;"
+        >
   </form>
 
-  <button class="btn btn--icon" data-toggle-offcanvas="rightOffcanvas">
-    <i class="bi bi-x"></i>
+  <button 
+    class="btn btn--icon" 
+    data-toggle-offcanvas="rightOffcanvas"
+    title="Close Right Sidebar"
+    aria-label="Button to close right sidebar"
+    >
+      <i class="bi bi-x"></i>
   </button>
 </header>
 

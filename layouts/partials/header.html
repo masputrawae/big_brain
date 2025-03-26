@@ -2,15 +2,25 @@
 
   {{ partial "breadcrumb.html" . }}
 
-  <button class="btn btn--icon" data-toggle-offcanvas="leftOffcanvas">
-    <i class="bi bi-list"></i>
+  <button 
+    class="btn btn--icon" 
+    data-toggle-offcanvas="leftOffcanvas"
+    title="Open Left Sidebar"
+    aria-label="Button to open left sidebar"
+    >
+      <i class="bi bi-list"></i>
   </button>
 
   <a class="header__title" href="{{ site.BaseURL | absURL }}">
     <h1>{{ site.Title }}</h1>
   </a>
   
-  <button class="btn btn--icon" data-toggle-offcanvas="rightOffcanvas">
-    <i class="bi bi-book"></i>
+  <button 
+    class="btn btn--icon" 
+    data-toggle-offcanvas="rightOffcanvas"
+    title="Open Right Sidebar"
+    aria-label="Button to open right sidebar"
+    >
+      <i class="bi bi-book"></i>
   </button>
 </header>

@@ -26,3 +26,7 @@ hugo_stats.json
 .Trashes
 ehthumbs.db
 Thumbs.db
+
+# Obsidian Notes
+.obsidian
+.trash

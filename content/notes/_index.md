@@ -1,15 +1,13 @@
 ---
 title: Notes
 image: https://placehold.co/720x1080
-description: Description Notes
-date: 2025-03-23T14:57:00-07:00
+description: 'Write a description here'
+date: 2025-03-26T13:34:00+07:00
 tags:
-  - notes
   - pages
 categories:
-  - Notes
   - Pages
-noteStatus:
+types:
   - 💡Quick Ideas
   - 📚 Learning
   - 🗒️ Summary
@@ -19,4 +17,3 @@ noteStatus:
   - 🚨 Urgent 
   - ⏱️ Temporary
 ---
-## ✍️ Notes

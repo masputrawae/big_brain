@@ -38,20 +38,20 @@ capitalizeListTitles = false
 #====================================#
 #============= GISCUS ===============#
   [params.giscus]
-    active = true
-    data_repo="masputrawae/official"
-    data_repo_id="R_kgDONFahNA"
-    data_category="Announcements"
-    data_category_id="DIC_kwDONFahNM4CnBHa"
-    data_mapping="pathname"
-    data_strict="0"
-    data_reactions_enabled="1"
-    data_emit_metadata="1"
-    data_input_position="top"
-    data_theme="preferred_color_scheme"
-    data_lang="en"
-    data_loading="lazy"
-    crossorigin="anonymous"
+    active                   = true
+    data_repo                ="masputrawae/official"
+    data_repo_id             ="R_kgDONFahNA"
+    data_category            ="Announcements"
+    data_category_id         ="DIC_kwDONFahNM4CnBHa"
+    data_mapping             ="pathname"
+    data_strict              ="0"
+    data_reactions_enabled   ="1"
+    data_emit_metadata       ="1"
+    data_input_position      ="top"
+    data_theme               ="preferred_color_scheme"
+    data_lang                ="en"
+    data_loading             ="lazy"
+    crossorigin              ="anonymous"
 
 #====================================#
 #=========== SOCIAL LINK ============#
