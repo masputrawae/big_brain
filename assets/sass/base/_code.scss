@@ -40,7 +40,7 @@ code, pre {
 }
 
 .chroma {
-  font-family: monospace;
+  font-family: v.$font__family--mono;
   font-size: v.$font__size--xs;
   border: 1px solid var(--border-first);
   overflow-x: auto;
