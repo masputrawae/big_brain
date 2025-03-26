@@ -8,7 +8,7 @@
   {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
   {{ if $pinned }}
     <ul class="nav nav--widget">
-      {{ range $recent }}
+      {{ range $pinned }}
         <li class="nav__item">
           <a href="{{ .RelPermalink }}" class="nav__link">
             <span>{{ .Title }}</span>
