@@ -241,11 +241,12 @@
   font-weight: 700;
   src: url('../fonts/noto-emoji-v53-emoji/noto-emoji-v53-emoji-700.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
+
 /* noto-color-emoji-regular - emoji */
 @font-face {
   font-display: swap; /* Check https://developer.mozilla.org/en-US/docs/Web/CSS/@font-face/font-display for other options. */
   font-family: 'Noto Color Emoji';
   font-style: normal;
   font-weight: 400;
-  src: url('../fonts/noto-color-emoji-v34-emoji/noto-color-emoji-v34-emoji-regular.woff2') format('woff2'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
+  src: url('../fonts/noto-emoji-v53-emoji/NotoColorEmoji-Regular.ttf') format('ttf'); /* Chrome 36+, Opera 23+, Firefox 39+, Safari 12+, iOS 10+ */
 }
