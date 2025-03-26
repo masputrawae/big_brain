@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-family: 'Noto Serif';
+  src: url('../fonts/NotoSerif-VariableFont_wdth,wght.woff2') format('woff2');
+  font-weight: 100 900;
+  font-stretch: 75% 125%;
+}
+
+@font-face {
   font-family: 'Noto Sans Mono';
   src: url('../fonts/NotoSansMono-VariableFont_wdth,wght.woff2') format('woff2');
   font-weight: 100 900;
@@ -15,4 +22,5 @@
 @font-face {
   font-family: 'Noto Color Emoji';
   src: url('../fonts/NotoColorEmoji-Regular.woff2') format('woff2');
+  font-display: swap;
 }
