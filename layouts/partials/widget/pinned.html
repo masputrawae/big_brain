@@ -1,12 +1,12 @@
 <!-- |===========| START: RECENT CHANGE |===========| -->
+{{ $pinned := where .Site.RegularPages "Params.pinned" true }}
+{{ if $pinned }}
 <nav class="navbar navbar--widget">
 
   <div class="navbar__label">
     <span>Pinned</span>
   </div>
 
-  {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
-  {{ if $pinned }}
     <ul class="nav nav--widget">
       {{ range $pinned }}
         <li class="nav__item">
@@ -16,6 +16,6 @@
         </li>
       {{ end }}
     </ul>
-  {{ end }}
-</nav>
+  </nav>
+{{ end }}
 <!-- |===========| END: RECENT CHANGE |===========| -->

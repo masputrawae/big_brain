@@ -33,30 +33,6 @@ code, pre {
   font-family: v.$font__family--mono;
 }
 
-// Syntax highlighting container
-.highlight {
-  position: relative;
-  display: block;
-  width: 100%;
-
-  &[data-lang]::before {
-    content: attr(data-lang);
-    display: block;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    padding: 0.25rem;
-    text-align: center;
-    font-size: v.$font__size--md;
-    font-weight: normal;
-    z-index: 1;
-    border: 1px solid var(--border-first);
-    background-color: var(--bg-third);
-    color: var(--code-function);
-  }
-}
-
 // Background and chroma styles
 .bg, .chroma {
   color: var(--code-text);
@@ -66,9 +42,24 @@ code, pre {
 .chroma {
   font-family: monospace;
   font-size: v.$font__size--xs;
-  padding: 2rem 0rem;
   border: 1px solid var(--border-first);
   overflow-x: auto;
+  padding: 2rem;
+  
+  code {
+    position: relative;
+
+    &::before {
+      content: attr(data-lang);
+      z-index: 1;
+      position: absolute;
+      top: -1.5rem;
+      left: 50%;
+      transform: translateX(-50%);
+      text-transform: capitalize;
+      color: var(--accent-first);
+    }
+  }
 
   // General styles
   .x, .cl { color: var(--text-first); }
@@ -89,6 +80,9 @@ code, pre {
     margin-right: 0.4em;
     padding: 0 0.4em;
     color: var(--code-line-number);
+    border: 1px solid var(--border-first);
+    border-top: none;
+    border-bottom: none;
   }
 
   // Code line

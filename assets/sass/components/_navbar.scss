@@ -97,6 +97,10 @@
   &--tree &--tree,
   &--toc &--toc {
     margin-left: 1rem;
+
+    .nav__item {
+      border-left: 1px dashed var(--border-first);
+    }
   }
   
   // MODIFIER WIDGET
@@ -117,10 +121,6 @@
   }
 
   &--tree {
-    .nav__item {
-      border-left: 1px dashed var(--border-first);
-    }
-
     .nav__link {
       position: relative;
       border-left: none;
@@ -132,13 +132,6 @@
 
     &.collapsed {
       display: none;
-    }
-  }
-
-  // MODIFIER TOC
-  &--toc {
-    .nav__item {
-      border-left: 1px dashed var(--border-first);
     }
   }
 

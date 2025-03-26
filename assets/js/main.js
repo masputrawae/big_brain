@@ -7,11 +7,23 @@ const toggleOffcanvas = offcanvasId => {
     $(`#${offcanvasId}`)?.classList.toggle('offcanvas--is-open');
 };
 
+// 🔄 Kirim pesan ke Giscus untuk mengubah tema
+const sendMessageToGiscus = (theme) => {
+    const iframe = document.querySelector("iframe.giscus-frame");
+    if (iframe) {
+        iframe.contentWindow.postMessage(
+            { giscus: { setConfig: { theme } } },
+            "https://giscus.app"
+        );
+    }
+};
+
 // Theme management
 const manageTheme = () => {
     const setTheme = (theme) => {
         document.documentElement.setAttribute('data-theme', theme);
-        sessionStorage.setItem('theme', theme);
+        localStorage.setItem('theme', theme);
+        sendMessageToGiscus(theme); // 🔄 Kirim pesan ke Giscus
         $$('[data-theme-toggle]').forEach(button => {
             const icon = button.querySelector('i');
             icon.classList.toggle('bi-sun', theme === 'light');
@@ -24,8 +36,16 @@ const manageTheme = () => {
         setTheme(currentTheme === 'dark' ? 'light' : 'dark');
     };
 
-    const savedTheme = sessionStorage.getItem('theme') || 'light';
+    // Check user's system preference for theme
+    const getSystemTheme = () => {
+        return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+    };
+
+    // Get saved theme or fallback to system preference
+    const savedTheme = localStorage.getItem('theme') || getSystemTheme();
     setTheme(savedTheme);
+
+    // Add event listeners for theme toggle buttons
     $$('[data-theme-toggle]').forEach(btn => btn.addEventListener('click', switchTheme));
 };
 
@@ -89,16 +109,6 @@ const init = () => {
     manageTheme();
     manageCollapse();
     highlightActiveLink();
-};
-
-// Copy data-lang attribute
-const updateDataLang = () => {
-    $$(".highlight pre code[data-lang]").forEach(code => {
-        const highlightDiv = code.closest(".highlight");
-        if (highlightDiv && !highlightDiv.hasAttribute("data-lang")) {
-            highlightDiv.setAttribute("data-lang", code.getAttribute("data-lang"));
-        }
-    });
 };
 
 // TOC Highlighter
@@ -239,7 +249,6 @@ const initSearch = async () => {
 // Initialize everything
 document.addEventListener("DOMContentLoaded", () => {
     init();
-    updateDataLang();
     new MutationObserver(updateDataLang).observe(document.body, { childList: true, subtree: true });
     initSearch();
 });

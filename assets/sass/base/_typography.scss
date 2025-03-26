@@ -2,10 +2,6 @@
 @use '../abstracts/variables' as v;
 @use '../abstracts/mixins' as m;
 
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400&display=swap');
-
 body {
   font-size: v.$font__size--default;
   font-family: v.$font__family;
@@ -55,23 +51,120 @@ p {
 }
 
 .markdown {
+  // |===========| Lists |===========| //
   ul, ol {
     padding-left: 2rem;
-  }
+    margin-bottom: 1.5rem;
 
-  li {
-    margin-block: 0.5rem;
+    li {
+      margin-block: 0.75rem;
+      padding-left: 0.75rem;
+      
+      &::marker {
+        color: var(--accent-first);
+      }
+    }
   }
 
   hr {
     border-color: var(--border-first);
     margin-block: 3rem;
+    opacity: 0.5;
+    height: 1px;
   }
 
+  // |===========| Links |===========| //
   a {
+    text-underline-offset: 0.25em;
     color: var(--accent-first);
-    font-weight: v.$font__weight--medium;
+    @include m.transition(color);
 
-    &:hover {color: var(--accent-second);}
+    &:hover {
+      color: var(--accent-second);
+      text-decoration-thickness: 2px;
+    }
+
+    &:active {
+      color: var(--accent-third);
+    }
+  }
+
+  // |===========| Tables |===========| //
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-block: 2rem;
+    border: 1px solid var(--border-first);
+    background-color: var(--bg-first);
+    overflow-x: auto;
+
+    th, td {
+      padding: 1rem;
+      text-align: left;
+      border: 1px solid var(--border-first);
+    }
+
+    th {
+      background-color: var(--bg-second);
+      font-weight: v.$font__weight--semi-bold;
+    }
+
+    tr {
+      transition: background-color 0.2s ease;
+
+      &:nth-child(even) {
+        background-color: var(--bg-second);
+      }
+
+      &:hover {
+        background-color: var(--bg-third);
+        color: var(--text-first);
+      }
+    }
+  }
+
+  // |===========| Definition Lists |===========| //
+  dl {
+    margin-block: 1.5rem;
+
+    dt {
+      font-weight: v.$font__weight--semi-bold;
+      margin-top: 1rem;
+      color: var(--text-first);
+    }
+
+    dd {
+      margin-left: 2rem;
+      margin-bottom: 1rem;
+      color: var(--text-second);
+    }
+  }
+
+  // |===========| Blockquotes |===========| //
+  blockquote {
+    margin: 2rem 0;
+    padding: 1.5rem 2rem;
+    border-left: 4px solid var(--accent-first);
+    background-color: var(--bg-second);
+    color: var(--text-first);
+    font-style: italic;
+    border-radius: 0 4px 4px 0;
+
+    p {
+      margin: 0;
+      font-size: 1.1em;
+    }
+
+    cite {
+      display: block;
+      margin-top: 1rem;
+      font-style: normal;
+      font-size: v.$font__size--sm;
+      color: var(--text-second);
+
+      &::before {
+        content: "— ";
+      }
+    }
   }
 }
