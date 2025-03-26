@@ -9,7 +9,7 @@ tags:
   - example
 categories:
   - Projects
-projectStatus:
+status:
   - 💼 In progress
   - 🔂 In active
   - 🏁 Finished

@@ -9,7 +9,7 @@ tags:
   - "quick-notes"
 categories:
   - "Notes"
-types:
+grouping:
   - "💡 Quick Ideas"
   - "📚 Learning"
   - "🗒️ Summary"

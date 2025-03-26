@@ -7,10 +7,10 @@ enableEmoji  = true
 capitalizeListTitles = false
 
 [taxonomies]
-  categories = "categories"
-  tags = "tags"
-  project = "projectStatus"
-  note = "noteStatus"
+  category  = "categories"
+  tag       = "tags"
+  status    = "status"
+  group     = "grouping"
 
 #====================================#
 #========== PARAMS SETTING ==========#

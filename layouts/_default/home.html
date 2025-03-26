@@ -7,6 +7,8 @@
   </div>
 
   <div class="main__layout main__layout--grid">
+    {{ partial "widget/pinned.html" . }}
+    {{ partial "widget/recent-change.html" . }}
     {{ partial "content/taxonomy-list.html" . }}
   </div>
 </main>

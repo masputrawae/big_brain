@@ -2,11 +2,11 @@
 <nav class="navbar navbar--widget">
 
   <div class="navbar__label">
-    <span>Recent Changes</span>
+    <span>Pinned</span>
   </div>
 
-  {{ $recent := .Site.RegularPages | first 5 }}
-  {{ if $recent }}
+  {{ $pinned := where .Site.RegularPages "Params.pinned" true }}
+  {{ if $pinned }}
     <ul class="nav nav--widget">
       {{ range $recent }}
         <li class="nav__item">
