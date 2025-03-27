@@ -2,16 +2,12 @@
 {{ $recent := .Site.RegularPages | first 5 }}
 {{ if $recent }}
 <nav class="navbar navbar--widget">
-
-<div class="navbar__label">
-  <span>News</span>
-</div>
-
+  <div class="navbar__label">News</div>
   <ul class="nav nav--widget">
     {{ range $recent }}
       <li class="nav__item">
         <a href="{{ .RelPermalink }}" class="nav__link">
-          <span>{{ .Title }}</span>
+          {{ .Title }}
         </a>
       </li>
     {{ end }}

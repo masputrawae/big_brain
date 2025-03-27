@@ -3,15 +3,13 @@
 {{ if $pinned }}
 <nav class="navbar navbar--widget">
 
-  <div class="navbar__label">
-    <span>Pinned</span>
-  </div>
+  <div class="navbar__label">Pinned</div>
 
     <ul class="nav nav--widget">
       {{ range $pinned }}
         <li class="nav__item">
           <a href="{{ .RelPermalink }}" class="nav__link">
-            <span>{{ .Title }}</span>
+            {{ .Title }}
           </a>
         </li>
       {{ end }}

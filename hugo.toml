@@ -19,7 +19,7 @@ capitalizeListTitles = false
     name          = "John Doe"
     subtitle      = "Pariatur duis esse sunt pariatur adipisicing."
     tagline       = "Designer"
-    logo          = "https://randomuser.me/api/portraits/men/75.jpg"
+    logo          = "logo/logo.png"
     email         = "john.doe@example.com"
     phone         = "+1-234-567-8901"
 #====================================#

@@ -97,12 +97,14 @@
   border-radius: 0.25rem;
   padding: 0.25rem 1rem;
   color: var(--accent-third);
+  background-color: var(--bg-first);
 
   &__input {
     width: 100%;
     outline: none;
     border: none;
-    color: var(--accent-third);
+    color: var(--accent-second);
+    background-color: var(--bg-first);
 
     &::placeholder {
       color: var(--text-third);

@@ -1,8 +1,8 @@
 {{ $excluded := slice "tags" "categories" }}
 {{ range $taxonomy, $terms := site.Taxonomies }}
   {{ if not (in $excluded $taxonomy) }}
-    <div class="navbar navbar--widget">
-      <h2 class="navbar__label">{{ $taxonomy | humanize | title }}</h2>
+    <nav class="navbar navbar--widget">
+      <div class="navbar__label">{{ $taxonomy | humanize | title }}</div>
       <ul class="nav nav--widget">
         {{ range $terms }}
           {{ with .Page }}
@@ -12,6 +12,6 @@
           {{ end }}
         {{ end }}
       </ul>
-    </div>
+    </nav>
   {{ end }}
 {{ end }}

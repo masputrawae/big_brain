@@ -13,7 +13,7 @@
     {{ range $topCategories }}
       <li class="nav__item">
         <a href="{{ .Page.Permalink }}" class="nav__link">
-          <span>{{ .Term | title }}</span>
+          {{ .Term | title }}
         </a>
       </li>
     {{ end }}
